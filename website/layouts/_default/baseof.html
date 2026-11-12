@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.siteDesc }}{{ end }}"/>
+  <link rel="canonical" href="{{ .Permalink }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#006948", "primary-hover": "#00553a", "primary-container": "#00855d",
+            "primary-fixed": "#85f8c4", "on-primary-fixed": "#002114", "on-primary": "#ffffff",
+            "on-primary-container": "#f5fff7", "secondary": "#006a63",
+            "secondary-container": "#99efe5", "on-secondary-container": "#006f67",
+            "surface": "#faf8ff", "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3ff", "surface-container": "#eaedff",
+            "surface-container-high": "#e2e7ff", "on-surface": "#131b2e",
+            "on-surface-variant": "#3d4a42", "outline": "#6d7a72", "outline-variant": "#bccac0"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; font-family: 'Material Symbols Outlined'; font-size: 24px; line-height: 1; display: inline-block; }
+    .material-symbols-fill { font-variation-settings: 'FILL' 1; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+  <header class="sticky top-0 w-full z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container-high">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="{{ "/" | relURL }}" class="font-headline font-extrabold text-primary text-lg">{{ site.Title }}</a>
+    </div>
+  </header>
+
+  {{ block "main" . }}{{ end }}
+
+  <footer class="mt-8 pt-10 pb-10 px-6 bg-surface-container-lowest border-t border-surface-container-high">
+    <div class="max-w-7xl mx-auto text-center text-[13px] text-on-surface-variant font-body">
+      <p>{{ site.Title }}. {{ site.Params.siteDesc }}.</p>
+      <p class="mt-2 text-outline">Lowongan dikumpulkan otomatis dari portal publik. Pastikan informasi kepada sumber resmi sebelum melamar.</p>
+    </div>
+  </footer>
+</body>
+</html>

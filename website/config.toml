@@ -1,0 +1,13 @@
+baseURL = "https://loker-8au.pages.dev/"
+languageCode = "id-ID"
+title = "Loker Jabodetabek"
+
+[markup.goldmark.renderer]
+  # Body lowongan berupa HTML yang sudah dibersihkan bot (script, on*, javascript: dihapus).
+  unsafe = true
+
+[params]
+  siteDesc = "Info lowongan kerja wilayah Jabodetabek"
+
+[permalinks]
+  posts = "/posts/:slug/"

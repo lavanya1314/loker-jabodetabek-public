@@ -1,0 +1,55 @@
+{{ define "main" }}
+<main class="flex-1 w-full max-w-4xl mx-auto px-6 py-8 flex flex-col gap-6">
+
+  <nav class="bg-surface-container-lowest rounded-2xl p-4 shadow-xs border border-outline-variant/30 flex flex-wrap items-center gap-2 text-[13px] text-outline font-body">
+    <a href="{{ "/" | relURL }}" class="hover:text-primary transition-colors">Beranda</a>
+    {{ with .Params.lokasi }}<span>/</span><span class="text-on-surface-variant font-semibold">{{ . }}</span>{{ end }}
+    {{ with .Params.perusahaan }}<span>/</span><span class="text-primary font-semibold">{{ . }}</span>{{ end }}
+    <span class="ml-auto inline-flex items-center gap-1.5 text-on-surface-variant bg-surface-container px-3 py-1 rounded-full font-medium">
+      <span class="material-symbols-outlined text-[15px] text-primary">schedule</span>
+      {{ .Date.Format "2 Januari 2006" }}
+    </span>
+  </nav>
+
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="flex items-start gap-5">
+        <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0 border border-outline-variant/20">
+          {{ with .Params.logo_url }}
+          <img class="w-full h-full object-cover" alt="Logo {{ $.Params.perusahaan }}" src="{{ . | relURL }}" width="80" height="80"/>
+          {{ else }}
+          <img class="w-full h-full object-cover" alt="" src="{{ "images/logo-placeholder.svg" | relURL }}" width="80" height="80"/>
+          {{ end }}
+        </div>
+        <div class="flex flex-col min-w-0">
+          {{ with .Params.perusahaan }}<h2 class="text-[22px] font-headline font-extrabold text-on-surface tracking-tight">{{ . }}</h2>{{ end }}
+          <h1 class="text-[16px] font-headline text-primary font-bold mt-1">{{ .Title }}</h1>
+          {{ with .Params.lokasi }}
+          <p class="flex items-center gap-1.5 text-on-surface-variant text-[13px] mt-2">
+            <span class="material-symbols-outlined text-[16px] text-outline">location_on</span>{{ . }}
+          </p>
+          {{ end }}
+        </div>
+      </div>
+      <div class="flex flex-col items-start md:items-end justify-center">
+        <span class="text-[11px] font-headline font-bold text-outline uppercase tracking-wider">Gaji</span>
+        <span class="text-[20px] font-headline font-extrabold text-primary">{{ with .Params.gaji }}{{ . }}{{ else }}Gaji Dirahasiakan{{ end }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35 prose prose-sm max-w-none">
+    {{ .Content }}
+  </section>
+
+  {{ with .Params.lamar_url }}
+  <section class="pt-4 pb-8 flex flex-col items-center gap-2">
+    <a href="{{ . }}" target="_blank" rel="noopener noreferrer nofollow" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary hover:bg-primary-hover text-on-primary font-headline font-bold text-[16px] shadow-sm">
+      Lamar Sekarang
+      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+    <p class="text-[12px] text-outline font-body">Anda akan dibawa ke halaman lamaran di sumber lowongan.</p>
+  </section>
+  {{ end }}
+</main>
+{{ end }}

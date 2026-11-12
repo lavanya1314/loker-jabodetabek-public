@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+<main class="flex-1 w-full max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
+  <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <h1 class="text-[22px] font-headline font-extrabold text-on-surface">Lowongan Terbaru</h1>
+    <span class="text-[13px] text-outline font-body">{{ len $posts }} lowongan aktif</span>
+  </section>
+
+  {{ if $posts }}
+  <section id="jobCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    {{ range $posts.ByDate.Reverse }}
+    {{ $perusahaan := .Params.perusahaan }}
+    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-xs hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all group">
+      <div class="flex items-start gap-3.5">
+        <div class="w-12 h-12 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden flex items-center justify-center">
+          {{ with .Params.logo_url }}
+          <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="w-full h-full object-cover" loading="lazy" width="48" height="48"/>
+          {{ else }}
+          <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="w-full h-full object-cover" width="48" height="48"/>
+          {{ end }}
+        </div>
+        <div class="flex flex-col min-w-0">
+          <span class="text-[13px] font-headline font-semibold text-on-surface-variant">{{ with .Params.perusahaan }}{{ . }}{{ else }}Perusahaan tidak disebutkan{{ end }}</span>
+          <h2 class="text-[16px] font-headline font-bold text-on-surface leading-snug mt-0.5 group-hover:text-primary transition-colors">{{ .Title }}</h2>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-4">
+        {{ with .Params.lokasi }}
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant text-[12px] font-medium">
+          <span class="material-symbols-outlined text-[15px] text-outline">location_on</span>{{ . }}
+        </span>
+        {{ end }}
+      </div>
+      <div class="flex items-center justify-between mt-5 pt-3.5 border-t border-surface-container">
+        <div class="flex flex-col">
+          <span class="text-[10px] text-outline font-headline uppercase font-bold tracking-wider">Gaji</span>
+          <span class="text-[15px] font-headline text-primary font-extrabold">{{ with .Params.gaji }}{{ . }}{{ else }}Gaji Dirahasiakan{{ end }}</span>
+        </div>
+        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold">Detail</span>
+      </div>
+    </a>
+    {{ end }}
+  </section>
+  {{ else }}
+  <section class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/35 text-on-surface-variant">
+    Belum ada lowongan yang tayang. Halaman ini diperbarui setiap hari.
+  </section>
+  {{ end }}
+</main>
+{{ end }}
