@@ -1,42 +1,85 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
 <main class="flex-1 w-full max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
-  <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-    <h1 class="text-[22px] font-headline font-extrabold text-on-surface">Lowongan Terbaru</h1>
-    <span class="text-[13px] text-outline font-body">{{ len $posts }} lowongan aktif</span>
+
+  <section class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/35 flex flex-col gap-4">
+    <div class="flex flex-col md:flex-row items-center gap-3">
+      <div class="w-full flex-1 bg-surface-container-low rounded-xl px-4 py-3 border border-outline-variant/30 flex items-center gap-3 focus-within:border-primary focus-within:bg-white transition-all">
+        <span class="material-symbols-outlined text-primary text-[24px]">search</span>
+        <input type="text" id="jobSearchInput" placeholder="Cari posisi kerja, nama perusahaan, atau kata kunci lowongan..." class="w-full bg-transparent border-0 outline-none text-[15px] font-body text-on-surface placeholder:text-outline focus:ring-0 p-0"/>
+      </div>
+      <button type="button" class="w-full md:w-auto h-12 px-8 bg-primary hover:bg-primary-hover text-on-primary rounded-xl font-headline font-bold text-[14px] flex items-center justify-center gap-2 shadow-sm tap-smooth cursor-pointer flex-shrink-0">
+        <span class="material-symbols-outlined text-[18px]">search</span>
+        <span>Cari Lowongan</span>
+      </button>
+    </div>
+    <div class="flex items-center gap-2 overflow-x-auto pt-1 pb-1 scroll-x-hide">
+      <span class="text-[12px] font-headline font-bold text-outline uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
+        <span class="material-symbols-outlined text-[16px]">location_on</span> Wilayah:
+      </span>
+      <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-headline text-[13px] font-bold whitespace-nowrap shadow-xs flex items-center gap-1.5 tap-smooth flex-shrink-0">
+        <span class="material-symbols-outlined text-[16px]">tune</span>
+        Semua Jabodetabek
+      </button>
+      {{ range slice "Jakarta Pusat" "Jakarta Utara" "Jakarta Barat" "Jakarta Selatan" "Jakarta Timur" "Bogor" "Depok" "Tangerang" "Tangerang Selatan" "Bekasi" }}
+      <button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-headline text-[13px] font-semibold whitespace-nowrap tap-smooth">{{ . }}</button>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+    <div>
+      <h1 class="text-[22px] font-headline font-extrabold text-on-surface tracking-tight">Lowongan Kerja Terbaru</h1>
+      <p class="text-[13px] text-outline font-body mt-0.5">Pilihan karier resmi dan tervalidasi di wilayah metropolitan Jabodetabek</p>
+    </div>
+    <div class="flex items-center gap-2 bg-secondary-container/90 text-on-secondary-container px-3.5 py-1.5 rounded-full shadow-xs self-start sm:self-auto">
+      <span class="material-symbols-outlined text-[16px] text-primary material-symbols-fill">verified</span>
+      <span class="text-[12px] font-headline font-bold tracking-tight">100% Bebas Pungutan</span>
+    </div>
   </section>
 
   {{ if $posts }}
   <section id="jobCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
     {{ range $posts.ByDate.Reverse }}
     {{ $perusahaan := .Params.perusahaan }}
-    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-xs hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all group">
-      <div class="flex items-start gap-3.5">
-        <div class="w-12 h-12 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden flex items-center justify-center">
-          {{ with .Params.logo_url }}
-          <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="w-full h-full object-cover" loading="lazy" width="48" height="48"/>
-          {{ else }}
-          <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="w-full h-full object-cover" width="48" height="48"/>
+    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-xs hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all flex flex-col justify-between tap-smooth cursor-pointer group">
+      <div>
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-12 h-12 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden flex items-center justify-center">
+              {{ with .Params.logo_url }}
+              <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="w-full h-full object-cover" loading="lazy" width="48" height="48"/>
+              {{ else }}
+              <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="w-full h-full object-cover" width="48" height="48"/>
+              {{ end }}
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-[13px] font-headline font-semibold text-on-surface-variant truncate">{{ with $perusahaan }}{{ . }}{{ else }}Perusahaan tidak disebutkan{{ end }}</span>
+              <h2 class="text-[16px] font-headline font-bold text-on-surface leading-snug mt-0.5 group-hover:text-primary transition-colors">{{ .Title }}</h2>
+            </div>
+          </div>
+          <span class="bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-full font-headline text-[11px] font-bold flex items-center gap-1 flex-shrink-0">
+            <span class="material-symbols-outlined text-[13px] material-symbols-fill">check_circle</span>
+            Valid
+          </span>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          {{ with .Params.lokasi }}
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant text-[12px] font-medium">
+            <span class="material-symbols-outlined text-[15px] text-outline">location_on</span>{{ . }}
+          </span>
           {{ end }}
         </div>
-        <div class="flex flex-col min-w-0">
-          <span class="text-[13px] font-headline font-semibold text-on-surface-variant">{{ with .Params.perusahaan }}{{ . }}{{ else }}Perusahaan tidak disebutkan{{ end }}</span>
-          <h2 class="text-[16px] font-headline font-bold text-on-surface leading-snug mt-0.5 group-hover:text-primary transition-colors">{{ .Title }}</h2>
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-2 mt-4">
-        {{ with .Params.lokasi }}
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant text-[12px] font-medium">
-          <span class="material-symbols-outlined text-[15px] text-outline">location_on</span>{{ . }}
-        </span>
-        {{ end }}
       </div>
       <div class="flex items-center justify-between mt-5 pt-3.5 border-t border-surface-container">
         <div class="flex flex-col">
           <span class="text-[10px] text-outline font-headline uppercase font-bold tracking-wider">Gaji</span>
           <span class="text-[15px] font-headline text-primary font-extrabold">{{ with .Params.gaji }}{{ . }}{{ else }}Gaji Dirahasiakan{{ end }}</span>
         </div>
-        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold">Detail</span>
+        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold shadow-xs tap-smooth">
+          <span>Detail</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </span>
       </div>
     </a>
     {{ end }}
@@ -46,5 +89,16 @@
     Belum ada lowongan yang tayang. Halaman ini diperbarui setiap hari.
   </section>
   {{ end }}
+
+  <section class="bg-surface-container-low rounded-2xl p-5 flex items-start gap-4 border border-outline-variant/30">
+    <div class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
+      <span class="material-symbols-outlined text-[22px]">shield</span>
+    </div>
+    <div class="flex flex-col min-w-0">
+      <span class="text-[15px] font-headline font-bold text-on-surface">Pusat Bantuan &amp; Pengaduan Loker</span>
+      <p class="text-[13px] font-body text-on-surface-variant leading-relaxed mt-0.5">Semua proses seleksi di Jabodetabek dijamin gratis tanpa biaya tes, formulir, atau seragam. Laporkan kejanggalan langsung ke tim moderasi kami.</p>
+    </div>
+  </section>
+
 </main>
 {{ end }}
