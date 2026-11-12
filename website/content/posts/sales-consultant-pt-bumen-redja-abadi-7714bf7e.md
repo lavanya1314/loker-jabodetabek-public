@@ -1,0 +1,50 @@
+---
+title: "Sales Consultant"
+date: "2026-11-12T23:19:49.421366+00:00"
+tanggal_lowongan: "2026-11-11T03:58:16.383610+00:00"
+slug: "sales-consultant-pt-bumen-redja-abadi-7714bf7e"
+description: "Lowongan Sales Consultant di Pt.bumen redja abadi"
+unik_hash: "7714bf7efe9a5edcac29d341f7f3fa7ed513222710e309686b61c1738387c804"
+kategori: "SMA/SMK"
+perusahaan: "Pt.bumen redja abadi"
+lokasi: "Tangerang Selatan, Banten"
+gaji: "Rp 1.000.000 - 2.000.000 / bulan"
+kredensial: "high school"
+url_sumber: "https://glints.com/id/opportunities/jobs/sales-consultant/917e604a-1b50-4c9a-89e0-8c730b0e75eb"
+logo_url: "/logos/sales-consultant-pt-bumen-redja-abadi-7714bf7e.jpg"
+ilustrasi_url: ""
+lamar_url: "https://glints.com/id/opportunities/jobs/sales-consultant/917e604a-1b50-4c9a-89e0-8c730b0e75eb"
+telegram_sent: false
+---
+<p>🚨 WE ARE HIRING! 🚨</p>
+<p><br/></p>
+<p>DEALER RESMI MITSUBISHI – SERPONG</p>
+<p><br/></p>
+<p>Kami sedang membuka kesempatan bergabung untuk posisi:</p>
+<p><br/></p>
+<p>🔹 SALES FORCE (PRIA)</p>
+<p>🔹 SALES LADY (WANITA – NON HIJAB)</p>
+<p><br/></p>
+<p>KUALIFIKASI:</p>
+<p><br/></p>
+<p>- Pendidikan minimal SMA/SMK sederajat.</p>
+<p>- Usia maksimal 35 tahun.</p>
+<p>- Memiliki kendaraan pribadi minimal sepeda motor.</p>
+<p>- Diutamakan memiliki pengalaman sebagai Sales Mobil minimal 1 tahun.</p>
+<p>- Memahami dan aktif menggunakan media sosial (Instagram, Facebook, TikTok, dan WhatsApp).</p>
+<p>- Komunikatif, percaya diri, energik, dan berorientasi pada target.</p>
+<p>- Memiliki kemauan belajar dan berkembang.</p>
+<p><br/></p>
+<p>BENEFIT:</p>
+<p>💰 Gaji</p>
+<p>💰 Bonus tanpa batas</p>
+<p>💰 Insentif menarik</p>
+<p>📈 Jenjang karier</p>
+<p><br/></p>
+<p>JADILAH BAGIAN DARI TIM KAMI!</p>
+<p><br/></p>
+<p>Kesempatan terbuka bagi Anda yang memiliki semangat tinggi, menyukai tantangan, dan ingin mendapatkan penghasilan tanpa batas.</p>
+<p><br/></p>
+<p>📲 Kirimkan CV/Lamaran Anda Sekarang!</p>
+<p><br/></p>
+<p>Dealer Resmi Mitsubishi Serpong</p>
