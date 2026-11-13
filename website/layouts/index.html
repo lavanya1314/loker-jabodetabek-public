@@ -1,104 +1,207 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
-<main class="flex-1 w-full max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
+<main id="konten" class="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-4 px-4 py-4 md:gap-6 md:px-6 md:py-8">
 
-  <section class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-outline-variant/35 flex flex-col gap-4">
-    <div class="flex flex-col md:flex-row items-center gap-3">
-      <div class="w-full flex-1 bg-surface-container-low rounded-xl px-4 py-3 border border-outline-variant/30 flex items-center gap-3 focus-within:border-primary focus-within:bg-white transition-all">
-        <span class="material-symbols-outlined text-primary text-[24px]">search</span>
-        <input type="text" id="jobSearchInput" placeholder="Cari posisi kerja, nama perusahaan, atau kata kunci lowongan..." class="w-full bg-transparent border-0 outline-none text-[15px] font-body text-on-surface placeholder:text-outline focus:ring-0 p-0"/>
-      </div>
-      <button type="button" class="w-full md:w-auto h-12 px-8 bg-primary hover:bg-primary-hover text-on-primary rounded-xl font-headline font-bold text-[14px] flex items-center justify-center gap-2 shadow-sm tap-smooth cursor-pointer flex-shrink-0">
-        <span class="material-symbols-outlined text-[18px]">search</span>
-        <span>Cari Lowongan</span>
-      </button>
+  <section aria-label="Pencarian dan filter" class="flex flex-col gap-3 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3 shadow-sm md:gap-4 md:rounded-2xl md:p-6">
+    <div role="search" class="flex items-center gap-2">
+      <label class="flex h-11 min-w-0 flex-1 items-center gap-2 rounded-lg border border-outline-variant/40 bg-surface-container-low px-3 transition-colors focus-within:border-primary focus-within:bg-white">
+        <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">search</span>
+        <span class="sr-only">Cari lowongan</span>
+        <input id="jobSearchInput" type="search" autocomplete="off" placeholder="Posisi, perusahaan, atau wilayah" class="min-w-0 flex-1 border-0 bg-transparent p-0 text-base text-on-surface placeholder:text-on-surface-variant focus:ring-0 md:text-[14px]"/>
+      </label>
+      <button id="searchTriggerBtn" type="button" class="tap-smooth inline-flex h-11 flex-shrink-0 items-center rounded-lg bg-primary px-4 font-headline text-[13px] font-bold text-on-primary shadow-sm hover:bg-primary-hover">Cari</button>
     </div>
-    <div class="flex items-center gap-2 overflow-x-auto pt-1 pb-1 scroll-x-hide">
-      <span class="text-[12px] font-headline font-bold text-outline uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
-        <span class="material-symbols-outlined text-[16px]">location_on</span> Wilayah:
-      </span>
-      <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-headline text-[13px] font-bold whitespace-nowrap shadow-sm flex items-center gap-1.5 tap-smooth flex-shrink-0">
-        <span class="material-symbols-outlined text-[16px]">tune</span>
-        Semua Jabodetabek
-      </button>
-      {{ range slice "Jakarta Pusat" "Jakarta Utara" "Jakarta Barat" "Jakarta Selatan" "Jakarta Timur" "Bogor" "Depok" "Tangerang" "Tangerang Selatan" "Bekasi" }}
-      <button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-headline text-[13px] font-semibold whitespace-nowrap tap-smooth">{{ . }}</button>
+
+    <div class="flex flex-col gap-1.5">
+      <p class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Wilayah</p>
+      <div role="group" aria-label="Filter wilayah" class="scroll-x-hide -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+        <button type="button" data-filter-wilayah="" aria-pressed="true" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-primary bg-primary px-3.5 text-[12px] font-semibold text-on-primary transition-colors md:text-[13px]">Semua Jabodetabek</button>
+        {{ range slice "Jakarta Pusat" "Jakarta Utara" "Jakarta Barat" "Jakarta Selatan" "Jakarta Timur" "Bogor" "Depok" "Tangerang" "Tangerang Selatan" "Bekasi" }}
+        <button type="button" data-filter-wilayah="{{ . }}" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">{{ . }}</button>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-1.5">
+      <p class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Pendidikan</p>
+      <div role="group" aria-label="Filter pendidikan" class="scroll-x-hide -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+        <button type="button" data-filter-kategori="" aria-pressed="true" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-primary bg-primary px-3.5 text-[12px] font-semibold text-on-primary transition-colors md:text-[13px]">Semua</button>
+        <button type="button" data-filter-kategori="SMA/SMK" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">SMA / SMK</button>
+        <button type="button" data-filter-kategori="D1-S3" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">D1 sampai S3</button>
+      </div>
+    </div>
+
+    <p id="jumlahHasil" aria-live="polite" class="text-[12px] text-on-surface-variant"></p>
+  </section>
+
+  <aside aria-label="Tempat iklan" class="flex min-h-[50px] items-center justify-center rounded-lg border border-dashed border-outline-variant bg-surface-container-low text-[12px] font-semibold uppercase tracking-wider text-on-surface-variant">
+    Tempat Iklan 320×50
+  </aside>
+
+  {{ with site.Data.berita }}{{ if or .indonesia .internasional }}
+  <section aria-label="Berita hari ini" class="flex flex-col gap-2">
+    <div class="flex items-end justify-between gap-2">
+      <h2 class="font-headline text-[15px] font-bold text-on-surface md:text-[17px]">Berita Hari Ini</h2>
+      <span class="text-[11px] text-on-surface-variant">Geser ke samping</span>
+    </div>
+    <div tabindex="0" role="region" aria-label="Daftar berita" class="scroll-x-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:-mx-6 md:px-6">
+      {{ range .indonesia }}
+      <article class="flex min-w-[80%] snap-start flex-col gap-2 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm sm:min-w-[45%] md:min-w-[calc((100%-2.5rem)/3)]">
+        <span class="w-fit rounded bg-secondary-container px-2 py-0.5 text-[10px] font-bold text-on-secondary-container">Indonesia · {{ .sumber }}</span>
+        <a href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow" class="line-clamp-3 font-headline text-[13px] font-bold leading-snug text-on-surface md:text-[14px]">{{ .judul }}</a>
+        {{ with .ringkas }}<p class="line-clamp-3 text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</p>{{ end }}
+        {{ with .terbit }}<span class="mt-auto text-[11px] text-on-surface-variant">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </article>
+      {{ end }}
+      {{ range .internasional }}
+      <article class="flex min-w-[80%] snap-start flex-col gap-2 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm sm:min-w-[45%] md:min-w-[calc((100%-2.5rem)/3)]">
+        <span class="w-fit rounded bg-surface-container px-2 py-0.5 text-[10px] font-bold text-on-surface-variant">Internasional · {{ .sumber }}</span>
+        <a href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow" class="line-clamp-3 font-headline text-[13px] font-bold leading-snug text-on-surface md:text-[14px]">{{ .judul }}</a>
+        {{ with .ringkas }}<p class="line-clamp-3 text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</p>{{ end }}
+        {{ with .terbit }}<span class="mt-auto text-[11px] text-on-surface-variant">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </article>
       {{ end }}
     </div>
   </section>
+  {{ end }}{{ end }}
 
-  <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
-    <div>
-      <h1 class="text-[22px] font-headline font-extrabold text-on-surface tracking-tight">Lowongan Kerja Terbaru</h1>
-      <p class="text-[13px] text-outline font-body mt-0.5">Pilihan karier resmi dan tervalidasi di wilayah metropolitan Jabodetabek</p>
+  <section class="flex flex-col gap-2 pt-1 md:flex-row md:items-end md:justify-between md:gap-3 md:pt-2">
+    <div class="min-w-0">
+      <h1 class="font-headline text-[18px] font-extrabold tracking-tight text-on-surface md:text-[22px]">Lowongan Kerja Terbaru</h1>
+      <p class="mt-0.5 text-[12px] leading-snug text-on-surface-variant md:text-[13px]">Pilihan karier resmi dan tervalidasi di wilayah Jabodetabek</p>
     </div>
-    <div class="flex items-center gap-2 bg-secondary-container/90 text-on-secondary-container px-3.5 py-1.5 rounded-full shadow-sm self-start sm:self-auto">
-      <span class="material-symbols-outlined text-[16px] text-primary material-symbols-fill">verified</span>
-      <span class="text-[12px] font-headline font-bold tracking-tight">100% Bebas Pungutan</span>
-    </div>
+    <span class="inline-flex w-fit flex-shrink-0 items-center gap-1.5 rounded-full bg-secondary-container/90 px-3 py-1 text-on-secondary-container">
+      <span class="material-symbols-outlined material-symbols-fill text-[15px] text-primary" aria-hidden="true">verified</span>
+      <span class="text-[11px] font-bold md:text-[12px]">100% Bebas Pungutan</span>
+    </span>
   </section>
 
   {{ if $posts }}
-  <section id="jobCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+  <section id="jobCardsContainer" class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
     {{ range $posts.ByDate.Reverse }}
-    {{ $perusahaan := .Params.perusahaan }}
-    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all flex flex-col justify-between tap-smooth cursor-pointer group">
-      <div>
-        <div class="flex items-start justify-between gap-3">
-          <div class="flex items-center gap-3.5 min-w-0">
-            <div class="w-12 h-12 rounded-xl bg-surface-container flex-shrink-0 overflow-hidden flex items-center justify-center">
-              {{ with .Params.logo_url }}
-              <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="w-full h-full object-cover" loading="lazy" width="48" height="48"/>
-              {{ else }}
-              <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="w-full h-full object-cover" width="48" height="48"/>
-              {{ end }}
-            </div>
-            <div class="flex flex-col min-w-0">
-              <span class="text-[13px] font-headline font-semibold text-on-surface-variant truncate">{{ with $perusahaan }}{{ . }}{{ else }}Perusahaan tidak disebutkan{{ end }}</span>
-              <h2 class="text-[16px] font-headline font-bold text-on-surface leading-snug mt-0.5 group-hover:text-primary transition-colors">{{ .Title }}</h2>
-            </div>
-          </div>
-          <span class="bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-full font-headline text-[11px] font-bold flex items-center gap-1 flex-shrink-0">
-            <span class="material-symbols-outlined text-[13px] material-symbols-fill">check_circle</span>
-            Valid
-          </span>
-        </div>
-        <div class="flex flex-wrap gap-2 mt-4">
-          {{ with .Params.lokasi }}
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant text-[12px] font-medium">
-            <span class="material-symbols-outlined text-[15px] text-outline">location_on</span>{{ . }}
-          </span>
+    {{ $perusahaan := .Params.perusahaan | default "Perusahaan tidak disebutkan" }}
+    {{ $lokasi := .Params.lokasi | default "" }}
+    {{ $kategori := .Params.kategori | default "" }}
+    {{ $gaji := .Params.gaji | default "Gaji Dirahasiakan" }}
+    <a href="{{ .Permalink }}" class="job-card group flex flex-col gap-3 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm transition-all duration-200 hover:border-primary/40 hover:shadow-md md:rounded-2xl md:p-5" data-cari="{{ lower (printf "%s %s %s %s" .Title $perusahaan $lokasi $kategori) }}" data-lokasi="{{ lower $lokasi }}" data-kategori="{{ $kategori }}">
+      <div class="flex items-start gap-3">
+        <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-surface-container md:h-12 md:w-12">
+          {{ with .Params.logo_url }}
+          <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="h-full w-full object-cover" loading="lazy" width="48" height="48"/>
+          {{ else }}
+          <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="h-full w-full object-cover" width="48" height="48"/>
           {{ end }}
-        </div>
+        </span>
+        <span class="flex min-w-0 flex-1 flex-col">
+          <span class="break-words text-[11px] font-semibold leading-snug text-on-surface-variant md:text-[13px]">{{ $perusahaan }}</span>
+          <span class="mt-0.5 line-clamp-2 font-headline text-[14px] font-bold leading-snug text-on-surface transition-colors group-hover:text-primary md:text-[16px]">{{ .Title }}</span>
+        </span>
+        <span class="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-primary-fixed px-2 py-0.5 text-[10px] font-bold text-on-primary-fixed md:px-2.5 md:py-1 md:text-[11px]">
+          <span class="material-symbols-outlined material-symbols-fill text-[12px]" aria-hidden="true">check_circle</span>
+          Valid
+        </span>
       </div>
-      <div class="flex items-center justify-between mt-5 pt-3.5 border-t border-surface-container">
-        <div class="flex flex-col">
-          <span class="text-[10px] text-outline font-headline uppercase font-bold tracking-wider">Gaji</span>
-          <span class="text-[15px] font-headline text-primary font-extrabold">{{ with .Params.gaji }}{{ . }}{{ else }}Gaji Dirahasiakan{{ end }}</span>
+
+      {{ if or $lokasi $kategori }}
+      <div class="flex flex-wrap gap-1.5">
+        {{ with $lokasi }}
+        <span class="inline-flex items-center gap-1 rounded-md bg-surface-container-low px-2 py-1 text-[11px] font-medium text-on-surface-variant md:text-[12px]">
+          <span class="material-symbols-outlined text-[14px] text-outline" aria-hidden="true">location_on</span>{{ . }}
+        </span>
+        {{ end }}
+        {{ with $kategori }}
+        <span class="inline-flex items-center rounded-md bg-surface-container-low px-2 py-1 text-[11px] font-semibold text-on-surface-variant md:text-[12px]">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="flex items-center justify-between gap-3 border-t border-surface-container pt-3">
+        <div class="flex min-w-0 flex-col">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Gaji</span>
+          <span class="font-headline text-[13px] font-extrabold leading-snug text-primary md:text-[15px]">{{ $gaji }}</span>
         </div>
-        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold shadow-sm tap-smooth">
-          <span>Detail</span>
-          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        <span class="inline-flex h-10 flex-shrink-0 items-center gap-1 rounded-lg bg-primary px-3.5 font-headline text-[13px] font-bold text-on-primary shadow-sm transition-colors group-hover:bg-primary-hover">
+          Detail
+          <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">arrow_forward</span>
         </span>
       </div>
     </a>
     {{ end }}
   </section>
+
+  <section id="hasilKosong" class="hidden rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-center">
+    <p class="font-headline text-[14px] font-bold text-on-surface">Tidak ada lowongan yang cocok</p>
+    <p class="mt-1 text-[13px] text-on-surface-variant">Coba kata kunci lain, atau pilih "Semua Jabodetabek" dan "Semua" pada filter.</p>
+  </section>
   {{ else }}
-  <section class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/35 text-on-surface-variant">
+  <section class="rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-[14px] text-on-surface-variant">
     Belum ada lowongan yang tayang. Halaman ini diperbarui setiap hari.
   </section>
   {{ end }}
 
-  <section class="bg-surface-container-low rounded-2xl p-5 flex items-start gap-4 border border-outline-variant/30">
-    <div class="w-11 h-11 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
-      <span class="material-symbols-outlined text-[22px]">shield</span>
-    </div>
-    <div class="flex flex-col min-w-0">
-      <span class="text-[15px] font-headline font-bold text-on-surface">Pusat Bantuan &amp; Pengaduan Loker</span>
-      <p class="text-[13px] font-body text-on-surface-variant leading-relaxed mt-0.5">Semua proses seleksi di Jabodetabek dijamin gratis tanpa biaya tes, formulir, atau seragam. Laporkan kejanggalan langsung ke tim moderasi kami.</p>
+  <section class="flex items-start gap-3 rounded-xl border border-outline-variant/30 bg-surface-container-low p-4 md:gap-4 md:rounded-2xl md:p-5">
+    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container md:h-11 md:w-11" aria-hidden="true">
+      <span class="material-symbols-outlined text-[20px] md:text-[22px]">shield</span>
+    </span>
+    <div class="flex min-w-0 flex-col">
+      <h2 class="font-headline text-[14px] font-bold text-on-surface md:text-[15px]">Pusat Bantuan &amp; Pengaduan Loker</h2>
+      <p class="mt-0.5 text-[12px] leading-relaxed text-on-surface-variant md:text-[13px]">Proses seleksi lowongan di Jabodetabek tidak memungut biaya tes, formulir, atau seragam. Laporkan kejanggalan lewat channel Telegram kami.</p>
     </div>
   </section>
-
 </main>
+
+<script>
+  (function () {
+    var kartu = Array.prototype.slice.call(document.querySelectorAll('.job-card'));
+    var input = document.getElementById('jobSearchInput');
+    var tombolCari = document.getElementById('searchTriggerBtn');
+    var jumlah = document.getElementById('jumlahHasil');
+    var kosong = document.getElementById('hasilKosong');
+    var chipWilayah = Array.prototype.slice.call(document.querySelectorAll('[data-filter-wilayah]'));
+    var chipKategori = Array.prototype.slice.call(document.querySelectorAll('[data-filter-kategori]'));
+    var AKTIF = ['bg-primary', 'text-on-primary', 'border-primary'];
+    var NONAKTIF = ['bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/40'];
+    var filter = { wilayah: '', kategori: '' };
+
+    function tandai(chip, aktif) {
+      chip.setAttribute('aria-pressed', aktif ? 'true' : 'false');
+      AKTIF.forEach(function (c) { chip.classList.toggle(c, aktif); });
+      NONAKTIF.forEach(function (c) { chip.classList.toggle(c, !aktif); });
+    }
+    function pilih(grup, chip) {
+      grup.forEach(function (c) { tandai(c, c === chip); });
+    }
+    function terapkan() {
+      var kata = input ? input.value.trim().toLowerCase() : '';
+      var tampil = 0;
+      kartu.forEach(function (k) {
+        var cocok = (!kata || k.getAttribute('data-cari').indexOf(kata) !== -1)
+          && (!filter.wilayah || k.getAttribute('data-lokasi').indexOf(filter.wilayah) !== -1)
+          && (!filter.kategori || k.getAttribute('data-kategori') === filter.kategori);
+        k.classList.toggle('hidden', !cocok);
+        if (cocok) tampil++;
+      });
+      if (jumlah) jumlah.textContent = tampil + ' lowongan ditampilkan';
+      if (kosong) kosong.classList.toggle('hidden', !(kartu.length > 0 && tampil === 0));
+    }
+
+    chipWilayah.forEach(function (c) {
+      c.addEventListener('click', function () {
+        filter.wilayah = (c.getAttribute('data-filter-wilayah') || '').toLowerCase();
+        pilih(chipWilayah, c);
+        terapkan();
+      });
+    });
+    chipKategori.forEach(function (c) {
+      c.addEventListener('click', function () {
+        filter.kategori = c.getAttribute('data-filter-kategori') || '';
+        pilih(chipKategori, c);
+        terapkan();
+      });
+    });
+    if (input) input.addEventListener('input', terapkan);
+    if (tombolCari) tombolCari.addEventListener('click', terapkan);
+    terapkan();
+  })();
+</script>
 {{ end }}
