@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="flex-1 w-full max-w-4xl mx-auto px-6 py-8 flex flex-col gap-6">
 
-  <div class="bg-surface-container-lowest rounded-2xl p-4 shadow-xs border border-outline-variant/30 flex items-center justify-between flex-wrap gap-3">
+  <div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm border border-outline-variant/30 flex items-center justify-between flex-wrap gap-3">
     <div class="flex items-center gap-2 text-[13px] text-outline font-body flex-wrap">
       <a href="{{ "/" | relURL }}" class="hover:text-primary transition-colors">Beranda</a>
       {{ with .Params.lokasi }}<span>/</span><span class="text-on-surface-variant font-semibold">{{ . }}</span>{{ end }}
@@ -13,10 +13,10 @@
     </span>
   </div>
 
-  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35 relative overflow-hidden">
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-sm border border-outline-variant/35 relative overflow-hidden">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
       <div class="flex items-start gap-5">
-        <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0 shadow-xs border border-outline-variant/20">
+        <div class="relative w-20 h-20 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0 shadow-sm border border-outline-variant/20">
           {{ with .Params.logo_url }}
           <img class="w-full h-full object-cover" alt="Logo {{ $.Params.perusahaan }}" src="{{ . | relURL }}" width="80" height="80"/>
           {{ else }}
@@ -53,25 +53,25 @@
   {{ if or .Params.tipe_pekerjaan .Params.pengalaman .Params.pendidikan }}
   <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
     {{ with .Params.gaji }}
-    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
       <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-3"><span class="material-symbols-outlined text-[20px]">payments</span></div>
       <div><span class="block text-[11px] text-outline font-headline font-bold uppercase">Estimasi Gaji</span><span class="block text-[14px] font-headline font-bold text-on-surface">{{ . }}</span></div>
     </div>
     {{ end }}
     {{ with .Params.tipe_pekerjaan }}
-    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
       <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-3"><span class="material-symbols-outlined text-[20px]">work</span></div>
       <div><span class="block text-[11px] text-outline font-headline font-bold uppercase">Tipe Pekerjaan</span><span class="block text-[14px] font-headline font-bold text-on-surface">{{ . }}</span></div>
     </div>
     {{ end }}
     {{ with .Params.pengalaman }}
-    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
       <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-3"><span class="material-symbols-outlined text-[20px]">military_tech</span></div>
       <div><span class="block text-[11px] text-outline font-headline font-bold uppercase">Pengalaman</span><span class="block text-[14px] font-headline font-bold text-on-surface">{{ . }}</span></div>
     </div>
     {{ end }}
     {{ with .Params.pendidikan }}
-    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-xs border border-outline-variant/30 flex flex-col justify-between">
+    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
       <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-3"><span class="material-symbols-outlined text-[20px]">school</span></div>
       <div><span class="block text-[11px] text-outline font-headline font-bold uppercase">Pendidikan Min.</span><span class="block text-[14px] font-headline font-bold text-on-surface">{{ . }}</span></div>
     </div>
@@ -79,7 +79,7 @@
   </section>
   {{ end }}
 
-  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35">
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-sm border border-outline-variant/35">
     <div class="flex items-center gap-2.5 mb-5 text-primary">
       <span class="material-symbols-outlined text-[24px]">assignment</span>
       <h3 class="text-[18px] font-headline font-bold text-on-surface">Uraian Tugas &amp; Tanggung Jawab</h3>
@@ -90,7 +90,7 @@
   </section>
 
   {{ with .Params.kualifikasi }}
-  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35">
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-sm border border-outline-variant/35">
     <div class="flex items-center gap-2.5 mb-5 text-primary">
       <span class="material-symbols-outlined text-[24px]">fact_check</span>
       <h3 class="text-[18px] font-headline font-bold text-on-surface">Kualifikasi Pelamar</h3>
@@ -107,7 +107,7 @@
   {{ end }}
 
   {{ with .Params.benefit }}
-  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35">
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-sm border border-outline-variant/35">
     <h4 class="text-[16px] font-headline font-bold text-on-surface mb-4">Benefit &amp; Fasilitas Karyawan</h4>
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[14px] font-body text-on-surface">
       {{ range . }}
@@ -131,13 +131,13 @@
   </section>
 
   {{ with .Params.ilustrasi_url }}
-  <section class="bg-surface-container-lowest rounded-3xl p-5 shadow-xs border border-outline-variant/35">
+  <section class="bg-surface-container-lowest rounded-3xl p-5 shadow-sm border border-outline-variant/35">
     <p class="text-[12px] text-outline font-body mb-3">Ilustrasi pekerjaan (bukan logo perusahaan)</p>
     <img src="{{ . | relURL }}" alt="Ilustrasi {{ $.Title }}" class="w-full max-h-72 object-cover rounded-2xl" loading="lazy"/>
   </section>
   {{ end }}
   {{ with .Params.lamar_url }}
-  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-xs border border-outline-variant/35 flex flex-col gap-4">
+  <section class="bg-surface-container-lowest rounded-3xl p-7 shadow-sm border border-outline-variant/35 flex flex-col gap-4">
     <div>
       <span class="text-[11px] font-headline font-bold text-primary uppercase tracking-wider">Pendaftaran Resmi Dibuka</span>
       <h3 class="text-[18px] font-headline font-bold text-on-surface mt-1">Tertarik Bergabung dengan Perusahaan Ini?</h3>

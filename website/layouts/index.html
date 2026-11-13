@@ -17,7 +17,7 @@
       <span class="text-[12px] font-headline font-bold text-outline uppercase tracking-wider mr-1 flex items-center gap-1 flex-shrink-0">
         <span class="material-symbols-outlined text-[16px]">location_on</span> Wilayah:
       </span>
-      <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-headline text-[13px] font-bold whitespace-nowrap shadow-xs flex items-center gap-1.5 tap-smooth flex-shrink-0">
+      <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-headline text-[13px] font-bold whitespace-nowrap shadow-sm flex items-center gap-1.5 tap-smooth flex-shrink-0">
         <span class="material-symbols-outlined text-[16px]">tune</span>
         Semua Jabodetabek
       </button>
@@ -32,7 +32,7 @@
       <h1 class="text-[22px] font-headline font-extrabold text-on-surface tracking-tight">Lowongan Kerja Terbaru</h1>
       <p class="text-[13px] text-outline font-body mt-0.5">Pilihan karier resmi dan tervalidasi di wilayah metropolitan Jabodetabek</p>
     </div>
-    <div class="flex items-center gap-2 bg-secondary-container/90 text-on-secondary-container px-3.5 py-1.5 rounded-full shadow-xs self-start sm:self-auto">
+    <div class="flex items-center gap-2 bg-secondary-container/90 text-on-secondary-container px-3.5 py-1.5 rounded-full shadow-sm self-start sm:self-auto">
       <span class="material-symbols-outlined text-[16px] text-primary material-symbols-fill">verified</span>
       <span class="text-[12px] font-headline font-bold tracking-tight">100% Bebas Pungutan</span>
     </div>
@@ -42,7 +42,7 @@
   <section id="jobCardsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
     {{ range $posts.ByDate.Reverse }}
     {{ $perusahaan := .Params.perusahaan }}
-    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-xs hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all flex flex-col justify-between tap-smooth cursor-pointer group">
+    <a href="{{ .Permalink }}" class="job-card block bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md border border-outline-variant/35 hover:border-primary/40 transition-all flex flex-col justify-between tap-smooth cursor-pointer group">
       <div>
         <div class="flex items-start justify-between gap-3">
           <div class="flex items-center gap-3.5 min-w-0">
@@ -76,7 +76,7 @@
           <span class="text-[10px] text-outline font-headline uppercase font-bold tracking-wider">Gaji</span>
           <span class="text-[15px] font-headline text-primary font-extrabold">{{ with .Params.gaji }}{{ . }}{{ else }}Gaji Dirahasiakan{{ end }}</span>
         </div>
-        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold shadow-xs tap-smooth">
+        <span class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary font-headline text-[13px] font-bold shadow-sm tap-smooth">
           <span>Detail</span>
           <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
         </span>
