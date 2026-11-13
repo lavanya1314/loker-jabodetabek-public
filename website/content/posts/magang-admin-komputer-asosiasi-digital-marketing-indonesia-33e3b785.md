@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/magang-admin-komputer/4cc8
 logo_url: "/logos/magang-admin-komputer-asosiasi-digital-marketing-indonesia-33e3b785.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/magang-admin-komputer/4cc8d0c5-6b8c-4949-876f-d7cb455adf80"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Kualifikasi:<br/>
 - memiliki laptop yang dapat digunakan dengan baik </p>

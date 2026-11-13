@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/general-worker/41b0d5ce-08
 logo_url: ""
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/general-worker/41b0d5ce-0860-427d-9438-46957ccc7399"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Kualifikasi</p>
 <p>1) Pria.</p>

@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/baker/60ca20a4-bd12-4cec-9
 logo_url: "/logos/baker-pt-mitra-mulia-manunggal-30002148.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/baker/60ca20a4-bd12-4cec-926b-04260c26ea8a"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Deskripsi Pekerjaan :</p>
 <p>Bertanggung jawab dalam proses persiapan, pengolahan, dan penyajian produk bakery sesuai standar kualitas, kebersihan, dan keamanan pangan perusahaan.</p>

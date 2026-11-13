@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/admin-dan-marketing/14fade
 logo_url: "/logos/admin-dan-marketing-buildhome-433a7ca3.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/admin-dan-marketing/14fade22-d03d-4f50-b198-0754648c4099"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Deskripsi Pekerjaan</p>
 <p>1. Melakukan pemasaran jasa konstruksi, pengawasan , dan desain</p>

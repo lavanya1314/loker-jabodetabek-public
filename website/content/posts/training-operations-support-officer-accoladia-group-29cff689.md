@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/training-operations-and-su
 logo_url: "/logos/training-operations-support-officer-accoladia-group-29cff689.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/training-operations-and-support-officer/b45c617a-3a77-4420-a170-47d8d65ebd69"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Accoladia Group adalah sebuah perusahaan pelatihan saat ini membuka lowongan untuk posisi Training Operations &amp; Support Officer. Peluang ini terbuka bagi profesional muda dengan minimal pendidikan D3 yang ingin menjadi bagian dari tim Accoladia Group, dengan lokasi kerja utama di Jakarta Timur (kawasan TMII/Cipayung) dan di beberapa lokasi project training lainnya. </p>
 <p>Jika Anda berdomisili di sekitar lokasi kerja utama akan menjadi nilai tambah.</p>

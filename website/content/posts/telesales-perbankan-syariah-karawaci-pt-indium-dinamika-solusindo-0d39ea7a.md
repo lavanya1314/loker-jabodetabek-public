@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/telesales-perbankan-syaria
 logo_url: "/logos/telesales-perbankan-syariah-karawaci-pt-indium-dinamika-solusindo-0d39ea7a.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/telesales-perbankan-syariah-karawaci/679b1d21-290d-433c-bf34-47284e550301"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>1. Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan</p>
 <p>2. Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan</p>

@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/account-executive-myrepubl
 logo_url: "/logos/account-executive-myrepublic-sinarmas-group-morabekasi-e69cba1c.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/account-executive-myrepublic-sinarmas-group/8b67f99a-09f3-4ca3-9c44-dd06c083bd64"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>PT.Ekamas Mora Republik Tbk Sedang membuka lowongan Account Executive (MyRepublic) sebagai berikut,<br/>
 </p>

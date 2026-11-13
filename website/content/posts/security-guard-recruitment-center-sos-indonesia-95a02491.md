@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/security-guard/095c8b5c-8f
 logo_url: "/logos/security-guard-recruitment-center-sos-indonesia-95a02491.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/security-guard/095c8b5c-8f0c-4e8d-a4d3-7ab7bc6d42be"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>1. Persyaratan Umum</p>
 <p>•	Warga Negara Indonesia.</p>

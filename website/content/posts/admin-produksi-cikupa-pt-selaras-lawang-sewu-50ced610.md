@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/admin-produksi-cikupa/2d2a
 logo_url: "/logos/admin-produksi-cikupa-pt-selaras-lawang-sewu-50ced610.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/admin-produksi-cikupa/2d2aff14-546e-48b8-962b-cb33b092b689"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>PT Selaras Lawang Sewu, sebuah perusahaan yang bergerak dibidang Architectural Hardware. Berfokus pada produksi pintu dan jendela. mencari individu yang berdedikasi untuk bergabung dalam tim produksi kami di Cikupa, Kabupaten Tangerang, Banten. Dengan visi dan misi untuk memberikan solusi terbaik dalam sistem pintu dan jendela, perusahaan ini telah mendapatkan kepercayaan dari berbagai brand internasional dan nasional. PT Selaras Lawang Sewu mengedepankan kualitas dan kepuasan pelanggan, sehingga menjadi tempat yang tepat bagi Anda yang ingin berkarya dalam industri yang dinamis dan berkembang.</p>
 <p><br/></p>

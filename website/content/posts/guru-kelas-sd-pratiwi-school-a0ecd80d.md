@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/guru-kelas-sd/7cec4fa0-828
 logo_url: "/logos/guru-kelas-sd-pratiwi-school-a0ecd80d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/guru-kelas-sd/7cec4fa0-828a-43a1-9bf6-1f60c6e5ad11"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Male or Female, maximum age 35 years old</p>
 <p>Bachelor’s degree in Primary School Education from a reputable university, minimum GPA 2.75</p>

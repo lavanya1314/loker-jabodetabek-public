@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/pengawas-restoran-restaura
 logo_url: "/logos/pengawas-restoran-restaurant-supervisor-pt-qihua-walet-indo-834beb8d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/pengawas-restoran-restaurant-supervisor/bccc4ebc-5574-494a-ba94-a8f921ad1485"
-telegram_sent: false
+telegram_sent: true
 ---
 <p><br/></p>
 <p>Deskripsi Pekerjaan</p>

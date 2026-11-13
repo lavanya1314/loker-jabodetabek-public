@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/magang-admin-digital/8e81c
 logo_url: "/logos/magang-admin-digital-sekolah-pintar-beab4b81.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/magang-admin-digital/8e81c222-31f1-4741-ab9f-21dc71290c9a"
-telegram_sent: false
+telegram_sent: true
 ---
 <p><br/></p>
 <p>Sehubungan dengan adanya proyek pengembangan infrastruktur digital di lingkungan perusahaan, kami bermaksud membuka kesempatan magang kerja bagi para fresh Graduate  yang saat ini belum bekerja.</p>

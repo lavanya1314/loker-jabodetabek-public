@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/admin-fnb/d6a7c5ec-35dd-4d
 logo_url: "/logos/admin-fnb-ceryta-creative-studio-6d036e37.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/admin-fnb/d6a7c5ec-35dd-4d6f-afee-bc71a5668450"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Brand: Ayam Banyak Gaya</p>
 <p><br/></p>

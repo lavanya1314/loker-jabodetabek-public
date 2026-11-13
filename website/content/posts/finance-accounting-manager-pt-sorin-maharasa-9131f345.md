@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/finance-and-accounting-man
 logo_url: "/logos/finance-accounting-manager-pt-sorin-maharasa-9131f345.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/finance-and-accounting-manager/e86c02dd-4454-409a-b4d5-0b94932a9597"
-telegram_sent: false
+telegram_sent: true
 ---
 <p><strong>Tanggung Jawab</strong></p>
 <ul>

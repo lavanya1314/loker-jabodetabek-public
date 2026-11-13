@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/marketplace-gmv-penjualan/
 logo_url: "/logos/marketplace-gmv-penjualan-bsn-noni-shampoo-a4c4894d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/marketplace-gmv-penjualan/b29a98b2-ab49-4380-98fa-c430b56ab1a8"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Kami perusahaan yang berlokasi di jakarta dan merupakan tangan pertama untuk produk perawatan rambut membutuhkan kandidat untuk dapat mengelola marketplace shopee. dan tokopedia</p>
 <p>Jobdes nya :</p>

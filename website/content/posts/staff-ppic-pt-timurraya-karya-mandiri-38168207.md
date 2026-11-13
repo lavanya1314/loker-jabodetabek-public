@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/staff-ppic/cabfb2f6-7461-4
 logo_url: "/logos/staff-ppic-pt-timurraya-karya-mandiri-38168207.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/staff-ppic/cabfb2f6-7461-4fea-97fb-88c2d549b40a"
-telegram_sent: false
+telegram_sent: true
 ---
 <p><strong>Deskripsi Pekerjaan</strong></p>
 <p>Staff Production Planning and Inventary Control (PPIC)</p>

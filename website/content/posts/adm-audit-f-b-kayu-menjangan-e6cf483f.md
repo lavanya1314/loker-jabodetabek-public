@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/adm-audit-f-and-b/cea10a4d
 logo_url: "/logos/adm-audit-f-b-kayu-menjangan-e6cf483f.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/adm-audit-f-and-b/cea10a4d-6aa9-4f11-a9ff-f7b4f86ff70e"
-telegram_sent: false
+telegram_sent: true
 ---
 <ol>
 <li>Kayu Menjangan adalah restoran yang menyajikan pengalaman kuliner yang istimewa bagi para pencinta makanan. Kami menghadirkan menu yang merupakan paduan sempurna dari rasa dan kualitas, dengan suasana yang hangat dan menarik yang cocok untuk berbagai acara, mulai dari makan malam romantis hingga pertemuan bersama teman-teman. Kami mencari individu yang kompeten dan berkomitmen untuk bergabung dalam tim kami, karena kami percaya bahwa setiap anggota tim memainkan peran penting dalam menjaga standar kualitas dan kepuasan pelanggan. Kesempatan ini ditawarkan untuk memperkuat departemen keuangan dan audit kami, serta mendukung operasional bisnis yang efisien dan transparan.</li>

@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/guru-kelas-tk/c42702c8-937
 logo_url: "/logos/guru-kelas-tk-pratiwi-school-13a1bca9.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/guru-kelas-tk/c42702c8-937a-40d5-bf7f-fd4bc96371d3"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Male or Female, maximum age 35 years old</p>
 <p>Bachelor’s degree in Early Childhood education from a reputable university, minimum GPA 2.75</p>

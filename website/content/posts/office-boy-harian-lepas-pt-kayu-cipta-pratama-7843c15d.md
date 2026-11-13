@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/office-boy-harian-lepas/1a
 logo_url: "/logos/office-boy-harian-lepas-pt-kayu-cipta-pratama-7843c15d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/office-boy-harian-lepas/1aa64e41-fe05-4f05-8232-bbf36adcf228"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>Kami PT Kayu Cipta Pratama perusahaan yang bergerak dalam bidang manufactur membutuhkan karyawan yang akan bekerja di perusahaan kami sebagai office boy dengan kriteria sebagai berikut :</p>
 <p><br/></p>

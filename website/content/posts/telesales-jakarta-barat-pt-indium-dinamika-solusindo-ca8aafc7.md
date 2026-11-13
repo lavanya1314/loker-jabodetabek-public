@@ -14,7 +14,7 @@ url_sumber: "https://glints.com/id/opportunities/jobs/telesales-jakarta-barat/33
 logo_url: "/logos/telesales-jakarta-barat-pt-indium-dinamika-solusindo-ca8aafc7.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/telesales-jakarta-barat/33582e9d-8d0c-4d1f-849b-48c98a904918"
-telegram_sent: false
+telegram_sent: true
 ---
 <p>1. Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan</p>
 <p>2. Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan</p>
