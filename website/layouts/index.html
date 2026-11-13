@@ -93,7 +93,7 @@
           {{ end }}
         </span>
         <span class="flex min-w-0 flex-1 flex-col">
-          <span class="break-words text-[11px] font-semibold leading-snug text-on-surface-variant md:text-[13px]">{{ $perusahaan }}</span>
+          <span class="break-words text-[12px] font-bold leading-snug text-on-surface md:text-[13px]">{{ $perusahaan }}</span>
           <span class="mt-0.5 line-clamp-2 font-headline text-[14px] font-bold leading-snug text-on-surface transition-colors group-hover:text-primary md:text-[16px]">{{ .Title }}</span>
         </span>
         <span class="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-primary-fixed px-2 py-0.5 text-[10px] font-bold text-on-primary-fixed md:px-2.5 md:py-1 md:text-[11px]">
@@ -118,7 +118,7 @@
       <div class="flex items-center justify-between gap-3 border-t border-surface-container pt-3">
         <div class="flex min-w-0 flex-col">
           <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Gaji</span>
-          <span class="font-headline text-[13px] font-extrabold leading-snug text-primary md:text-[15px]">{{ $gaji }}</span>
+          <span class="font-headline text-[12px] font-bold leading-snug text-primary md:text-[13px]">{{ $gaji }}</span>
         </div>
         <span class="inline-flex h-10 flex-shrink-0 items-center gap-1 rounded-lg bg-primary px-3.5 font-headline text-[13px] font-bold text-on-primary shadow-sm transition-colors group-hover:bg-primary-hover">
           Detail
@@ -128,6 +128,18 @@
     </a>
     {{ end }}
   </section>
+
+  <nav id="halamanNav" aria-label="Halaman lowongan" class="hidden flex-col items-center gap-2 pt-1 md:flex-row md:justify-center md:gap-4">
+    <div class="flex w-full items-center justify-between gap-3 md:w-auto md:justify-center">
+      <button id="halamanPrev" type="button" class="tap-smooth inline-flex h-11 min-w-[104px] items-center justify-center gap-1 rounded-lg border border-outline-variant/40 bg-surface-container-lowest px-3 font-headline text-[13px] font-bold text-on-surface hover:bg-surface-container disabled:cursor-not-allowed disabled:opacity-40">
+        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_left</span>Sebelumnya
+      </button>
+      <span id="halamanInfo" class="text-[12px] font-semibold text-on-surface-variant" aria-live="polite"></span>
+      <button id="halamanNext" type="button" class="tap-smooth inline-flex h-11 min-w-[104px] items-center justify-center gap-1 rounded-lg bg-primary px-3 font-headline text-[13px] font-bold text-on-primary shadow-sm hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-40">
+        Berikutnya<span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+      </button>
+    </div>
+  </nav>
 
   <section id="hasilKosong" class="hidden rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-center">
     <p class="font-headline text-[14px] font-bold text-on-surface">Tidak ada lowongan yang cocok</p>
@@ -171,19 +183,48 @@
     function pilih(grup, chip) {
       grup.forEach(function (c) { tandai(c, c === chip); });
     }
-    function terapkan() {
+    var halamanNav = document.getElementById('halamanNav');
+    var halaman = 1;
+    var desktopMq = window.matchMedia('(min-width: 768px)');
+
+    function perHalaman() { return desktopMq.matches ? 10 : 7; }
+
+    function gambarHalaman(cocokList) {
+      var ukuran = perHalaman();
+      var total = Math.max(1, Math.ceil(cocokList.length / ukuran));
+      if (halaman > total) halaman = total;
+      var awal = (halaman - 1) * ukuran;
+      kartu.forEach(function (k) { k.classList.add('hidden'); });
+      cocokList.slice(awal, awal + ukuran).forEach(function (k) { k.classList.remove('hidden'); });
+      if (halamanNav) {
+        halamanNav.classList.toggle('hidden', cocokList.length <= ukuran);
+        var info = document.getElementById('halamanInfo');
+        if (info) info.textContent = 'Halaman ' + halaman + ' dari ' + total;
+        var prev = document.getElementById('halamanPrev');
+        var next = document.getElementById('halamanNext');
+        if (prev) prev.disabled = halaman <= 1;
+        if (next) next.disabled = halaman >= total;
+      }
+    }
+
+    function terapkan(reset) {
+      if (reset !== false) halaman = 1;
       var kata = input ? input.value.trim().toLowerCase() : '';
-      var tampil = 0;
-      kartu.forEach(function (k) {
-        var cocok = (!kata || k.getAttribute('data-cari').indexOf(kata) !== -1)
+      var cocokList = kartu.filter(function (k) {
+        return (!kata || k.getAttribute('data-cari').indexOf(kata) !== -1)
           && (!filter.wilayah || k.getAttribute('data-lokasi').indexOf(filter.wilayah) !== -1)
           && (!filter.kategori || k.getAttribute('data-kategori') === filter.kategori);
-        k.classList.toggle('hidden', !cocok);
-        if (cocok) tampil++;
       });
-      if (jumlah) jumlah.textContent = tampil + ' lowongan ditampilkan';
-      if (kosong) kosong.classList.toggle('hidden', !(kartu.length > 0 && tampil === 0));
+      gambarHalaman(cocokList);
+      if (jumlah) jumlah.textContent = cocokList.length + ' lowongan ditemukan';
+      if (kosong) kosong.classList.toggle('hidden', !(kartu.length > 0 && cocokList.length === 0));
     }
+
+    var prevBtn = document.getElementById('halamanPrev');
+    var nextBtn = document.getElementById('halamanNext');
+    if (prevBtn) prevBtn.addEventListener('click', function () { halaman--; terapkan(false); window.scrollTo({ top: 0, behavior: 'auto' }); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { halaman++; terapkan(false); window.scrollTo({ top: 0, behavior: 'auto' }); });
+    desktopMq.addEventListener('change', function () { terapkan(false); });
 
     chipWilayah.forEach(function (c) {
       c.addEventListener('click', function () {

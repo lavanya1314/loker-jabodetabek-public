@@ -97,19 +97,19 @@
 
   {{ block "main" . }}{{ end }}
 
-  <footer class="mt-6 border-t border-surface-container-high bg-surface-container-lowest px-4 py-8 md:mt-8 md:px-6 md:py-10">
+  <footer class="mt-6 bg-primary px-4 py-8 text-on-primary md:mt-8 md:px-6 md:py-10">
     <div class="mx-auto flex max-w-6xl flex-col items-center text-center">
       <div class="flex items-center gap-2">
-        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-on-primary" aria-hidden="true">LJ</span>
-        <span class="font-headline text-[14px] font-bold tracking-tight text-on-surface md:text-[16px]">LOKER JABODETABEK</span>
+        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-on-primary text-[11px] font-bold text-primary" aria-hidden="true">LJ</span>
+        <span class="font-headline text-[14px] font-bold tracking-tight md:text-[16px]">LOKER JABODETABEK</span>
       </div>
-      <p class="mt-3 max-w-xl text-[12px] leading-relaxed text-on-surface-variant md:text-[13px]">
+      <p class="mt-3 max-w-xl text-[12px] leading-relaxed text-on-primary/85 md:text-[13px]">
         Portal informasi lowongan kerja untuk wilayah DKI Jakarta, Bogor, Depok, Tangerang, dan Bekasi.
       </p>
-      <nav aria-label="Tautan informasi" class="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-semibold text-on-surface-variant">
-        {{ range $menu }}{{ if ne .url "/" }}<a href="{{ .url | relURL }}" class="inline-flex h-9 items-center hover:text-primary">{{ .nama }}</a>{{ end }}{{ end }}
+      <nav aria-label="Tautan informasi" class="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-semibold">
+        {{ range $menu }}{{ if ne .url "/" }}<a href="{{ .url | relURL }}" class="inline-flex h-9 items-center rounded-md px-1 text-on-primary hover:text-primary-fixed hover:underline underline-offset-4">{{ .nama }}</a>{{ end }}{{ end }}
       </nav>
-      <p class="mt-5 border-t border-surface-container-high/60 pt-4 text-[11px] text-on-surface-variant">&copy; {{ now.Year }} Loker Jabodetabek. Seluruh hak cipta dilindungi.</p>
+      <p class="mt-5 border-t border-on-primary/20 pt-4 text-[11px] text-on-primary/80">&copy; {{ now.Year }} Loker Jabodetabek. Seluruh hak cipta dilindungi.</p>
     </div>
   </footer>
 
