@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Kami PT Kayu Cipta Pratama perusahaan yang bergerak dalam
 tugas: ["Pria", "Bersedia Gaji Harian", "Bersedia Bekerja di Kab, Tangerang Tigaraksa"]
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Kami PT Kayu Cipta Pratama perusahaan yang bergerak dalam bidang manufactur membutuhkan karyawan yang akan bekerja di perusahaan kami sebagai office boy dengan kriteria sebagai berikut :</p>
 <p><br/></p>

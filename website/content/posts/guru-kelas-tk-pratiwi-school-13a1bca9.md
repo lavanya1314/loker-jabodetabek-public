@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Male or Female, maximum age 35 years old", "Bachelor’s 
 tugas: []
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Male or Female, maximum age 35 years old</p>
 <p>Bachelor’s degree in Early Childhood education from a reputable university, minimum GPA 2.75</p>

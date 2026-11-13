@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Gambaran Pekerjaan", "Membuat skema dan ide ide untuk konten yang dibutuhkan", "Menbuat konten harian dan konten yang dbutuhkan sewaktu-waktu", "Mengelola dan mengoptimasi sosial media (IG, FB, Tiktok, YT)", "Membuat laporan setiap akhir bulan"]
 kualifikasi: ["Laki-laki, beragama Islam, dan menjalankan salat 5 waktu.", "Pendidikan minimal SMP/sederajat.", "Belum menikah.", "Berdomisili di sekitar kantor (Kelurahan Perwira, Kota Bekasi).", "Mampu mengendarai kendaraan bermotor.", "Tidak sedang kuliah atau bekerja di tempat lain.", "Memiliki motivasi kerja dan kemauan belajar yang tinggi.", "Jujur, disiplin, bertanggung jawab, dan memiliki attitude yang baik.", "Tidak mudah mengeluh serta mampu bekerja secara individu maupun tim.", "Kreatif dan mampu mengembangkan ide konten.", "Percaya diri tampil di depan kamera maupun di tempat umum.", "Memiliki kemampuan copywriting untuk konten media sosial.", "Mampu menggunakan aplikasi Canva dan CapCut.", "Mampu mengambil gambar/video serta melakukan editing.", "Memahami tren media sosial, khususnya Instagram dan TikTok.", "Bersedia bekerja full-time, Senin–Sabtu, pukul 08.00–17.00 WI"]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>1. Gambaran Pekerjaan</strong></p>
 <p>Membuat skema dan ide ide untuk konten yang dibutuhkan</p>

@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Job Descriptions:"]
 tugas: ["Identify, approach, and secure strategic brand collaborations aligned with Brand.", "Manage the full partnership cycle—from pitching proposals, negotiating terms, and executing deliverables to post-activation reporting.", "Maintain and expand a strong portfolio of KOLs, media contacts, and brand partners.", "Lead planning and execution of event activations in collaboration with cross-functional teams.", "Prepare and present partnership proposals, reports, and case studies to management.", "Monitor industry trends, competitor activities, and partnership opportunities"]
 kualifikasi: ["Bachelor’s degree in Marketing, Business, Communications, or a related field.", "Minimum 2 years of experience in brand partnership, marketing, or activations.", "Proven track record of successful brand collaborations, KOL partnerships, and media campaigns. Experience in handling sponsorship deals and large-scale event activations.", "Strong public speaking, presentation, and negotiation skills.", "High initiative, proactive, and adaptable in both team and independent work environments.", "Fluent in English, fit to formal presentation level"]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>Job Descriptions:</strong></p>
 <ul>

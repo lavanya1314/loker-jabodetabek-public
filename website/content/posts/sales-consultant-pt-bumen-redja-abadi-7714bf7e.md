@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["🚨 WE ARE HIRING! 🚨", "DEALER RESMI MITSUBISHI – S
 tugas: []
 kualifikasi: ["Pendidikan minimal SMA/SMK sederajat.", "Usia maksimal 35 tahun.", "Memiliki kendaraan pribadi minimal sepeda motor.", "Diutamakan memiliki pengalaman sebagai Sales Mobil minimal 1 tahun.", "Memahami dan aktif menggunakan media sosial (Instagram, Facebook, TikTok, dan WhatsApp).", "Komunikatif, percaya diri, energik, dan berorientasi pada target.", "Memiliki kemauan belajar dan berkembang."]
 benefit: ["💰 Gaji", "💰 Bonus tanpa batas", "💰 Insentif menarik", "📈 Jenjang karier", "JADILAH BAGIAN DARI TIM KAMI!", "Kesempatan terbuka bagi Anda yang memiliki semangat tinggi, menyukai tantangan, dan ingin mendapatkan penghasilan tanpa batas.", "📲 Kirimkan CV/Lamaran Anda Sekarang!", "Dealer Resmi Mitsubishi Serpong"]
+terverifikasi: true
 ---
 <p>🚨 WE ARE HIRING! 🚨</p>
 <p><br/></p>

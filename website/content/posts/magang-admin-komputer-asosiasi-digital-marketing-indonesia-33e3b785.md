@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: []
 kualifikasi: ["Ada pengalaman Event Organizer manangani event acara resmi seminar/FGD", "Pendidikan minimal SMK D3/S1 diutamakan jurusan Administrasi, Manajemen, Ilmu Komunikasi, atau jurusan terkait.", "Memiliki pengalaman minimal 1 tahun di bidang administrasi, customer service, atau administrasi pelatihan.", "Menguasai Microsoft Office dan Google Workspace, khususnya Excel/Google Sheets.", "Terbiasa menggunakan Zoom sebagai host/co-host untuk pelaksanaan pelatihan online.", "Mampu mengelola administrasi pelatihan, data peserta, absensi, materi, dan sertifikat.", "Memiliki kemampuan komunikasi yang baik serta mampu melayani peserta melalui WhatsApp, email, dan telepon.", "Mampu berkoordinasi secara efektif dengan tim internal, trainer, dan peserta untuk memastikan pelaksanaan pelatihan berjalan lancar.", "Teliti, disiplin, mampu bekerja dengan target, serta memiliki manajemen waktu yang baik.", "Mampu bekerja secara individu maupun dalam tim.", "Berdomisili di Kota Tangerang", "Penempatan :", "Tangerang, Cipondoh", "Waktu kerja", "Senin - jumat : 08:30 - 17:00", "Sabtu : 08:30 - 12:00"]
 benefit: []
+terverifikasi: true
 ---
 <p>Kualifikasi:<br/>
 - memiliki laptop yang dapat digunakan dengan baik </p>

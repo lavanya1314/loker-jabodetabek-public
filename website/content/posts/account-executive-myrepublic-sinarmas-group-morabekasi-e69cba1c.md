@@ -3,10 +3,10 @@ title: "Account Executive MyRepublic (Sinarmas Group)"
 date: "2026-11-13T01:47:21.388143+00:00"
 tanggal_lowongan: "2026-11-13T01:42:02.488049+00:00"
 slug: "account-executive-myrepublic-sinarmas-group-morabekasi-e69cba1c"
-description: "Lowongan Account Executive MyRepublic (Sinarmas Group) di morabekasi"
-unik_hash: "e69cba1c9d652d68982a593a12891bc74bcf20f26ba01a73b17251cc82e2eb64"
+description: "Lowongan Account Executive MyRepublic (Sinarmas Group) di PT Ekamas Mora Republik Tbk"
+unik_hash: "2df2aa6b517d958f256cf8fa66ee154e15c0f462bc614e362a1148dfd23a1e61"
 kategori: "SMA/SMK"
-perusahaan: "morabekasi"
+perusahaan: "PT Ekamas Mora Republik Tbk"
 lokasi: "Bekasi, Jawa Barat"
 gaji: "Rp 2.900.000 - 4.350.000 / bulan"
 kredensial: "high school"
@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["PT.Ekamas Mora Republik Tbk Sedang membuka lowongan Accou
 tugas: ["Menawarkan layanan internet super cepat MyRepublic kepada calon pelanggan.", "Ikut kegiatan promosi lapangan, event, dan pameran.", "Menjelaskan promo dengan ramah, jelas dan meyakinkan.", "Support calon pelanggan dalam proses pendaftaran.", "Bekerja sama dengan tim untuk mencapai tujuan."]
 kualifikasi: ["Pria/Wanita.", "Pend. Minimal SMP", "Lulusan baru dengan semangat tinggi dipersilahkan melamar.", "Memiliki sepeda motor (Wajib).", "Mampu bekerja secara Tim, mobile dan lapangan.", "Mampu bekerja dalam lingkungan yang dinamis, dengan target dan tantangan yang beragam.", "Mendapatkan training langsung dari trainer professional dan pengalaman kerja praktis."]
 benefit: []
+terverifikasi: true
 ---
 <p>PT.Ekamas Mora Republik Tbk Sedang membuka lowongan Account Executive (MyRepublic) sebagai berikut,<br/>
 </p>

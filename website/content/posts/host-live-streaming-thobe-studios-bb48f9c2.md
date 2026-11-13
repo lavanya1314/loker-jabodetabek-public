@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Harap kirimkan Video Review Fashion Bebas Ketika mengirim
 tugas: ["Mempresentasikan dan mendemonstrasikan berbagai koleksi thobe kami secara live.", "Berinteraksi dengan audiens, menjawab pertanyaan, dan membangun komunitas.", "Mendorong penjualan melalui live streaming dan konten yang menarik dan informatif."]
 kualifikasi: ["Pria, berpenampilan menarik dan percaya diri di depan kamera.", "Komunikatif, persuasif, dan memiliki kemampuan public speaking yang baik.", "Memiliki pemahaman atau ketertarikan pada fashion muslim pria (nilai tambah).", "Pengalaman sebagai host live streaming (lebih disukai)."]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>Harap kirimkan Video Review Fashion Bebas Ketika mengirimkan lamaran, jika tidak mengirimkan video otomatis akan kami tertolak lamarannnya<br/>
 <br/>

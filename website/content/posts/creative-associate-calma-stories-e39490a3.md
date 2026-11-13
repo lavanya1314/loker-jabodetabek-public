@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Develop creative marketing ideas and content concepts", "Create engaging storytelling and written content across social media platforms", "Manage social media engagement and build relationships with the audience", "Coordinate content production with the content team", "Manage brand partnerships and collaborations"]
 kualifikasi: ["Have a strong visual taste and storytelling", "Excellent writing skills in both Bahasa and English", "At least 1 year of relevant experience is preferred", "Proactive, organized, and detail-oriented", "Able to work hybrid and willing to work on-site in Setiabudi, South Jakarta at least once on weekends"]
 benefit: []
+terverifikasi: true
 ---
 <p>Responsibilities:</p>
 <ul>

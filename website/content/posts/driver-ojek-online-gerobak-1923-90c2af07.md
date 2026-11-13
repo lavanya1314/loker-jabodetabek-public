@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Wajib memiliki motor sebagai kendaraan operasional", "Memiliki Attitude yang baik dan sopan", "Jaga Toko dan Jadi Driver Toko", "Melayani dan Mengantarkan Barang ke Customer Langsung", "Jam Kerja per shift 6 pagi - 3 sore / 3 sore - 12 malam / 9 malam - 6 pagi", "Merapikan Dan Menjaga Kebersihan Toko", "Gapok Rp. 1.500.000,- / bulan", "Tip per setiap kali Mengantar Barang Rp. 3.000,- / order", "Uang Harian + Makan Rp. 23.000,-", "Jatah Cuti 2x dalam sebulan dan dilarang keras cuti di hari weekend"]
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>- Wajib memiliki motor sebagai kendaraan operasional </p>
 <p>- Memiliki Attitude yang baik dan sopan</p>

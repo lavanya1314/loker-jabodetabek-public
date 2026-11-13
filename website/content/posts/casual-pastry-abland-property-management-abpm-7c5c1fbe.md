@@ -8,7 +8,7 @@ unik_hash: "7c5c1fbeab90466ee0faab90edc33720bf64eb6cf64376b8567f8ea94480728b"
 kategori: "SMA/SMK"
 perusahaan: "ABLAND PROPERTY MANAGEMENT (ABPM)"
 lokasi: "Tangerang, Banten"
-gaji: ""
+gaji: "Rp 960.000 / bulan"
 kredensial: "high school"
 url_sumber: "https://glints.com/id/opportunities/jobs/casual-pastry/5859ab11-264c-4b80-8380-c2a0b322c99e"
 logo_url: "/logos/casual-pastry-abland-property-management-abpm-7c5c1fbe.jpg"
@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["(URGENTLY NEEDED)", "Periode Kebutuhan: 17–20 November 
 tugas: ["Membantu kelancaran operasional dan aktivitas produksi pastry, bakery, maupun jajanan pasar selama kegiatan berlangsung.", "Menyiapkan, mengolah, dan melakukan finishing berbagai produk pastry, bakery, serta jajanan pasar sesuai arahan dan standar yang telah ditentukan.", "Melakukan persiapan bahan baku (mise en place), termasuk memastikan ketersediaan bahan dan perlengkapan yang dibutuhkan untuk produksi.", "Memastikan kualitas, kebersihan, rasa, serta tampilan produk sesuai dengan standar yang berlaku.", "Menjaga kebersihan dan kerapian area kerja, peralatan, serta perlengkapan produksi selama dan setelah kegiatan berlangsung.", "Membantu proses penyimpanan bahan baku dan produk jadi sesuai standar kebersihan dan keamanan pangan."]
 kualifikasi: ["Pendidikan minimal SMA/SMK sederajat, diutamakan dari jurusan Tata Boga atau memiliki pengalaman di bidang Pastry, Bakery, maupun pembuatan jajanan pasar.", "Memiliki pengetahuan dasar mengenai proses pengolahan dan penyajian produk pastry, bakery, serta jajanan tradisional menjadi nilai tambah.", "Bersedia bekerja secara casual pada tanggal 17–20 November 2026 di area Cikokol, Tangerang.", "Memahami dasar-dasar kebersihan dan keamanan pangan (food hygiene & safety).", "Memiliki sikap disiplin, jujur, bertanggung jawab, serta mampu bekerja dengan cepat dan teliti.", "Mampu bekerja sama dengan baik dalam tim serta memiliki kemampuan komunikasi yang baik.", "Berpenampilan rapi, sehat jasmani, dan memiliki orientasi terhadap kualitas produk dan pelayanan."]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>(URGENTLY NEEDED)</strong></p>
 <p><strong>Periode Kebutuhan:</strong> 17–20 November 2026 (dapat extend sesuai kebutuhan)</p>

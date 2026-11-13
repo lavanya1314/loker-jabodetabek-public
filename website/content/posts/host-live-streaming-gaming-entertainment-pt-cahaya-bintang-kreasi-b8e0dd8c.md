@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: []
 kualifikasi: ["​Wanita (Usia 18–27 Tahun)", "​Komunikatif, Percaya Diri, dan Interaktif (Mampu berinteraksi dengan penonton)", "​Mampu Mengoperasikan Komputer/PC", "​Disiplin, Kreatif, dan Memiliki Jadwal Fleksibel", "​Siap Bekerja Shift", "info mengenai Perusahan kami", "Kita perusahaan yang bergerak di bidang digital kreatif, Dengan lebih dari 10+ karyawan/Host live", "Berada di bidang Livestreaming Game di tiktok, nanti akan di ajarkan main gamenya, dan akan ada training juga", "hari kerja seminggu 6 kali, bebas pilih hari libur selain wekeend", "live / jam kerja sehari 7 jam, di bagi 2 sesi 4 jam dan 3 jam", "sistem skema gaji tergantung performa pendapatan bisa sampai 4.5jt -11jt + bonus + Bonus event & uang kerajinan dalam 1 bulan.", "tersedia mess dan fasilitas nya gratis", "Akun live dan fasilitas live di fasilitasi oleh pihak perusahaan.", "Contoh live tiktok ada di akun host kami, bisa dicari untuk username tiktoknya :", "beebiw77", "anniee403", "nalay66", "sofia.star99", "michiew6", "Jika tertarik langsung apply saja, Terimakasih.", "Lokasi Kantor Berada di Cilincing, Jakarta Utara."]
 benefit: []
+terverifikasi: true
 ---
 <p>PERSYARATAN:</p>
 <p>​Wanita (Usia 18–27 Tahun)</p>

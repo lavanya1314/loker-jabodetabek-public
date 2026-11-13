@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Mandarin speaker dapat prioritas", "会中文的人才优
 tugas: []
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Mandarin speaker dapat prioritas</p>
 <p>会中文的人才优先</p>

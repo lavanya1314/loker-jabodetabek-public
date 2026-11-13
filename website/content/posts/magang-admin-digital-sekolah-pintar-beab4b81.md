@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Sehubungan dengan adanya proyek pengembangan infrastruktu
 tugas: []
 kualifikasi: ["memiliki keahlian KOMUNIKASI", "Memiliki pengalaman ORGANISASI membuat event acara", "domisili cipondoh Tangerang", "Memiliki laptop pribadi dan mahir mengoperasikannya.", "Memiliki ketelitian yang tinggi (tidak asal dalam bekerja).", "Memiliki komitmen untuk menyelesaikan tugas dengan baik.", "Proaktif dan mau bertanya jika menemui kesulitan.", "Berpikir positif dan tidak mudah menyerah sebelum mencoba", "Teliti, disiplin, mampu belajar bekerja dengan target, serta memiliki manajemen waktu yang baik.", "Mampu bekerja secara individu maupun dalam tim.", "Berdomisili di Kota Tangerang", "kesempatan jika memiliki performa yang baik akan diperpanjang kontrak dan mendapat full gaji 2.1JT", "Penempatan :", "Tangerang, Cipondoh", "Waktu kerja", "Senin - jumat : 08:30 - 17:00", "Sabtu : 08:30 - 12:00"]
 benefit: []
+terverifikasi: true
 ---
 <p><br/></p>
 <p>Sehubungan dengan adanya proyek pengembangan infrastruktur digital di lingkungan perusahaan, kami bermaksud membuka kesempatan magang kerja bagi para fresh Graduate  yang saat ini belum bekerja.</p>

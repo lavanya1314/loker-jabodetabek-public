@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Deskripsi pekerjaan Kitchen Staff Aleesia Coffee and Kitc
 tugas: ["Mempunyai pengalaman menjadi di bidang terkait", "Mampu bekerja sama dengan tim", "Mampu bekerja di bawah tekanan dan target", "Jujur, disiplin, professional dan bertanggung jawab", "Sehat jasmani dan rohani", "kirim CV anda ke WAO878-8OO8-7627"]
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Deskripsi pekerjaan Kitchen Staff Aleesia Coffee and Kitchen</p>
 <p>1. Mempunyai pengalaman menjadi di bidang terkait </p>

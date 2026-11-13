@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Job Descriptions :"]
 tugas: ["Manage the end-to-end recruitment process including sourcing, screening, interviewing", "Handle administrative tasks related to recruitment process.", "Posted job vacancies on various platforms"]
 kualifikasi: ["Working Experience 1-2 years in recruitment, preferably in retail or related industries", "Proficient in using job portals such as Facebook and other sourcing tools.", "Excellent communication and interpersonal skills.", "Ability to work in a fast-paced, target-driven environment."]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>Job Descriptions :</strong></p>
 <ul>

@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Brand: Ayam Banyak Gaya", "Jobdesc Utama:"]
 tugas: ["Mencari, memantau, dan mengkurasi event (bazaar, CFD, festival kuliner, event kampus, kantor, mall, sekolah, dll) yang cocok untuk brand Ayam Banyak Gaya", "Menghubungi panitia / EO / pengelola event, menanyakan syarat, biaya booth, traffic pengunjung, dan fasilitas", "Membuat daftar rekomendasi event potesial", "Mengurus pendaftaran, administrasi, pembayaran booth, dan follow-up sampai H-1 event", "Koordinasi dengan tim produksi & operasional untuk persiapan booth, stok, dan jadwal jaga", "Membuat laporan hasil event: omzet, jumlah pengunjung, foto dokumentasi, dan evaluasi layak ikut lagi atau tidak"]
 kualifikasi: ["Wanita domisili Jakarta & sekitarnya", "Pendidikan min. SMA/SMK,", "Berpenampilan menarik dan memiliki kendaraan pribadi (nilai plus)", "Wajib aktif di media sosial dan paham dunia event / bazaar kuliner di Jabodetabek (nilai plus)", "Memiliki pengalaman sebagai admin", "Jago komunikasi, negosiasi, dan percaya diri", "Teliti, rapi dalam administrasi, dan terbiasa bikin rekap di Excel / Google Sheets / WhatsApp", "Bisa kerja dengan target & deadline, dan siap stand by asaat ada event", "Jujur, cekatan, dan punya inisiatif tinggi — tidak menunggu disuruh untuk cari event"]
 benefit: []
+terverifikasi: true
 ---
 <p>Brand: Ayam Banyak Gaya</p>
 <p><br/></p>

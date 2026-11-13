@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan", "Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan", "Memahami kebutuhan pelanggan dan menyarankan solusi keuangan yang sesuai", "Mencapai dan melampaui target penjualan individu dan tim yang ditetapkan", "Memberikan layanan pelanggan yang unggul dan menangani keberatan serta pertanyaan dengan profesional"]
 kualifikasi: ["Pengalaman minimal 1 tahun dalam penjualan telepon atau layanan pelanggan di sektor perbankan atau keuangan", "Kemampuan berkomunikasi yang sangat baik, baik secara lisan maupun tertulis", "Memiliki pengetahuan yang mendalam tentang produk dan layanan perbankan", "Berpikir kritis dan kemampuan pemecahan masalah yang baik", "Berorientasi pada target, ulet, dan beradaptasi dengan baik dalam lingkungan yang berubah cepat", "Mampu bekerja dalam tim", "Bersemangat, termotivasi diri, dan memiliki etos kerja yang kuat", "Jika Anda tertarik untuk bergabung dengan tim kami yang dinamis, silakan lamar sekarang"]
 benefit: ["Insentif", "Jenjang Karier menjadi karyawan Bank", "Trip dalam negeri dan luar negeri"]
+terverifikasi: true
 ---
 <p>1. Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan</p>
 <p>2. Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan</p>

@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Joint our team ~", "*Lowongan Kerja Nail, Eyelash & Waxin
 tugas: ["Gaji Pokok", "Uang Makan", "Komisi %", "Bonus Target", "Tip 100% Milik Pribadi", "THR ( min 1 tahun kerja )", "Kesempatan pengembangan karir", "Disediakan tempat Tinggal (Mes )", "Requirement:", "Memiliki pengalaman mani + pedi ( Russian ) min 6 bln - 1thn", "Pengalaman Eyelash & Wax min 1 tahun, bisa ketiganya lebih baik", "Ramah, Good Attitude, Jujur, Bertanggung Jawab", "Bersedia bekerja dengan sistem sift, termasuk weekend dan hari libur", "Kontrak kerja minimal 1thn", "Lokasi : Jl. Raya Boulevard Timur Blok ZC 1 Kav No.16, Kelapa", "Gading, Jakarta Utara"]
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Joint our team ~</p>
 <p>*Lowongan Kerja Nail, Eyelash &amp; Waxing*</p>

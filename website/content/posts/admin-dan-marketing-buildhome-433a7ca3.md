@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Melakukan pemasaran jasa konstruksi, pengawasan , dan desain", "Mencari serta mengembangkan peluang kerja sama dan calon klien.", "Menjalin komunikasi dan menjaga hubungan baik dengan klien.", "Melakukan follow-up calon klien dan penawaran proyek.", "Mengelola media sosial dan promosi perusahaan.", "Membuat konten promosi berupa foto, video, dan informasi proyek.", "Mengelola administrasi dan operasional kantor", "mengelola database klien , vendor dan proyek", "membuat invoice, penawaran harga , dan dokumen kontrak"]
 kualifikasi: ["Pendidikan minimal SMA/SMK sederajat.", "Menguasai Microsoft Office (Word dan Excel).", "Mampu mengelola administrasi dan dokumen dengan rapi.", "Memiliki kemampuan komunikasi, negosiasi, dan pelayanan pelanggan yang baik.", "Mampu menggunakan media sosial dan membuat konten promosi sederhana.", "Menguasai Canva atau aplikasi desain sederhana menjadi nilai tambah.", "Teliti, disiplin, jujur, proaktif, dan bertanggung jawab.", "Mampu bekerja secara mandiri maupun dalam tim.", "Memiliki ketertarikan atau pengalaman di bidang konstruksi, arsitektur, atau properti menjadi nilai tambah."]
 benefit: []
+terverifikasi: true
 ---
 <p>Deskripsi Pekerjaan</p>
 <p>1. Melakukan pemasaran jasa konstruksi, pengawasan , dan desain</p>

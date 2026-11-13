@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Kami membuka kesempatan bergabung"]
 tugas: []
 kualifikasi: ["✅ Pria", "✅ Usia 21 –25 tahun", "✅ Serius dalam bekerja", "✅ Amanah, jujur, bertanggungjawab", "✅ Wajib memiliki motor dan SIM C", "✅ Mampu bekerja dalam tim", "✅ Rajin, disiplin, dan memiliki kemauan belajar"]
 benefit: ["🏠 Asrama", "🍽️ Makan & Minum", "📶 WiFi", "📈 Kesempatan berkembang bersama tim", "Bagi yang siap bekerja dengan sungguh-sungguh dan ingin berkembang bersama kami, silakan kirim data diri dan CV.", "Kami mencari orang baik yang mau belajar, bertumbuh, dan bertanggung jawab bersama tim.", "💪🏻🚀"]
+terverifikasi: true
 ---
 <p>Kami membuka kesempatan bergabung</p>
 <p><br/></p>

@@ -316,6 +316,7 @@
 {{- $bidang := $p.Params.bidang | default "" -}}
 {{- $deskripsi := $p.Params.deskripsi_perusahaan | default "" -}}
 {{- $logo := $p.Params.logo_url | default "" -}}
+{{- $terverifikasi := $p.Params.terverifikasi | default false -}}
 {{- $pend := "" -}}
 {{- with $p.Params.kredensial -}}
   {{- if eq . "high school" }}{{ $pend = "Min. SMA / SMK" }}
@@ -333,7 +334,7 @@
 {{- if eq $inisial "" }}{{ $inisial = "?" }}{{ end -}}
 {{- $warna := index (slice "bg-primary-container text-on-primary-container" "bg-secondary text-on-secondary" "bg-tertiary text-on-tertiary" "bg-primary text-on-primary") (mod $i 4) -}}
 {{- $cari := lower (printf "%s %s %s %s %s" $p.Title $perusahaan $lokasi $bidang $tipe) -}}
-{{- $jobs = $jobs | append (dict "url" $p.RelPermalink "perusahaan" $perusahaan "posisi" $p.Title "inisial" $inisial "logo" $logo "lokasi" $lokasi "gaji" $gaji "pendidikan" $pend "tipe" $tipe "bidang" $bidang "deskripsi" $deskripsi "warna" $warna "terverifikasi" true) -}}
+{{- $jobs = $jobs | append (dict "url" $p.RelPermalink "perusahaan" $perusahaan "posisi" $p.Title "inisial" $inisial "logo" $logo "lokasi" $lokasi "gaji" $gaji "pendidikan" $pend "tipe" $tipe "bidang" $bidang "deskripsi" $deskripsi "warna" $warna "terverifikasi" $terverifikasi) -}}
 <article class="job-card group bg-surface-container-lowest rounded-xl p-3.5 shadow-sm border border-outline-variant/25 tap-smooth cursor-pointer relative" data-index="{{ $i }}" data-cari="{{ $cari }}" data-lokasi="{{ lower $lokasi }}" tabindex="0" aria-haspopup="dialog">
 <div class="flex items-start justify-between gap-2">
 <div class="flex items-center gap-2.5 min-w-0">
@@ -343,15 +344,17 @@
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-1 min-w-0">
 <span class="text-[12px] font-headline-sm text-on-surface-variant font-medium truncate">{{ $perusahaan }}</span>
-<span class="material-symbols-outlined text-primary text-[14px] flex-shrink-0" title="Terverifikasi" aria-hidden="true">verified</span>
+{{- if $terverifikasi }}<span class="material-symbols-outlined text-primary text-[14px] flex-shrink-0" title="Terverifikasi" aria-hidden="true">verified</span>{{ end -}}
 </div>
 <h2 class="text-[14px] font-headline-sm text-on-surface font-bold leading-snug mt-0.5">{{ $p.Title }}</h2>
 </div>
 </div>
+{{- if $terverifikasi }}
 <span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-headline-sm text-[10.5px] font-bold flex items-center gap-0.5 flex-shrink-0">
 <span class="material-symbols-outlined text-[12px]" aria-hidden="true">check_circle</span>
 Terverifikasi
 </span>
+{{- end }}
 </div>
 {{- if or $lokasi $pend $tipe }}
 <div class="flex flex-wrap gap-1.5 mt-2.5">

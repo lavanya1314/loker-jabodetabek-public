@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Memimpin fungsi Finance, Accounting, dan Tax.", "Menyusun laporan keuangan dan memastikan proses closing berjalan tepat waktu.", "Mengelola cash flow, budgeting, dan cost control.", "Memastikan kepatuhan perpajakan sesuai regulasi.", "Mengawasi AP, AR, GL, Fixed Asset, dan Cost Accounting.", "Berkoordinasi dengan auditor internal maupun eksternal.", "Memberikan analisis keuangan sebagai dasar pengambilan keputusan manajemen."]
 kualifikasi: ["S1 Akuntansi/Keuangan.", "Pengalaman minimal 5 tahun di Finance & Accounting, dengan pengalaman memimpin tim.", "Memahami PSAK, perpajakan, budgeting, cash flow, dan cost accounting.", "Menguasai Microsoft Excel dan ERP.", "Memiliki kemampuan analitis, kepemimpinan, dan komunikasi yang baik.", "Penempatan : Sentul- Bogor", "Bersedia ditempatkan di Sentul, Bogor."]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>Tanggung Jawab</strong></p>
 <ul>

@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Fashion Everyday adalah brand sepatu asal Indonesia yang 
 tugas: []
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Fashion Everyday adalah brand sepatu asal Indonesia yang berdiri sejak 2020 dan menghadirkan berbagai pilihan sepatu untuk kebutuhan sehari-hari dengan mengutamakan kenyamanan, desain modern, serta kualitas yang sesuai dengan harapan konsumen. Perusahaan ini telah berkembang melalui berbagai marketplace di Indonesia dan terus berkomitmen untuk memberikan produk serta pengalaman belanja terbaik bagi pelanggan. Kami sedang membuka kesempatan bagi kandidat berbakat untuk bergabung dalam tim kami sebagai Asisten HR di Jalan Bintara Raya 61, RT05/RW06, Kranji Kel., Bekasi Barat, Bekasi Kota, 17135, Indonesia, dengan tujuan memperkuat fungsi sumber daya manusia agar operasional perusahaan berjalan lebih efisien dan mendukung pertumbuhan bisnis yang berkelanjutan.</p>
 <p><br/></p>

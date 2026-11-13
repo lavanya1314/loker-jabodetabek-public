@@ -23,6 +23,7 @@ deskripsi_pekerjaan: []
 tugas: ["Staff Production Planning and Inventary Control (PPIC)", "Penempatan: Cikarang", "Menginput dan mengontrol stok bahan baku serta bahan penolong", "merekap data kedatangan dan pengeluaran material", "memastikan kedatangan material sesuai jadwal dan jumlah", "melakukan stock opname."]
 kualifikasi: ["Laki-Laki / Wanita", "Pendidikan min SMA/SMK sederajat", "Memahami sistem First In First Out (FIFO)", "memahami sistem pergudangan dan stok barang", "Menguasai Microsoft Office (Word, Excell, dll.)", "teliti", "lebih disukai berdomisili Cikrang dan Cibitung sekitarnya"]
 benefit: []
+terverifikasi: true
 ---
 <p><strong>Deskripsi Pekerjaan</strong></p>
 <p>Staff Production Planning and Inventary Control (PPIC)</p>

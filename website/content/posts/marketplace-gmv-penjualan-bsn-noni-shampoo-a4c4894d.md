@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["Kami perusahaan yang berlokasi di jakarta dan merupakan t
 tugas: ["Mengontrol SKU dengan : ROAS, Judul ( kata kunci ) dalam menghasilkan GMV penjualan", "Memenuhi target penjualan yg telah ditentukan", "Syarat2nya :", "Pengalaman dalam pemberian judul ( kata kunci ) untuk meningkatkan penjualan", "Pengalaman dalam pengaturan ROAS untuk meningkatkan penjualan", "Orientasi pada penjualan", ". lokasi tinggal di jakarta dan sekitarnya"]
 kualifikasi: []
 benefit: []
+terverifikasi: true
 ---
 <p>Kami perusahaan yang berlokasi di jakarta dan merupakan tangan pertama untuk produk perawatan rambut membutuhkan kandidat untuk dapat mengelola marketplace shopee. dan tokopedia</p>
 <p>Jobdes nya :</p>

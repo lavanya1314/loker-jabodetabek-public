@@ -23,6 +23,7 @@ deskripsi_pekerjaan: ["LOWONGAN KERJA – DOKTER GIGI", "Kami sedang membuka kes
 tugas: ["Melakukan pemeriksaan dan konsultasi kesehatan gigi dan mulut pasien.", "Memberikan diagnosis serta rencana perawatan sesuai kebutuhan pasien.", "Melakukan tindakan medis kedokteran gigi sesuai kompetensi.", "Memberikan edukasi dan konsultasi mengenai kesehatan gigi dan mulut.", "Membuat serta melengkapi rekam medis pasien.", "Menjaga kualitas pelayanan dan keselamatan pasien sesuai standar klinik."]
 kualifikasi: ["Pendidikan minimal S1 Kedokteran Gigi dan telah menyelesaikan program profesi Dokter Gigi.", "Memiliki STR Dokter Gigi yang masih berlaku.", "Memiliki SIP atau bersedia mengurus SIP sesuai ketentuan yang berlaku.", "Memiliki kemampuan komunikasi dan interpersonal yang baik.", "Ramah, teliti, jujur, disiplin, dan bertanggung jawab.", "Berorientasi pada pelayanan serta kenyamanan pasien.", "Mampu bekerja secara mandiri maupun dalam tim.", "Memiliki komitmen terhadap standar pelayanan dan etika profesi kedokteran gigi."]
 benefit: ["Lingkungan kerja yang nyaman dan profesional.", "Kesempatan mengembangkan kompetensi dan pengalaman.", "Tim kerja yang suportif"]
+terverifikasi: true
 ---
 <p>LOWONGAN KERJA – DOKTER GIGI</p>
 <p><br/></p>
