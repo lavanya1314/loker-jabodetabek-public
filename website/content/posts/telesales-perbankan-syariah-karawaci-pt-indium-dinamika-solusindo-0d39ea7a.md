@@ -15,6 +15,14 @@ logo_url: "/logos/telesales-perbankan-syariah-karawaci-pt-indium-dinamika-solusi
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/telesales-perbankan-syariah-karawaci/679b1d21-290d-433c-bf34-47284e550301"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Telecommunications"
+deskripsi_perusahaan: "INDIUM CONSULTING was established by passionate and experienced Professionals in Insurance and Financial Service, FMCG, services and hospitality industry to challenge in innovation, excellent service, regulation awareness and fierce competition."
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: ["Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan", "Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan", "Memahami kebutuhan pelanggan dan menyarankan solusi keuangan yang sesuai", "Mencapai dan melampaui target penjualan individu dan tim yang ditetapkan", "Memberikan layanan pelanggan yang unggul dan menangani keberatan serta pertanyaan dengan profesional"]
+kualifikasi: ["Pengalaman minimal 1 tahun dalam penjualan telepon atau layanan pelanggan di sektor perbankan atau keuangan", "Kemampuan berkomunikasi yang sangat baik, baik secara lisan maupun tertulis", "Memiliki pengetahuan yang mendalam tentang produk dan layanan perbankan", "Berpikir kritis dan kemampuan pemecahan masalah yang baik", "Berorientasi pada target, ulet, dan beradaptasi dengan baik dalam lingkungan yang berubah cepat", "Mampu bekerja dalam tim", "Bersemangat, termotivasi diri, dan memiliki etos kerja yang kuat", "Jika Anda tertarik untuk bergabung dengan tim kami yang dinamis, silakan lamar sekarang"]
+benefit: ["Insentif", "Jenjang Karier menjadi karyawan Bank", "Trip dalam negeri dan luar negeri"]
 ---
 <p>1. Melakukan telepon keluar secara proaktif untuk mempromosikan produk dan layanan perbankan kami kepada calon pelanggan</p>
 <p>2. Memberikan informasi yang akurat dan rinci tentang fitur, manfaat, dan persyaratan produk perbankan</p>

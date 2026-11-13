@@ -15,6 +15,14 @@ logo_url: "/logos/dokter-gigi-santoso-dental-care-01fd16ba.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/dokter-gigi/cc20c470-6ea4-4745-b79b-3e2b1bd57177"
 telegram_sent: false
+tipe_pekerjaan: "Paruh Waktu (Part Time)"
+bidang: "Medical Practice"
+deskripsi_perusahaan: ""
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: ["LOWONGAN KERJA – DOKTER GIGI", "Kami sedang membuka kesempatan bagi tenaga profesional untuk bergabung bersama tim klinik kami sebagai Dokter Gigi."]
+tugas: ["Melakukan pemeriksaan dan konsultasi kesehatan gigi dan mulut pasien.", "Memberikan diagnosis serta rencana perawatan sesuai kebutuhan pasien.", "Melakukan tindakan medis kedokteran gigi sesuai kompetensi.", "Memberikan edukasi dan konsultasi mengenai kesehatan gigi dan mulut.", "Membuat serta melengkapi rekam medis pasien.", "Menjaga kualitas pelayanan dan keselamatan pasien sesuai standar klinik."]
+kualifikasi: ["Pendidikan minimal S1 Kedokteran Gigi dan telah menyelesaikan program profesi Dokter Gigi.", "Memiliki STR Dokter Gigi yang masih berlaku.", "Memiliki SIP atau bersedia mengurus SIP sesuai ketentuan yang berlaku.", "Memiliki kemampuan komunikasi dan interpersonal yang baik.", "Ramah, teliti, jujur, disiplin, dan bertanggung jawab.", "Berorientasi pada pelayanan serta kenyamanan pasien.", "Mampu bekerja secara mandiri maupun dalam tim.", "Memiliki komitmen terhadap standar pelayanan dan etika profesi kedokteran gigi."]
+benefit: ["Lingkungan kerja yang nyaman dan profesional.", "Kesempatan mengembangkan kompetensi dan pengalaman.", "Tim kerja yang suportif"]
 ---
 <p>LOWONGAN KERJA – DOKTER GIGI</p>
 <p><br/></p>

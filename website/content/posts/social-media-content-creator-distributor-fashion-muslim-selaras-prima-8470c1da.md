@@ -15,6 +15,14 @@ logo_url: "/logos/social-media-content-creator-distributor-fashion-muslim-selara
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/social-media-content-creator-distributor-fashion-muslim/10a68b7b-584e-4162-b90f-fbe0f5a7fe83"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Apparel & Fashion"
+deskripsi_perusahaan: "Selaras Prima adalah sebuah usaha ritel yang berfokus pada distribusi dan penjualan produk fashion muslim, khususnya hijab dan busana muslimah dari berbagai merek ternama. Melalui akun Instagram @selarasprima, mereka memasarkan produk-produk dari brand seperti SS Hijab, Salvina, Myzta, Inayalesy, Mathla, SAZ Daily, Zabannia, Kamila Kids, Arumy, Kukasih, dan lainnya. Selain itu, Selaras Prima juga membuka kesempatan bagi individu yang ingin bergabung sebagai agen atau reseller, memberikan peluang bisnis bagi masyarakat yang tertarik dalam industri fashion muslim."
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: []
+tugas: ["Gambaran Pekerjaan", "Membuat skema dan ide ide untuk konten yang dibutuhkan", "Menbuat konten harian dan konten yang dbutuhkan sewaktu-waktu", "Mengelola dan mengoptimasi sosial media (IG, FB, Tiktok, YT)", "Membuat laporan setiap akhir bulan"]
+kualifikasi: ["Laki-laki, beragama Islam, dan menjalankan salat 5 waktu.", "Pendidikan minimal SMP/sederajat.", "Belum menikah.", "Berdomisili di sekitar kantor (Kelurahan Perwira, Kota Bekasi).", "Mampu mengendarai kendaraan bermotor.", "Tidak sedang kuliah atau bekerja di tempat lain.", "Memiliki motivasi kerja dan kemauan belajar yang tinggi.", "Jujur, disiplin, bertanggung jawab, dan memiliki attitude yang baik.", "Tidak mudah mengeluh serta mampu bekerja secara individu maupun tim.", "Kreatif dan mampu mengembangkan ide konten.", "Percaya diri tampil di depan kamera maupun di tempat umum.", "Memiliki kemampuan copywriting untuk konten media sosial.", "Mampu menggunakan aplikasi Canva dan CapCut.", "Mampu mengambil gambar/video serta melakukan editing.", "Memahami tren media sosial, khususnya Instagram dan TikTok.", "Bersedia bekerja full-time, Senin–Sabtu, pukul 08.00–17.00 WI"]
+benefit: []
 ---
 <p><strong>1. Gambaran Pekerjaan</strong></p>
 <p>Membuat skema dan ide ide untuk konten yang dibutuhkan</p>

@@ -15,6 +15,14 @@ logo_url: ""
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/spa-therapist/d2fc1df2-1b8f-49b2-8153-80b5652d4f38"
 telegram_sent: false
+tipe_pekerjaan: "Kontrak"
+bidang: "Arts and Crafts"
+deskripsi_perusahaan: ""
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: ["Joint our team ~", "*Lowongan Kerja Nail, Eyelash & Waxing*", "Benefit~", "*Take Home Pay 3-4jt +*"]
+tugas: ["Gaji Pokok", "Uang Makan", "Komisi %", "Bonus Target", "Tip 100% Milik Pribadi", "THR ( min 1 tahun kerja )", "Kesempatan pengembangan karir", "Disediakan tempat Tinggal (Mes )", "Requirement:", "Memiliki pengalaman mani + pedi ( Russian ) min 6 bln - 1thn", "Pengalaman Eyelash & Wax min 1 tahun, bisa ketiganya lebih baik", "Ramah, Good Attitude, Jujur, Bertanggung Jawab", "Bersedia bekerja dengan sistem sift, termasuk weekend dan hari libur", "Kontrak kerja minimal 1thn", "Lokasi : Jl. Raya Boulevard Timur Blok ZC 1 Kav No.16, Kelapa", "Gading, Jakarta Utara"]
+kualifikasi: []
+benefit: []
 ---
 <p>Joint our team ~</p>
 <p>*Lowongan Kerja Nail, Eyelash &amp; Waxing*</p>

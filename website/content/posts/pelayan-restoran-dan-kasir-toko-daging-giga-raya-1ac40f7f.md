@@ -15,6 +15,14 @@ logo_url: "/logos/pelayan-restoran-dan-kasir-toko-daging-giga-raya-1ac40f7f.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/pelayan-restoran-dan-kasir/a2f626c9-5c19-4f6b-a3d0-224ddfaabe29"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Food & Beverages"
+deskripsi_perusahaan: "Toko Daging Giga Raya adalah sebuah usaha atau grosir daging yang murah, halal dan berkualitas."
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: ["Kami membuka kesempatan bergabung"]
+tugas: []
+kualifikasi: ["✅ Pria", "✅ Usia 21 –25 tahun", "✅ Serius dalam bekerja", "✅ Amanah, jujur, bertanggungjawab", "✅ Wajib memiliki motor dan SIM C", "✅ Mampu bekerja dalam tim", "✅ Rajin, disiplin, dan memiliki kemauan belajar"]
+benefit: ["🏠 Asrama", "🍽️ Makan & Minum", "📶 WiFi", "📈 Kesempatan berkembang bersama tim", "Bagi yang siap bekerja dengan sungguh-sungguh dan ingin berkembang bersama kami, silakan kirim data diri dan CV.", "Kami mencari orang baik yang mau belajar, bertumbuh, dan bertanggung jawab bersama tim.", "💪🏻🚀"]
 ---
 <p>Kami membuka kesempatan bergabung</p>
 <p><br/></p>

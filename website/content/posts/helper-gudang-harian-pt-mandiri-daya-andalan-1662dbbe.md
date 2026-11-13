@@ -15,6 +15,14 @@ logo_url: "/logos/helper-gudang-harian-pt-mandiri-daya-andalan-1662dbbe.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/helper-gudang-harian/d10f1c50-d6ab-41d2-b7b5-0efb6ba2aa0d"
 telegram_sent: false
+tipe_pekerjaan: ""
+bidang: ""
+deskripsi_perusahaan: ""
+berlaku_sampai: ""
+deskripsi_pekerjaan: []
+tugas: ["Membantu tim gudang dalam proses operasional Gudang yang ditentukan.", "Mengikuti prosedur untuk keselamatan kerja dan kebersihan area kerja.", "Menjaga alat kerja tetap dalam kondisi baik dan siap pakai."]
+kualifikasi: ["Pria & Wanita", "Minimal pendidikan SMA/SMK", "bertanggung jawab, jujur dan disiplin", "Sehat jasmani dan Rohani"]
+benefit: ["97.900/hari", "BPJS BPU"]
 ---
 <p>Jobdesk:</p>
 <p>- Membantu  tim gudang dalam proses operasional Gudang yang ditentukan.</p>

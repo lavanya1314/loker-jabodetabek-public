@@ -15,6 +15,14 @@ logo_url: "/logos/project-lead-staffinc-affiliate-c60ea877.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/project-lead/4ec9ae05-2b1d-442d-911c-4c0c9b1427fc"
 telegram_sent: false
+tipe_pekerjaan: "Kontrak"
+bidang: "Outsourcing/Offshoring"
+deskripsi_perusahaan: "Staffinc (sebelumnya Sampingan) adalah perusahaan solusi ketenagakerjaan dan outsourcing berbasis teknologi di Indonesia yang didirikan pada 2018."
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: ["Karena keterbatasan akses kandidat pada platform, bagi yang berminat dapat langsung menghubungi WhatsApp berikut agar proses seleksi lebih cepat : (nol-delapan-lima-tujuh-dualima-60-57-73)"]
+tugas: ["Project Accountability: Bertanggung jawab penuh atas eksekusi proyek dan pelaporan langsung kepada Project Manager", "Strategic Planning: Menetapkan arah, prioritas, dan target proyek sesuai dengan kesepakatan bersama", "Primary PIC: Menjadi koordinator utama bagi seluruh pihak yang terlibat, baik internal maupun eksternal", "Decision Making: Mengambil keputusan strategis guna menjamin kelancaran pelaksanaan proyek di lapangan", "Risk Management: Melakukan mitigasi serta penyelesaian kendala dan risiko proyek secara proaktif", "Stakeholder Coordination: Mengelola sinergi tim dan para pemangku kepentingan untuk mencapai target yang ditentukan", "Quality & Timeline Control: Memastikan progres proyek selalu berjalan sesuai ruang lingkup (scope), jadwal, dan standar kualitas", "Reporting & Improvement: Menyusun laporan analisis progres serta menginisiasi perbaikan berkelanjutan secara berkala"]
+kualifikasi: ["Usia maksimal 35 tahun", "Pendidikan minimal D3 dari semua jurusan", "Memiliki pengalaman kerja minimal 1 tahun sebagai Project Manager, Supervisor, atau Manager (diutamakan berasal dari industri FMCG)", "Mahir mengoperasikan Microsoft Office / Google Workspace, khususnya pengunaan Excel dan PowerPoint (PPT) untuk pengolahan data", "Terbiasa dengan sistem pelaporan digital (digital reporting) dan manajemen data berbasis aplikasi", "Memiliki jiwa kepemimpinan yang kuat, kemampuan komunikasi persuasif, serta kemampuan analisis yang tajam", "Wajib memiliki SIM A atau SIM C yang masih aktif", "Wajib memiliki surat keterangan pengalaman kerja (paklaring) dari perusahaan sebelumnya"]
+benefit: []
 ---
 <p>Karena keterbatasan akses kandidat pada platform, bagi yang berminat dapat langsung menghubungi WhatsApp berikut agar proses seleksi lebih cepat : (nol-delapan-lima-tujuh-dualima-60-57-73) </p>
 <p><br/></p>

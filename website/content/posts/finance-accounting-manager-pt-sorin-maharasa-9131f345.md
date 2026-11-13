@@ -15,6 +15,14 @@ logo_url: "/logos/finance-accounting-manager-pt-sorin-maharasa-9131f345.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/finance-and-accounting-manager/e86c02dd-4454-409a-b4d5-0b94932a9597"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Restaurants"
+deskripsi_perusahaan: "Nama \"SORIN\" berasal dari \"Sosis Irene\", sebagai merek dagang dari PT. Sorin Maharasa. Tahun 2009 PT Sorin Maharasa membuka pabrik di wilayah Sentul, Bogor. Dengan produksi; Sosis, burger, nugget, bakso, rolade, smokey wings, mayonnaise, patties, mini pao"
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: ["Memimpin fungsi Finance, Accounting, dan Tax.", "Menyusun laporan keuangan dan memastikan proses closing berjalan tepat waktu.", "Mengelola cash flow, budgeting, dan cost control.", "Memastikan kepatuhan perpajakan sesuai regulasi.", "Mengawasi AP, AR, GL, Fixed Asset, dan Cost Accounting.", "Berkoordinasi dengan auditor internal maupun eksternal.", "Memberikan analisis keuangan sebagai dasar pengambilan keputusan manajemen."]
+kualifikasi: ["S1 Akuntansi/Keuangan.", "Pengalaman minimal 5 tahun di Finance & Accounting, dengan pengalaman memimpin tim.", "Memahami PSAK, perpajakan, budgeting, cash flow, dan cost accounting.", "Menguasai Microsoft Excel dan ERP.", "Memiliki kemampuan analitis, kepemimpinan, dan komunikasi yang baik.", "Penempatan : Sentul- Bogor", "Bersedia ditempatkan di Sentul, Bogor."]
+benefit: []
 ---
 <p><strong>Tanggung Jawab</strong></p>
 <ul>

@@ -15,6 +15,14 @@ logo_url: "/logos/hr-recruitment-talent-acquisition-pt-captain-asia-sukses-f3e10
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/hr-recruitment-talent-acquisition/2c887d8d-7eb8-4185-8970-c7df074618f1"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Retail"
+deskripsi_perusahaan: "Captain barbershop adalah tempat cukur rambut mewah terbesar di Indonesia. Sejak didirikan pada tahun 2015, Captain Barbershop telah berkembang menjadi 88 cabang di Jabodetabek, Surabaya, Medan, Karawang, dan Bandung"
+berlaku_sampai: "2026-12-05"
+deskripsi_pekerjaan: ["Job Descriptions :"]
+tugas: ["Manage the end-to-end recruitment process including sourcing, screening, interviewing", "Handle administrative tasks related to recruitment process.", "Posted job vacancies on various platforms"]
+kualifikasi: ["Working Experience 1-2 years in recruitment, preferably in retail or related industries", "Proficient in using job portals such as Facebook and other sourcing tools.", "Excellent communication and interpersonal skills.", "Ability to work in a fast-paced, target-driven environment."]
+benefit: []
 ---
 <p><strong>Job Descriptions :</strong></p>
 <ul>

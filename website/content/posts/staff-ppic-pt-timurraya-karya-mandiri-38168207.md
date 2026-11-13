@@ -15,6 +15,14 @@ logo_url: "/logos/staff-ppic-pt-timurraya-karya-mandiri-38168207.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/staff-ppic/cabfb2f6-7461-4fea-97fb-88c2d549b40a"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Oil & Energy"
+deskripsi_perusahaan: "PT Timurraya Karya Mandiri perusahaan yang bergerak di pembuatan Minyak Pelumas merek Deltalube. Perusahaan yang didirikan sejak Tahun 1996 dan telah dipasarkan di seluruh Indonesia."
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: ["Staff Production Planning and Inventary Control (PPIC)", "Penempatan: Cikarang", "Menginput dan mengontrol stok bahan baku serta bahan penolong", "merekap data kedatangan dan pengeluaran material", "memastikan kedatangan material sesuai jadwal dan jumlah", "melakukan stock opname."]
+kualifikasi: ["Laki-Laki / Wanita", "Pendidikan min SMA/SMK sederajat", "Memahami sistem First In First Out (FIFO)", "memahami sistem pergudangan dan stok barang", "Menguasai Microsoft Office (Word, Excell, dll.)", "teliti", "lebih disukai berdomisili Cikrang dan Cibitung sekitarnya"]
+benefit: []
 ---
 <p><strong>Deskripsi Pekerjaan</strong></p>
 <p>Staff Production Planning and Inventary Control (PPIC)</p>

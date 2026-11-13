@@ -15,6 +15,14 @@ logo_url: "/logos/security-guard-recruitment-center-sos-indonesia-95a02491.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/security-guard/095c8b5c-8f0c-4e8d-a4d3-7ab7bc6d42be"
 telegram_sent: true
+tipe_pekerjaan: ""
+bidang: ""
+deskripsi_perusahaan: ""
+berlaku_sampai: ""
+deskripsi_pekerjaan: []
+tugas: ["Persyaratan Umum", "Warga Negara Indonesia.", "Pria dengan tinggi badan minimal 168 cm / wanita minimal 160 cm.", "Berat badan proporsional.", "Sehat jasmani dan rohani, melampirkan Surat Keterangan Dokter, dan tidak buta warna.", "Berkelakuan baik, dibuktikan dengan Surat Keterangan Catatan Kepolisian (SKCK).", "Berpenampilan baik.", "Memiliki motivasi pribadi yang tinggi, dinamis, pekerja keras, dan inisiatif yang tinggi.", "Mampu berkomunikasi dengan baik.", "Memiliki tingkat emosional yang stabil.", "Pendidikan minimal SLTA / sederajat.", "Persyaratan Khusus", "Memiliki Gada Pratama & KTA", "Bebas dari penggunaan alkohol dan obat-obat terlarang, dibuktikan dengan Surat Keterangan Dokter.", "Tidak bertato.", "Tidak bertindik.", "Tidak menderita gangguan penyakit mata rabun jauh."]
+kualifikasi: []
+benefit: ["Gaji kompetitif.", "BPJS Kesehatan & Ketenagakerjaan.", "Cara Melamar", "Kirimkan CV, Sertifikat AVSEC, serta dokumen pendukung lainnya melalui email dengan subject sesuai format yang telah ditentukan.", "Dokumen Pendukung", "CV terbaru.", "SKCK.", "Surat Keterangan Dokter.", "Ijazah terakhir.", "Gada Pratama & KTA", "Silahkan mengisi formulir pelamar di link ini:", "Walkinterview :Senin s/d Jumat Jam 09:00 s/d 11:00 wib", "Jl. Margasatwa No. 45,RT.2/RW.6, Cilandak Timur, Kec. Jagakarsa, Jakarta, Daerah Khusus Ibukota Jakarta 12620", "(pada saat interview membawa alat tulis dan lamaran lengkap)"]
 ---
 <p>1. Persyaratan Umum</p>
 <p>•	Warga Negara Indonesia.</p>

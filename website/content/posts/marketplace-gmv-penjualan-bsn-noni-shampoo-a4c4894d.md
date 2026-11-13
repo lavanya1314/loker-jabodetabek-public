@@ -15,6 +15,14 @@ logo_url: "/logos/marketplace-gmv-penjualan-bsn-noni-shampoo-a4c4894d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/marketplace-gmv-penjualan/b29a98b2-ab49-4380-98fa-c430b56ab1a8"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Cosmetics"
+deskripsi_perusahaan: ""
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: ["Kami perusahaan yang berlokasi di jakarta dan merupakan tangan pertama untuk produk perawatan rambut membutuhkan kandidat untuk dapat mengelola marketplace shopee. dan tokopedia", "Jobdes nya :"]
+tugas: ["Mengontrol SKU dengan : ROAS, Judul ( kata kunci ) dalam menghasilkan GMV penjualan", "Memenuhi target penjualan yg telah ditentukan", "Syarat2nya :", "Pengalaman dalam pemberian judul ( kata kunci ) untuk meningkatkan penjualan", "Pengalaman dalam pengaturan ROAS untuk meningkatkan penjualan", "Orientasi pada penjualan", ". lokasi tinggal di jakarta dan sekitarnya"]
+kualifikasi: []
+benefit: []
 ---
 <p>Kami perusahaan yang berlokasi di jakarta dan merupakan tangan pertama untuk produk perawatan rambut membutuhkan kandidat untuk dapat mengelola marketplace shopee. dan tokopedia</p>
 <p>Jobdes nya :</p>

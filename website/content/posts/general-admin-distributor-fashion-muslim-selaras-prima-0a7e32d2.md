@@ -15,6 +15,14 @@ logo_url: "/logos/general-admin-distributor-fashion-muslim-selaras-prima-0a7e32d
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/general-admin-distributor-fashion-muslim/bad3c9cf-32e6-4b09-938b-57a4cf43f276"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Apparel & Fashion"
+deskripsi_perusahaan: "Selaras Prima adalah sebuah usaha ritel yang berfokus pada distribusi dan penjualan produk fashion muslim, khususnya hijab dan busana muslimah dari berbagai merek ternama. Melalui akun Instagram @selarasprima, mereka memasarkan produk-produk dari brand seperti SS Hijab, Salvina, Myzta, Inayalesy, Mathla, SAZ Daily, Zabannia, Kamila Kids, Arumy, Kukasih, dan lainnya. Selain itu, Selaras Prima juga membuka kesempatan bagi individu yang ingin bergabung sebagai agen atau reseller, memberikan peluang bisnis bagi masyarakat yang tertarik dalam industri fashion muslim."
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: []
+tugas: ["Gambaran Pekerjaan", "General Admin merupakan tenaga administrasi umum yang bertugas membantu berbagai divisi di Selaras Prima, terutama ketika terdapat peningkatan volume pekerjaan atau kebutuhan bantuan operasional.", "Jadi, penempatan dan tugasnya bisa menyesuaikan kebutuhan perusahaan. Tidak terpaku pada satu divisi atau satu jenis pekerjaan saja."]
+kualifikasi: ["Laki-laki, beragama Islam, dan menjalankan salat 5 waktu.", "Pendidikan minimal SMP/sederajat.", "Belum menikah.", "Berdomisili di sekitar lokasi kantor (Kelurahan Perwira, Kota Bekasi).", "Mampu mengendarai kendaraan bermotor.", "Memiliki kemauan belajar dan motivasi kerja yang tinggi.", "Bersedia bekerja secara fleksibel sesuai kebutuhan operasional perusahaan.", "Jujur, disiplin, teliti, cekatan, dan bertanggung jawab.", "Memiliki kemampuan komunikasi yang baik serta mampu bekerja secara individu maupun dalam tim.", "Memiliki inisiatif, mampu mengatur prioritas, dan menangani beberapa pekerjaan secara efektif.", "Cepat belajar, mudah beradaptasi, serta selalu mengikuti perkembangan teknologi.", "Mampu mengoperasikan Microsoft Excel, Google Sheets (Spreadsheet), Microsoft Word, dan Canva dasar.", "Terbiasa menggunakan komputer/laptop, internet, serta aplikasi administrasi digital.", "Mampu melakukan input dan pengolahan data serta menyusun dokumen administrasi dengan rapi.", "Bersedia membantu berbagai divisi sesuai kebutuhan operasional perusahaan.", "Tidak sedang kuliah atau bekerja di tempat lain.", "Bersedia bekerja full-time, Senin–Sabtu, pukul 08.00–17.00 WIB."]
+benefit: []
 ---
 <p><strong>1. Gambaran Pekerjaan</strong></p>
 <p>General Admin merupakan tenaga administrasi umum yang bertugas membantu berbagai divisi di Selaras Prima, terutama ketika terdapat peningkatan volume pekerjaan atau kebutuhan bantuan operasional.</p>

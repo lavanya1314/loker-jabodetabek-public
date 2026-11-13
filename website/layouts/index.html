@@ -1,248 +1,750 @@
-{{ define "main" }}
-{{ $posts := where site.RegularPages "Section" "posts" }}
-<main id="konten" class="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-4 px-4 py-4 md:gap-6 md:px-6 md:py-8">
-
-  <section aria-label="Pencarian dan filter" class="flex flex-col gap-3 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3 shadow-sm md:gap-4 md:rounded-2xl md:p-6">
-    <div role="search" class="flex items-center gap-2">
-      <label class="flex h-11 min-w-0 flex-1 items-center gap-2 rounded-lg border border-outline-variant/40 bg-surface-container-low px-3 transition-colors focus-within:border-primary focus-within:bg-white">
-        <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">search</span>
-        <span class="sr-only">Cari lowongan</span>
-        <input id="jobSearchInput" type="search" autocomplete="off" placeholder="Posisi, perusahaan, atau wilayah" class="min-w-0 flex-1 border-0 bg-transparent p-0 text-base text-on-surface placeholder:text-on-surface-variant focus:ring-0 md:text-[14px]"/>
-      </label>
-      <button id="searchTriggerBtn" type="button" class="tap-smooth inline-flex h-11 flex-shrink-0 items-center rounded-lg bg-primary px-4 font-headline text-[13px] font-bold text-on-primary shadow-sm hover:bg-primary-hover">Cari</button>
-    </div>
-
-    <div class="flex flex-col gap-1.5">
-      <p class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Wilayah</p>
-      <div role="group" aria-label="Filter wilayah" class="scroll-x-hide -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-        <button type="button" data-filter-wilayah="" aria-pressed="true" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-primary bg-primary px-3.5 text-[12px] font-semibold text-on-primary transition-colors md:text-[13px]">Semua Jabodetabek</button>
-        {{ range slice "Jakarta Pusat" "Jakarta Utara" "Jakarta Barat" "Jakarta Selatan" "Jakarta Timur" "Bogor" "Depok" "Tangerang" "Tangerang Selatan" "Bekasi" }}
-        <button type="button" data-filter-wilayah="{{ . }}" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">{{ . }}</button>
-        {{ end }}
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-1.5">
-      <p class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Pendidikan</p>
-      <div role="group" aria-label="Filter pendidikan" class="scroll-x-hide -mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-        <button type="button" data-filter-kategori="" aria-pressed="true" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-primary bg-primary px-3.5 text-[12px] font-semibold text-on-primary transition-colors md:text-[13px]">Semua</button>
-        <button type="button" data-filter-kategori="SMA/SMK" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">SMA / SMK</button>
-        <button type="button" data-filter-kategori="D1-S3" aria-pressed="false" class="inline-flex h-10 flex-shrink-0 items-center whitespace-nowrap rounded-full border border-outline-variant/40 bg-surface-container-low px-3.5 text-[12px] font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high md:text-[13px]">D1 sampai S3</button>
-      </div>
-    </div>
-
-    <p id="jumlahHasil" aria-live="polite" class="text-[12px] text-on-surface-variant"></p>
-  </section>
-
-  <aside aria-label="Tempat iklan" class="flex min-h-[50px] items-center justify-center rounded-lg border border-dashed border-outline-variant bg-surface-container-low text-[12px] font-semibold uppercase tracking-wider text-on-surface-variant">
-    Tempat Iklan 320×50
-  </aside>
-
-  {{ with site.Data.berita }}{{ if or .indonesia .internasional }}
-  <section aria-label="Berita hari ini" class="flex flex-col gap-2">
-    <div class="flex items-end justify-between gap-2">
-      <h2 class="font-headline text-[15px] font-bold text-on-surface md:text-[17px]">Berita Hari Ini</h2>
-      <span class="text-[11px] text-on-surface-variant">Geser ke samping</span>
-    </div>
-    <div tabindex="0" role="region" aria-label="Daftar berita" class="scroll-x-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:-mx-6 md:px-6">
-      {{ range .indonesia }}
-      <article class="flex min-w-[80%] snap-start flex-col gap-2 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm sm:min-w-[45%] md:min-w-[calc((100%-2.5rem)/3)]">
-        <span class="w-fit rounded bg-secondary-container px-2 py-0.5 text-[10px] font-bold text-on-secondary-container">Indonesia · {{ .sumber }}</span>
-        <a href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow" class="line-clamp-3 font-headline text-[13px] font-bold leading-snug text-on-surface md:text-[14px]">{{ .judul }}</a>
-        {{ with .ringkas }}<p class="line-clamp-3 text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</p>{{ end }}
-        {{ with .terbit }}<span class="mt-auto text-[11px] text-on-surface-variant">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-      </article>
-      {{ end }}
-      {{ range .internasional }}
-      <article class="flex min-w-[80%] snap-start flex-col gap-2 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm sm:min-w-[45%] md:min-w-[calc((100%-2.5rem)/3)]">
-        <span class="w-fit rounded bg-surface-container px-2 py-0.5 text-[10px] font-bold text-on-surface-variant">Internasional · {{ .sumber }}</span>
-        <a href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow" class="line-clamp-3 font-headline text-[13px] font-bold leading-snug text-on-surface md:text-[14px]">{{ .judul }}</a>
-        {{ with .ringkas }}<p class="line-clamp-3 text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</p>{{ end }}
-        {{ with .terbit }}<span class="mt-auto text-[11px] text-on-surface-variant">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-      </article>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}{{ end }}
-
-  <section class="flex flex-col gap-2 pt-1 md:flex-row md:items-end md:justify-between md:gap-3 md:pt-2">
-    <div class="min-w-0">
-      <h1 class="font-headline text-[18px] font-extrabold tracking-tight text-on-surface md:text-[22px]">Lowongan Kerja Terbaru</h1>
-      <p class="mt-0.5 text-[12px] leading-snug text-on-surface-variant md:text-[13px]">Pilihan karier resmi dan tervalidasi di wilayah Jabodetabek</p>
-    </div>
-    <span class="inline-flex w-fit flex-shrink-0 items-center gap-1.5 rounded-full bg-secondary-container/90 px-3 py-1 text-on-secondary-container">
-      <span class="material-symbols-outlined material-symbols-fill text-[15px] text-primary" aria-hidden="true">verified</span>
-      <span class="text-[11px] font-bold md:text-[12px]">100% Bebas Pungutan</span>
-    </span>
-  </section>
-
-  {{ if $posts }}
-  <section id="jobCardsContainer" class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-5">
-    {{ range $posts.ByDate.Reverse }}
-    {{ $perusahaan := .Params.perusahaan | default "Perusahaan tidak disebutkan" }}
-    {{ $lokasi := .Params.lokasi | default "" }}
-    {{ $kategori := .Params.kategori | default "" }}
-    {{ $gaji := .Params.gaji | default "Gaji Dirahasiakan" }}
-    <a href="{{ .Permalink }}" class="job-card group flex flex-col gap-3 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-3.5 shadow-sm transition-all duration-200 hover:border-primary/40 hover:shadow-md md:rounded-2xl md:p-5" data-cari="{{ lower (printf "%s %s %s %s" .Title $perusahaan $lokasi $kategori) }}" data-lokasi="{{ lower $lokasi }}" data-kategori="{{ $kategori }}">
-      <div class="flex items-start gap-3">
-        <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-surface-container md:h-12 md:w-12">
-          {{ with .Params.logo_url }}
-          <img src="{{ . | relURL }}" alt="Logo {{ $perusahaan }}" class="h-full w-full object-cover" loading="lazy" width="48" height="48"/>
-          {{ else }}
-          <img src="{{ "images/logo-placeholder.svg" | relURL }}" alt="" class="h-full w-full object-cover" width="48" height="48"/>
-          {{ end }}
-        </span>
-        <span class="flex min-w-0 flex-1 flex-col">
-          <span class="break-words text-[12px] font-bold leading-snug text-on-surface md:text-[13px]">{{ $perusahaan }}</span>
-          <span class="mt-0.5 line-clamp-2 font-headline text-[14px] font-bold leading-snug text-on-surface transition-colors group-hover:text-primary md:text-[16px]">{{ .Title }}</span>
-        </span>
-        <span class="inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-primary-fixed px-2 py-0.5 text-[10px] font-bold text-on-primary-fixed md:px-2.5 md:py-1 md:text-[11px]">
-          <span class="material-symbols-outlined material-symbols-fill text-[12px]" aria-hidden="true">check_circle</span>
-          Valid
-        </span>
-      </div>
-
-      {{ if or $lokasi $kategori }}
-      <div class="flex flex-wrap gap-1.5">
-        {{ with $lokasi }}
-        <span class="inline-flex items-center gap-1 rounded-md bg-surface-container-low px-2 py-1 text-[11px] font-medium text-on-surface-variant md:text-[12px]">
-          <span class="material-symbols-outlined text-[14px] text-outline" aria-hidden="true">location_on</span>{{ . }}
-        </span>
-        {{ end }}
-        {{ with $kategori }}
-        <span class="inline-flex items-center rounded-md bg-surface-container-low px-2 py-1 text-[11px] font-semibold text-on-surface-variant md:text-[12px]">{{ . }}</span>
-        {{ end }}
-      </div>
-      {{ end }}
-
-      <div class="flex items-center justify-between gap-3 border-t border-surface-container pt-3">
-        <div class="flex min-w-0 flex-col">
-          <span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Gaji</span>
-          <span class="font-headline text-[11px] font-bold leading-snug text-primary md:text-[12px]">{{ $gaji }}</span>
-        </div>
-        <span class="inline-flex h-10 flex-shrink-0 items-center gap-1 rounded-lg bg-primary px-3.5 font-headline text-[13px] font-bold text-on-primary shadow-sm transition-colors group-hover:bg-primary-hover">
-          Detail
-          <span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true">arrow_forward</span>
-        </span>
-      </div>
-    </a>
-    {{ end }}
-  </section>
-
-  <nav id="halamanNav" aria-label="Halaman lowongan" class="hidden flex-col items-center gap-2 pt-1 md:flex-row md:justify-center md:gap-4">
-    <div class="flex w-full items-center justify-between gap-3 md:w-auto md:justify-center">
-      <button id="halamanPrev" type="button" class="tap-smooth inline-flex h-11 min-w-[104px] items-center justify-center gap-1 rounded-lg border border-outline-variant/40 bg-surface-container-lowest px-3 font-headline text-[13px] font-bold text-on-surface hover:bg-surface-container disabled:cursor-not-allowed disabled:opacity-40">
-        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_left</span>Sebelumnya
-      </button>
-      <span id="halamanInfo" class="text-[12px] font-semibold text-on-surface-variant" aria-live="polite"></span>
-      <button id="halamanNext" type="button" class="tap-smooth inline-flex h-11 min-w-[104px] items-center justify-center gap-1 rounded-lg bg-primary px-3 font-headline text-[13px] font-bold text-on-primary shadow-sm hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-40">
-        Berikutnya<span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
-      </button>
-    </div>
-  </nav>
-
-  <section id="hasilKosong" class="hidden rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-center">
-    <p class="font-headline text-[14px] font-bold text-on-surface">Tidak ada lowongan yang cocok</p>
-    <p class="mt-1 text-[13px] text-on-surface-variant">Coba kata kunci lain, atau pilih "Semua Jabodetabek" dan "Semua" pada filter.</p>
-  </section>
-  {{ else }}
-  <section class="rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-[14px] text-on-surface-variant">
-    Belum ada lowongan yang tayang. Halaman ini diperbarui setiap hari.
-  </section>
-  {{ end }}
-
-  <section class="flex items-start gap-3 rounded-xl border border-outline-variant/30 bg-surface-container-low p-4 md:gap-4 md:rounded-2xl md:p-5">
-    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container md:h-11 md:w-11" aria-hidden="true">
-      <span class="material-symbols-outlined text-[20px] md:text-[22px]">shield</span>
-    </span>
-    <div class="flex min-w-0 flex-col">
-      <h2 class="font-headline text-[14px] font-bold text-on-surface md:text-[15px]">Pusat Bantuan &amp; Pengaduan Loker</h2>
-      <p class="mt-0.5 text-[12px] leading-relaxed text-on-surface-variant md:text-[13px]">Proses seleksi lowongan di Jabodetabek tidak memungut biaya tes, formulir, atau seragam. Laporkan kejanggalan lewat channel Telegram kami.</p>
-    </div>
-  </section>
-</main>
-
-<script>
-  (function () {
-    var kartu = Array.prototype.slice.call(document.querySelectorAll('.job-card'));
-    var input = document.getElementById('jobSearchInput');
-    var tombolCari = document.getElementById('searchTriggerBtn');
-    var jumlah = document.getElementById('jumlahHasil');
-    var kosong = document.getElementById('hasilKosong');
-    var chipWilayah = Array.prototype.slice.call(document.querySelectorAll('[data-filter-wilayah]'));
-    var chipKategori = Array.prototype.slice.call(document.querySelectorAll('[data-filter-kategori]'));
-    var AKTIF = ['bg-primary', 'text-on-primary', 'border-primary'];
-    var NONAKTIF = ['bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/40'];
-    var filter = { wilayah: '', kategori: '' };
-
-    function tandai(chip, aktif) {
-      chip.setAttribute('aria-pressed', aktif ? 'true' : 'false');
-      AKTIF.forEach(function (c) { chip.classList.toggle(c, aktif); });
-      NONAKTIF.forEach(function (c) { chip.classList.toggle(c, !aktif); });
-    }
-    function pilih(grup, chip) {
-      grup.forEach(function (c) { tandai(c, c === chip); });
-    }
-    var halamanNav = document.getElementById('halamanNav');
-    var halaman = 1;
-    var desktopMq = window.matchMedia('(min-width: 768px)');
-
-    function perHalaman() { return desktopMq.matches ? 10 : 7; }
-
-    function gambarHalaman(cocokList) {
-      var ukuran = perHalaman();
-      var total = Math.max(1, Math.ceil(cocokList.length / ukuran));
-      if (halaman > total) halaman = total;
-      var awal = (halaman - 1) * ukuran;
-      kartu.forEach(function (k) { k.classList.add('hidden'); });
-      cocokList.slice(awal, awal + ukuran).forEach(function (k) { k.classList.remove('hidden'); });
-      if (halamanNav) {
-        halamanNav.classList.toggle('hidden', cocokList.length <= ukuran);
-        var info = document.getElementById('halamanInfo');
-        if (info) info.textContent = 'Halaman ' + halaman + ' dari ' + total;
-        var prev = document.getElementById('halamanPrev');
-        var next = document.getElementById('halamanNext');
-        if (prev) prev.disabled = halaman <= 1;
-        if (next) next.disabled = halaman >= total;
+<!DOCTYPE html>
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $list := $posts.ByDate.Reverse -}}
+{{- $jobs := slice -}}
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>{{ site.Title }} - Portal Lowongan Kerja Terpercaya</title>
+<meta name="description" content="{{ site.Params.siteDesc }}"/>
+<link rel="canonical" href="{{ .Permalink }}"/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{ site.Title }} - Portal Lowongan Kerja Terpercaya"/>
+<meta property="og:description" content="{{ site.Params.siteDesc }}"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:locale" content="id_ID"/>
+<meta name="theme-color" content="#066a4c"/>
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#283044",
+            "primary": "#006948",
+            "primary-hover": "#00553a",
+            "surface-container-low": "#f2f3ff",
+            "background": "#faf8ff",
+            "on-surface-variant": "#3d4a42",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#dae2fd",
+            "secondary-fixed": "#9cf2e8",
+            "surface-tint": "#006c4a",
+            "inverse-primary": "#68dba9",
+            "tertiary-container": "#00855b",
+            "secondary-fixed-dim": "#80d5cb",
+            "primary-fixed-dim": "#68dba9",
+            "tertiary": "#006947",
+            "surface-bright": "#faf8ff",
+            "outline": "#6d7a72",
+            "secondary-container": "#99efe5",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#002114",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#ffffff",
+            "surface-container": "#eaedff",
+            "surface-container-high": "#e2e7ff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#00504a",
+            "on-error": "#ffffff",
+            "secondary": "#006a63",
+            "on-background": "#131b2e",
+            "error-container": "#ffdad6",
+            "surface-variant": "#dae2fd",
+            "on-secondary-container": "#006f67",
+            "on-primary-fixed-variant": "#005137",
+            "on-secondary-fixed": "#00201d",
+            "primary-fixed": "#85f8c4",
+            "on-primary-container": "#f5fff7",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface": "#faf8ff",
+            "outline-variant": "#bccac0",
+            "surface-dim": "#d2d9f4",
+            "primary-container": "#00855d",
+            "inverse-on-surface": "#eef0ff",
+            "on-surface": "#131b2e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-sm": "1rem",
+            "margin-lg": "3rem",
+            "margin": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter-lg": "2rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "label-lg": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #faf8ff;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
       }
     }
-
-    function terapkan(reset) {
-      if (reset !== false) halaman = 1;
-      var kata = input ? input.value.trim().toLowerCase() : '';
-      var cocokList = kartu.filter(function (k) {
-        return (!kata || k.getAttribute('data-cari').indexOf(kata) !== -1)
-          && (!filter.wilayah || k.getAttribute('data-lokasi').indexOf(filter.wilayah) !== -1)
-          && (!filter.kategori || k.getAttribute('data-kategori') === filter.kategori);
-      });
-      gambarHalaman(cocokList);
-      if (jumlah) jumlah.textContent = cocokList.length + ' lowongan ditemukan';
-      if (kosong) kosong.classList.toggle('hidden', !(kartu.length > 0 && cocokList.length === 0));
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-bold {
+      font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 200, 'opsz' 24 !important;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24 !important;
+    }
+    .tap-smooth {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tap-smooth:active {
+      transform: scale(0.97);
+    }
+    .modal-backdrop {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;margin:0;clip:auto;z-index:60;background:#006948;color:#fff;padding:8px 12px;border-radius:8px}
+    :focus-visible{outline:2px solid #006948;outline-offset:2px}
+    [hidden]{display:none !important}
 
-    var prevBtn = document.getElementById('halamanPrev');
-    var nextBtn = document.getElementById('halamanNext');
-    if (prevBtn) prevBtn.addEventListener('click', function () { halaman--; terapkan(false); window.scrollTo({ top: 0, behavior: 'auto' }); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { halaman++; terapkan(false); window.scrollTo({ top: 0, behavior: 'auto' }); });
-    desktopMq.addEventListener('change', function () { terapkan(false); });
-
-    chipWilayah.forEach(function (c) {
-      c.addEventListener('click', function () {
-        filter.wilayah = (c.getAttribute('data-filter-wilayah') || '').toLowerCase();
-        pilih(chipWilayah, c);
-        terapkan();
-      });
-    });
-    chipKategori.forEach(function (c) {
-      c.addEventListener('click', function () {
-        filter.kategori = c.getAttribute('data-filter-kategori') || '';
-        pilih(chipKategori, c);
-        terapkan();
-      });
-    });
-    if (input) input.addEventListener('input', terapkan);
-    if (tombolCari) tombolCari.addEventListener('click', terapkan);
-    terapkan();
-  })();
-</script>
+    :root{--g-900:#044c36;--g-700:#066a4c;--g-600:#087f5b;--g-100:#dff3ea;--g-50:#f0f9f5}
+    .btn-detail{background:linear-gradient(135deg,#087f5b,#066a4c);box-shadow:0 3px 8px rgba(6,106,76,.25);transition:transform .2s,box-shadow .2s,filter .2s}
+    .btn-detail:hover{box-shadow:0 5px 12px rgba(6,106,76,.32);filter:brightness(1.06)}
+    .btn-detail .material-symbols-outlined{transition:transform .2s}
+    .btn-detail:hover .material-symbols-outlined{transform:translateX(3px)}
+    @media (min-width:1024px){
+      header > div{max-width:1100px;margin:0 auto}
+      main > div{max-width:1100px;margin:0 auto}
+      .news-slide{flex-basis:calc(50% - 6px)}
+      #jobCardsContainer{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      #jobCardsContainer .ad-slot{grid-column:1/-1}
+      .job-card{transition:transform .2s,box-shadow .2s}
+      .job-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,31,26,.08)}
+    }
+    .news-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-x:contain}
+    .news-slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always}
+    .news-slide:hover .news-title{color:#006948}
+    .news-dot{width:6px;height:6px;border-radius:99px;background:#bccac0;transition:width .25s,background .25s}
+    .news-dot.on{width:18px;background:#006948}
+    .news-nav{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#fff;border:1px solid rgba(188,202,192,.5);color:#006948;transition:background .2s,transform .2s}
+    .news-nav:hover{background:#f0f9f5}.news-nav:active{transform:scale(.93)}
+    @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+    .nudge{animation:nudge 1.4s ease-in-out 3}
+    .ad-slot{border:1.5px dashed #c9d8d2;background:#f8fbf9;border-radius:12px;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;color:#8aa097;font-size:11px;font-weight:600;letter-spacing:.06em}
+    .ad-slot em{position:absolute;top:8px;left:12px;font-style:normal;font-size:9.5px;letter-spacing:.08em;color:#6d7a72;text-transform:uppercase}
+    @media (prefers-reduced-motion:reduce){.news-track{scroll-behavior:auto}.nudge{animation:none}}
+  </style>
+{{ partial "footer-style.html" . }}
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col relative">
+<a class="skip-link sr-only" href="#konten">Lewati ke konten</a>
+<!-- Header Mobile: Rapi, bersih & elegan -->
+<header class="fixed top-0 w-full z-40 pt-safe bg-surface/95 backdrop-blur-md border-b border-surface-container shadow-[0_1px_6px_rgba(0,0,0,0.03)]">
+<div class="h-14 px-4 flex items-center justify-between">
+<a class="flex items-center gap-2.5 tap-smooth cursor-pointer" href="{{ "/" | relURL }}">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-sm" aria-hidden="true">
+<span class="text-[13px] font-headline-sm text-on-primary tracking-tight font-extrabold">LJ</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[14px] font-headline-sm font-bold text-on-surface leading-tight tracking-tight">LOKER JABODETABEK</span>
+<span class="text-[10px] text-outline font-label-sm leading-none tracking-wider uppercase mt-0.5 font-medium">Karier &amp; Peluang Terverifikasi</span>
+</div>
+</a>
+<nav class="hidden lg:flex items-center gap-1" aria-label="Menu utama">
+<a aria-current="page" class="px-3 py-2 rounded-lg text-[13.5px] font-medium text-primary bg-primary-fixed/40" href="{{ "/" | relURL }}">Beranda</a>
+<a class="px-3 py-2 rounded-lg text-[13.5px] font-medium text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="{{ "p/tentang-kami.html" | relURL }}">Tentang Kami</a>
+<a class="px-3 py-2 rounded-lg text-[13.5px] font-medium text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" href="{{ "p/kontak.html" | relURL }}">Kontak</a>
+</nav>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col w-full pt-14 pb-8 bg-surface" id="konten">
+<div class="flex flex-col w-full">
+{{ with site.Data.berita }}{{ if or .indonesia .internasional }}
+<!-- NEWS: slide kanan/kiri, posisi paling atas -->
+<section class="px-4 pt-3.5" aria-label="Berita terkini">
+<div class="flex items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2 min-w-0">
+<h2 class="text-[17px] font-headline-sm text-on-surface font-bold tracking-tight">Berita Terkini</h2>
+<span class="flex items-center gap-0.5 text-[10.5px] text-outline font-label-sm">Geser<span class="material-symbols-outlined text-[14px] nudge" aria-hidden="true">swipe_right_alt</span></span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="news-nav" id="newsPrev" type="button" aria-label="Berita sebelumnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_left</span></button>
+<button class="news-nav" id="newsNext" type="button" aria-label="Berita berikutnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span></button>
+</div>
+</div>
+<div class="news-track no-scrollbar" id="newsTrack" tabindex="0" role="region" aria-label="Daftar berita">
+{{ range .indonesia }}
+<a class="news-slide block bg-surface-container-lowest rounded-xl p-3.5 shadow-sm border border-outline-variant/25 tap-smooth relative overflow-hidden" href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow">
+<span class="absolute left-0 top-0 bottom-0 w-1 bg-primary" aria-hidden="true"></span>
+<div class="flex items-center justify-between gap-2 pl-1.5">
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-headline-sm text-[10.5px] font-bold inline-flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" aria-hidden="true">newspaper</span>Indonesia</span>
+<span class="text-[10.5px] text-outline font-label-sm">{{ .sumber }}{{ with .terbit }} • <time class="js-relatif" datetime="{{ . }}">{{ dateFormat "2 Jan 2006" . }}</time>{{ end }}</span>
+</div>
+<h3 class="news-title text-[14px] font-headline-sm text-on-surface font-bold leading-snug mt-2.5 pl-1.5 transition-colors">{{ .judul }}</h3>
+{{ with .ringkas }}<p class="text-[12px] text-on-surface-variant font-body-sm leading-relaxed mt-1 pl-1.5" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ . }}</p>{{ end }}
+<div class="flex items-center justify-between mt-3 pt-2.5 border-t border-surface-container pl-1.5">
+<span class="text-[11px] text-outline font-label-sm">Berita pilihan</span>
+<span class="inline-flex items-center gap-1 text-primary font-headline-sm text-[12px] font-semibold">Baca<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span></span>
+</div>
+</a>
 {{ end }}
+{{ range .internasional }}
+<a class="news-slide block bg-surface-container-lowest rounded-xl p-3.5 shadow-sm border border-outline-variant/25 tap-smooth relative overflow-hidden" href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow">
+<span class="absolute left-0 top-0 bottom-0 w-1 bg-primary" aria-hidden="true"></span>
+<div class="flex items-center justify-between gap-2 pl-1.5">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-headline-sm text-[10.5px] font-bold inline-flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" aria-hidden="true">public</span>Global</span>
+<span class="text-[10.5px] text-outline font-label-sm">{{ .sumber }}{{ with .terbit }} • <time class="js-relatif" datetime="{{ . }}">{{ dateFormat "2 Jan 2006" . }}</time>{{ end }}</span>
+</div>
+<h3 class="news-title text-[14px] font-headline-sm text-on-surface font-bold leading-snug mt-2.5 pl-1.5 transition-colors">{{ .judul }}</h3>
+{{ with .ringkas }}<p class="text-[12px] text-on-surface-variant font-body-sm leading-relaxed mt-1 pl-1.5" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ . }}</p>{{ end }}
+<div class="flex items-center justify-between mt-3 pt-2.5 border-t border-surface-container pl-1.5">
+<span class="text-[11px] text-outline font-label-sm">Berita pilihan</span>
+<span class="inline-flex items-center gap-1 text-primary font-headline-sm text-[12px] font-semibold">Baca<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span></span>
+</div>
+</a>
+{{ end }}
+</div>
+<div class="flex items-center justify-center gap-1.5 mt-2.5" id="newsDots"></div>
+</section>
+<!-- Slot iklan (setelah berita) -->
+<section class="px-4 mt-3" aria-label="Iklan">
+<div class="ad-slot"><em>Iklan</em>TEMPAT IKLAN 320×100</div>
+</section>
+{{ end }}{{ end }}
+<!-- Search & Area Filter Bar -->
+<section class="px-4 pt-3.5 pb-2" aria-label="Pencarian dan filter wilayah">
+<div role="search" class="bg-surface-container-lowest rounded-xl pl-3 pr-1.5 py-1.5 shadow-sm flex items-center gap-2 border border-outline-variant/35 focus-within:border-primary transition-colors">
+<div class="flex items-center justify-center text-primary flex-shrink-0" aria-hidden="true">
+<span class="material-symbols-outlined material-symbols-bold text-[20px]">search</span>
+</div>
+<label class="sr-only" for="jobSearchInput">Cari posisi, perusahaan, atau wilayah</label>
+<input class="flex-1 min-w-0 bg-transparent border-0 outline-none text-on-surface font-body-sm text-[13px] placeholder:text-outline/90 focus:ring-0 p-0" id="jobSearchInput" placeholder="Cari posisi, lowongan, perusahaan..." type="search" autocomplete="off"/>
+<button aria-label="Cari Lowongan" class="h-9 px-3.5 bg-primary hover:bg-primary-hover active:bg-primary-hover text-on-primary rounded-lg font-headline-sm font-semibold text-[13px] flex items-center justify-center gap-1 shadow-sm tap-smooth flex-shrink-0" id="searchTriggerBtn" type="button">
+<span>Cari</span>
+</button>
+</div>
+<!-- Quick Location Chips -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar mt-2.5 py-0.5 -mx-4 px-4" role="group" aria-label="Filter wilayah">
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-headline-sm text-[12px] whitespace-nowrap font-semibold flex items-center gap-1.5 tap-smooth shadow-xs flex-shrink-0" data-wilayah="" aria-pressed="true" type="button">
+<span class="material-symbols-outlined text-[14px]" aria-hidden="true">tune</span>
+<span>Semua Jabodetabek</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-[12px] whitespace-nowrap font-medium tap-smooth hover:bg-surface-container-high flex-shrink-0" data-wilayah="jakarta" aria-pressed="false" type="button">Jakarta</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-[12px] whitespace-nowrap font-medium tap-smooth hover:bg-surface-container-high flex-shrink-0" data-wilayah="tangerang" aria-pressed="false" type="button">Tangerang Raya</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-[12px] whitespace-nowrap font-medium tap-smooth hover:bg-surface-container-high flex-shrink-0" data-wilayah="bekasi" aria-pressed="false" type="button">Bekasi</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-[12px] whitespace-nowrap font-medium tap-smooth hover:bg-surface-container-high flex-shrink-0" data-wilayah="bogor" aria-pressed="false" type="button">Bogor</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-sm text-[12px] whitespace-nowrap font-medium tap-smooth hover:bg-surface-container-high flex-shrink-0 mr-2" data-wilayah="depok" aria-pressed="false" type="button">Depok</button>
+</div>
+<p class="sr-only" id="jumlahHasil" aria-live="polite"></p>
+</section>
+<!-- Section Header: Lowongan Kerja Terbaru + 100% Bebas Pungutan Badge -->
+<section class="px-4 pt-2.5 pb-1 flex items-center justify-between gap-2">
+<div class="flex items-center min-w-0">
+<h1 class="text-[17px] font-headline-sm text-on-surface font-bold tracking-tight">Lowongan Kerja Terbaru</h1>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/80 text-on-secondary-container px-2 py-1 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-[13px] text-primary" aria-hidden="true">verified</span>
+<span class="text-[10px] font-headline-sm font-bold tracking-tight whitespace-nowrap">100% Bebas Pungutan</span>
+</div>
+</section>
+<!-- Mobile Job Cards List -->
+{{- if $list }}
+<section class="px-4 flex flex-col gap-3 mt-1.5" id="jobCardsContainer" aria-label="Daftar lowongan">
+{{- range $i, $p := $list }}
+{{- $perusahaan := $p.Params.perusahaan | default "Perusahaan tidak disebutkan" -}}
+{{- $lokasi := $p.Params.lokasi | default "" -}}
+{{- $gaji := $p.Params.gaji | default "Gaji dirahasiakan" -}}
+{{- $tipe := $p.Params.tipe_pekerjaan | default "" -}}
+{{- $bidang := $p.Params.bidang | default "" -}}
+{{- $deskripsi := $p.Params.deskripsi_perusahaan | default "" -}}
+{{- $logo := $p.Params.logo_url | default "" -}}
+{{- $pend := "" -}}
+{{- with $p.Params.kredensial -}}
+  {{- if eq . "high school" }}{{ $pend = "Min. SMA / SMK" }}
+  {{- else if eq . "bachelor degree" }}{{ $pend = "Min. D3 / S1" }}
+  {{- else if eq . "associate degree" }}{{ $pend = "Min. D3" }}
+  {{- else if eq . "master degree" }}{{ $pend = "Min. S2" }}
+  {{- else if eq . "doctorate degree" }}{{ $pend = "Min. S3" }}
+  {{- else if eq . "professional certificate" }}{{ $pend = "Sertifikasi Profesional" }}
+  {{- end -}}
+{{- end -}}
+{{- $inisial := "" -}}
+{{- range first 2 (split (replaceRE `^(PT|CV)\.? ` "" $perusahaan) " ") -}}
+  {{- $inisial = printf "%s%s" $inisial (upper (substr . 0 1)) -}}
+{{- end -}}
+{{- if eq $inisial "" }}{{ $inisial = "?" }}{{ end -}}
+{{- $warna := index (slice "bg-primary-container text-on-primary-container" "bg-secondary text-on-secondary" "bg-tertiary text-on-tertiary" "bg-primary text-on-primary") (mod $i 4) -}}
+{{- $cari := lower (printf "%s %s %s %s %s" $p.Title $perusahaan $lokasi $bidang $tipe) -}}
+{{- $jobs = $jobs | append (dict "url" $p.RelPermalink "perusahaan" $perusahaan "posisi" $p.Title "inisial" $inisial "logo" $logo "lokasi" $lokasi "gaji" $gaji "pendidikan" $pend "tipe" $tipe "bidang" $bidang "deskripsi" $deskripsi "warna" $warna "terverifikasi" true) -}}
+<article class="job-card group bg-surface-container-lowest rounded-xl p-3.5 shadow-sm border border-outline-variant/25 tap-smooth cursor-pointer relative" data-index="{{ $i }}" data-cari="{{ $cari }}" data-lokasi="{{ lower $lokasi }}" tabindex="0" aria-haspopup="dialog">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden font-headline-sm text-[13px] font-bold shadow-xs flex-shrink-0 {{ $warna }}" aria-hidden="true">
+{{- with $logo }}<img src="{{ . | relURL }}" alt="" class="h-full w-full object-cover" loading="lazy" width="40" height="40"/>{{ else }}{{ $inisial }}{{ end -}}
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1 min-w-0">
+<span class="text-[12px] font-headline-sm text-on-surface-variant font-medium truncate">{{ $perusahaan }}</span>
+<span class="material-symbols-outlined text-primary text-[14px] flex-shrink-0" title="Terverifikasi" aria-hidden="true">verified</span>
+</div>
+<h2 class="text-[14px] font-headline-sm text-on-surface font-bold leading-snug mt-0.5">{{ $p.Title }}</h2>
+</div>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-headline-sm text-[10.5px] font-bold flex items-center gap-0.5 flex-shrink-0">
+<span class="material-symbols-outlined text-[12px]" aria-hidden="true">check_circle</span>
+Terverifikasi
+</span>
+</div>
+{{- if or $lokasi $pend $tipe }}
+<div class="flex flex-wrap gap-1.5 mt-2.5">
+{{- with $lokasi }}<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface-variant text-[11.5px] font-label-md font-medium"><span class="material-symbols-outlined text-[13px] text-outline" aria-hidden="true">location_on</span>{{ . }}</span>{{ end -}}
+{{- with $pend }}<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface-variant text-[11.5px] font-label-md font-medium"><span class="material-symbols-outlined text-[13px] text-outline" aria-hidden="true">school</span>{{ . }}</span>{{ end -}}
+{{- with $tipe }}<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface-variant text-[11.5px] font-label-md font-medium"><span class="material-symbols-outlined text-[13px] text-outline" aria-hidden="true">schedule</span>{{ . }}</span>{{ end }}
+</div>
+{{- end }}
+<div class="flex items-center justify-between mt-3 pt-2.5 border-t border-surface-container">
+<div class="flex flex-col min-w-0">
+<span class="text-[9.5px] text-outline font-label-sm uppercase font-semibold tracking-wide">Gaji</span>
+<span class="text-[13px] font-headline-sm text-primary font-bold">{{ $gaji }}</span>
+</div>
+<button class="open-modal-btn inline-flex items-center gap-1 btn-detail rounded-lg px-3.5 py-1.5 text-on-primary font-headline-sm text-[12px] font-semibold tap-smooth" data-index="{{ $i }}" type="button">
+<span>Detail</span>
+<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span>
+</button>
+</div>
+</article>
+{{- end }}
+</section>
+<template id="adInFeed"><div class="ad-slot ad-inline"><em>Iklan</em>TEMPAT IKLAN 300×250</div></template>
+{{- else }}
+<section class="px-4 mt-1.5 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 mx-4 text-[14px] text-on-surface-variant">Belum ada lowongan yang tayang. Halaman ini diperbarui setiap hari.</section>
+{{- end }}
+<!-- Hasil kosong -->
+<div id="hasilKosong" class="hidden px-4 mt-3" role="status">
+<div class="bg-surface-container-lowest rounded-xl p-5 text-center border border-outline-variant/35">
+<p class="font-headline-sm text-[14px] font-bold text-on-surface">Tidak ada lowongan yang cocok</p>
+<p class="mt-1 text-[12px] text-on-surface-variant">Coba kata kunci lain atau pilih "Semua Jabodetabek".</p>
+</div>
+</div>
+<!-- Mobile Pagination -->
+<nav id="halamanNav" aria-label="Halaman lowongan" class="hidden px-4 my-5 items-center justify-between gap-2">
+<button id="halamanPrev" class="px-3 py-2 rounded-lg bg-surface-container-low text-outline font-headline-sm text-[12px] font-medium flex items-center gap-1 tap-smooth disabled:opacity-60 disabled:cursor-not-allowed" type="button">
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_left</span>
+<span>Sebelumnya</span>
+</button>
+<div class="flex items-center gap-1.5" id="halamanAngka"></div>
+<button id="halamanNext" class="px-3 py-2 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container font-headline-sm text-[12px] font-bold flex items-center gap-1 shadow-xs border border-primary/20 tap-smooth disabled:opacity-60 disabled:cursor-not-allowed" type="button">
+<span>Selanjutnya</span>
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+</button>
+</nav>
+<!-- Community / Safety Trust Banner -->
+<section class="px-4 pb-3">
+<div class="bg-surface-container rounded-xl p-3.5 flex items-start gap-3 border border-outline-variant/25">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
+<span class="material-symbols-outlined text-[19px]">shield</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[13px] font-headline-sm font-bold text-on-surface">Pusat Bantuan &amp; Pengaduan Loker</span>
+<span class="text-[11.5px] font-body-sm text-on-surface-variant leading-relaxed mt-0.5">Semua proses seleksi di Jabodetabek dijamin gratis tanpa biaya tes, formulir, atau seragam. Laporkan kejanggalan langsung ke tim moderasi kami.</span>
+</div>
+</div>
+</section>
+{{ partial "footer.html" . }}
+</div>
+</main>
+<script type="application/json" id="jobData">{{ $jobs | jsonify }}</script>
+<!-- MODAL: Detail singkat lowongan -->
+<div aria-labelledby="modalTitle" aria-modal="true" class="fixed inset-0 z-50 bg-slate-900/50 modal-backdrop hidden items-center justify-center p-4 transition-opacity duration-200 opacity-0" id="companyModal" role="dialog">
+<div class="bg-surface-container-lowest w-full max-w-[370px] rounded-3xl p-5 shadow-2xl flex flex-col relative transform transition-all duration-200 scale-95 border border-outline-variant/30" id="modalContainer">
+<button aria-label="Tutup Detail Lowongan" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center tap-smooth z-10 cursor-pointer" id="closeModalBtn" type="button">
+<span class="material-symbols-outlined text-[18px]" aria-hidden="true">close</span>
+</button>
+<div class="flex items-start gap-3 pt-0.5 pr-8">
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center font-headline-sm text-[16px] font-extrabold shadow-sm flex-shrink-0 overflow-hidden" id="modalLogo" aria-hidden="true"></div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="material-symbols-outlined text-primary text-[15px] material-symbols-fill" id="modalVerified" title="Terverifikasi" aria-hidden="true">verified</span>
+<span class="text-[11px] text-primary font-headline-sm font-bold">Terverifikasi</span>
+</div>
+<h3 class="text-[16px] font-headline-sm font-bold text-on-surface tracking-tight leading-snug mt-1" id="modalTitle"></h3>
+<span class="text-[11px] text-outline font-label-sm mt-0.5" id="modalIndustry"></span>
+</div>
+</div>
+<div class="mt-3.5 p-3 bg-surface-container-low rounded-xl border border-surface-container-high flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-[9.5px] uppercase font-headline-sm text-outline font-bold tracking-wider">Posisi Dibuka</span>
+<span class="text-[13.5px] font-headline-sm font-bold text-on-surface leading-tight mt-0.5" id="modalRole"></span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-headline-sm font-bold flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[12px] material-symbols-fill" aria-hidden="true">check_circle</span>
+Aktif
+</span>
+</div>
+<div class="mt-3 px-0.5" id="modalDescWrap">
+<div class="flex items-center gap-1 text-[11px] font-headline-sm font-bold text-on-surface uppercase tracking-wide">
+<span class="material-symbols-outlined text-primary text-[15px]" aria-hidden="true">info</span>
+Tentang Perusahaan
+</div>
+<p class="text-[12px] font-body-sm text-on-surface-variant mt-1.5 leading-relaxed" id="modalDesc"></p>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3.5" id="modalGrid">
+<div class="bg-surface-container p-2.5 rounded-xl flex items-center gap-2" data-modal-tile="gaji">
+<span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0" aria-hidden="true">payments</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[9px] uppercase font-label-sm text-outline font-semibold">Gaji</span>
+<span class="text-[12px] font-headline-sm font-bold text-primary truncate" id="modalSalary"></span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-xl flex items-center gap-2" data-modal-tile="lokasi">
+<span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0" aria-hidden="true">location_on</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[9px] uppercase font-label-sm text-outline font-semibold">Wilayah</span>
+<span class="text-[12px] font-headline-sm font-bold text-on-surface truncate" id="modalLoc"></span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-xl flex items-center gap-2" data-modal-tile="pendidikan">
+<span class="material-symbols-outlined text-outline text-[18px] flex-shrink-0" aria-hidden="true">school</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[9px] uppercase font-label-sm text-outline font-semibold">Pendidikan</span>
+<span class="text-[11.5px] font-headline-sm font-semibold text-on-surface truncate" id="modalEdu"></span>
+</div>
+</div>
+<div class="bg-surface-container p-2.5 rounded-xl flex items-center gap-2" data-modal-tile="tipe">
+<span class="material-symbols-outlined text-outline text-[18px] flex-shrink-0" aria-hidden="true">schedule</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[9px] uppercase font-label-sm text-outline font-semibold">Tipe Kerja</span>
+<span class="text-[11.5px] font-headline-sm font-semibold text-on-surface truncate" id="modalType"></span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-2">
+<a class="w-full py-3 px-4 rounded-xl bg-primary hover:bg-primary-hover active:bg-primary-hover active:scale-[0.98] text-on-primary font-headline-sm text-[13px] font-bold tracking-wide flex items-center justify-center gap-2 shadow-md shadow-primary/20 tap-smooth cursor-pointer" id="detailSubmitBtn" href="#">
+<span>LIHAT DETAIL LOWONGAN</span>
+<span class="material-symbols-outlined text-[17px]" aria-hidden="true">arrow_forward</span>
+</a>
+<button class="w-full py-2 rounded-xl bg-transparent hover:bg-surface-container-high text-outline hover:text-on-surface font-headline-sm text-[12px] font-semibold text-center tap-smooth active:scale-95 cursor-pointer" id="dismissModalBtn" type="button">Tutup</button>
+</div>
+</div>
+</div>
+<script>
+(function () {
+  var dataEl = document.getElementById('jobData');
+  var jobs = dataEl ? JSON.parse(dataEl.textContent || '[]') : [];
+
+  /* Berita: waktu relatif dalam bahasa Indonesia */
+  document.querySelectorAll('time.js-relatif').forEach(function (el) {
+    var waktu = new Date(el.getAttribute('datetime'));
+    if (isNaN(waktu)) return;
+    var menit = Math.round((Date.now() - waktu.getTime()) / 60000);
+    var teks = null;
+    if (menit < 1) teks = 'Baru saja';
+    else if (menit < 60) teks = menit + ' menit lalu';
+    else if (menit < 24 * 60) teks = Math.floor(menit / 60) + ' jam lalu';
+    else if (menit < 48 * 60) teks = 'Kemarin';
+    if (teks) el.textContent = teks;
+  });
+
+  /* Slider berita */
+  var track = document.getElementById('newsTrack');
+  if (track) {
+    var slides = track.querySelectorAll('.news-slide');
+    var dots = document.getElementById('newsDots');
+    var cur = 0;
+    slides.forEach(function (_, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'news-dot';
+      d.setAttribute('aria-label', 'Berita ' + (i + 1));
+      d.onclick = function () { go(i); };
+      dots.appendChild(d);
+    });
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    }
+    function mark() {
+      if (!slides.length) return;
+      cur = Math.round(track.scrollLeft / (slides[0].offsetWidth + 12));
+      dots.querySelectorAll('.news-dot').forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(mark); }, { passive: true });
+    var prevBtn = document.getElementById('newsPrev');
+    var nextBtn = document.getElementById('newsNext');
+    if (prevBtn) prevBtn.onclick = function () { go(cur - 1); };
+    if (nextBtn) nextBtn.onclick = function () { go(cur + 1); };
+    mark();
+  }
+
+  /* Filter, pencarian, dan paginasi */
+  var kartu = Array.prototype.slice.call(document.querySelectorAll('.job-card'));
+  var input = document.getElementById('jobSearchInput');
+  var tombolCari = document.getElementById('searchTriggerBtn');
+  var jumlah = document.getElementById('jumlahHasil');
+  var kosong = document.getElementById('hasilKosong');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('[data-wilayah]'));
+  var navHalaman = document.getElementById('halamanNav');
+  var angka = document.getElementById('halamanAngka');
+  var tPrev = document.getElementById('halamanPrev');
+  var tNext = document.getElementById('halamanNext');
+  var iklanTemplate = document.getElementById('adInFeed');
+  var desktop = window.matchMedia('(min-width: 768px)');
+  var wilayah = '';
+  var halaman = 1;
+  var WILAYAH_COCOK = { jakarta: 'jakarta', tangerang: 'tangerang', bekasi: 'bekasi', bogor: 'bogor', depok: 'depok' };
+
+  function perHalaman() { return desktop.matches ? 8 : 6; }
+
+  function hapusIklan() {
+    document.querySelectorAll('.ad-inline').forEach(function (el) { el.remove(); });
+  }
+
+  function sisipIklan(tampil) {
+    if (!iklanTemplate) return;
+    [2, 7].forEach(function (pos) {
+      if (tampil.length >= pos) {
+        var salinan = iklanTemplate.content.firstElementChild.cloneNode(true);
+        tampil[pos - 1].insertAdjacentElement('afterend', salinan);
+      }
+    });
+  }
+
+  function aturAngka(total) {
+    if (!angka) return;
+    angka.innerHTML = '';
+    var awal = Math.max(1, halaman - 1);
+    var akhir = Math.min(total, awal + 2);
+    awal = Math.max(1, akhir - 2);
+    for (var n = awal; n <= akhir; n++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = String(n);
+      b.setAttribute('aria-label', 'Halaman ' + n);
+      if (n === halaman) {
+        b.className = 'w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline-sm text-[13px] font-bold shadow-xs';
+        b.setAttribute('aria-current', 'page');
+      } else {
+        b.className = 'w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container flex items-center justify-center font-headline-sm text-[13px] font-medium tap-smooth border border-outline-variant/30';
+      }
+      b.addEventListener('click', (function (page) { return function () { halaman = page; terapkan(false); }; })(n));
+      angka.appendChild(b);
+    }
+  }
+
+  function terapkan(reset) {
+    if (reset !== false) halaman = 1;
+    var kata = input ? input.value.trim().toLowerCase() : '';
+    var cocok = kartu.filter(function (k) {
+      var okKata = !kata || k.getAttribute('data-cari').indexOf(kata) !== -1;
+      var okW = !wilayah || k.getAttribute('data-lokasi').indexOf(wilayah) !== -1;
+      return okKata && okW;
+    });
+    var ukuran = perHalaman();
+    var total = Math.max(1, Math.ceil(cocok.length / ukuran));
+    if (halaman > total) halaman = total;
+    var awal = (halaman - 1) * ukuran;
+    kartu.forEach(function (k) { k.hidden = true; });
+    hapusIklan();
+    var tampil = cocok.slice(awal, awal + ukuran);
+    tampil.forEach(function (k) { k.hidden = false; });
+    sisipIklan(tampil);
+    if (navHalaman) {
+      navHalaman.classList.toggle('hidden', cocok.length <= ukuran);
+      navHalaman.classList.toggle('flex', cocok.length > ukuran);
+      if (tPrev) tPrev.disabled = halaman <= 1;
+      if (tNext) tNext.disabled = halaman >= total;
+      aturAngka(total);
+    }
+    if (jumlah) jumlah.textContent = cocok.length + ' lowongan ditemukan';
+    if (kosong) kosong.classList.toggle('hidden', cocok.length > 0 || kartu.length === 0);
+  }
+
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var nilai = c.getAttribute('data-wilayah') || '';
+      wilayah = WILAYAH_COCOK[nilai] || '';
+      chips.forEach(function (x) {
+        var aktif = x === c;
+        x.setAttribute('aria-pressed', aktif ? 'true' : 'false');
+        x.classList.toggle('bg-primary', aktif);
+        x.classList.toggle('text-on-primary', aktif);
+        x.classList.toggle('bg-surface-container', !aktif);
+        x.classList.toggle('text-on-surface-variant', !aktif);
+      });
+      terapkan();
+    });
+  });
+  if (input) input.addEventListener('input', function () { terapkan(); });
+  if (tombolCari) tombolCari.addEventListener('click', function () { terapkan(); });
+  if (tPrev) tPrev.addEventListener('click', function () { halaman--; terapkan(false); window.scrollTo({ top: 0 }); });
+  if (tNext) tNext.addEventListener('click', function () { halaman++; terapkan(false); window.scrollTo({ top: 0 }); });
+  desktop.addEventListener('change', function () { terapkan(false); });
+  terapkan();
+
+  /* Modal detail singkat */
+  var modal = document.getElementById('companyModal');
+  var kontainer = document.getElementById('modalContainer');
+  var pemicu = null;
+  var detailBtn = document.getElementById('detailSubmitBtn');
+
+  function isiKotak(id, nilai) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = nilai || '';
+    return !!nilai;
+  }
+
+  function isiModal(job) {
+    var logo = document.getElementById('modalLogo');
+    logo.className = 'w-12 h-12 rounded-2xl flex items-center justify-center font-headline-sm text-[16px] font-extrabold shadow-sm flex-shrink-0 overflow-hidden ' + (job.warna || '');
+    logo.textContent = '';
+    if (job.logo) {
+      var img = document.createElement('img');
+      img.src = job.logo;
+      img.alt = '';
+      img.width = 48;
+      img.height = 48;
+      img.className = 'h-full w-full object-cover';
+      logo.appendChild(img);
+    } else {
+      logo.textContent = job.inisial || '';
+    }
+    isiKotak('modalTitle', job.perusahaan);
+    isiKotak('modalRole', job.posisi);
+    isiKotak('modalIndustry', job.bidang);
+    var adaDesc = isiKotak('modalDesc', job.deskripsi);
+    document.getElementById('modalDescWrap').hidden = !adaDesc;
+    document.getElementById('modalVerified').hidden = !job.terverifikasi;
+    isiKotak('modalLoc', job.lokasi);
+    isiKotak('modalEdu', job.pendidikan);
+    isiKotak('modalType', job.tipe);
+    isiKotak('modalSalary', job.gaji);
+    document.querySelectorAll('[data-modal-tile]').forEach(function (t) {
+      var nilai = { gaji: job.gaji, lokasi: job.lokasi, pendidikan: job.pendidikan, tipe: job.tipe }[t.getAttribute('data-modal-tile')];
+      t.hidden = !nilai;
+    });
+    detailBtn.setAttribute('href', job.url);
+  }
+
+  function bukaModal(index, elPemicu) {
+    var job = jobs[index];
+    if (!job || !modal) return;
+    pemicu = elPemicu || null;
+    isiModal(job);
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    void modal.offsetWidth;
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
+    kontainer.classList.remove('scale-95');
+    kontainer.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('closeModalBtn').focus();
+  }
+
+  function tutupModal() {
+    if (!modal || modal.classList.contains('hidden')) return;
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    kontainer.classList.remove('scale-100');
+    kontainer.classList.add('scale-95');
+    setTimeout(function () {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }, 200);
+    document.body.style.overflow = '';
+    if (pemicu) pemicu.focus();
+  }
+
+  document.querySelectorAll('.job-card').forEach(function (card) {
+    card.addEventListener('click', function () { bukaModal(Number(card.getAttribute('data-index')), card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.target !== card) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        bukaModal(Number(card.getAttribute('data-index')), card);
+      }
+    });
+  });
+  document.querySelectorAll('.open-modal-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      bukaModal(Number(btn.getAttribute('data-index')), btn.closest('.job-card') || btn);
+    });
+  });
+  document.getElementById('closeModalBtn').addEventListener('click', tutupModal);
+  document.getElementById('dismissModalBtn').addEventListener('click', tutupModal);
+  if (modal) modal.addEventListener('click', function (e) { if (e.target === modal) tutupModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (modal && !modal.classList.contains('hidden')) {
+      if (e.key === 'Escape') tutupModal();
+      if (e.key === 'Tab') {
+        var fokus = Array.prototype.slice.call(modal.querySelectorAll('a[href], button:not([hidden])'));
+        if (!fokus.length) return;
+        var pertama = fokus[0];
+        var terakhir = fokus[fokus.length - 1];
+        if (e.shiftKey && document.activeElement === pertama) { e.preventDefault(); terakhir.focus(); }
+        else if (!e.shiftKey && document.activeElement === terakhir) { e.preventDefault(); pertama.focus(); }
+      }
+    }
+  });
+})();
+</script>
+</body></html>

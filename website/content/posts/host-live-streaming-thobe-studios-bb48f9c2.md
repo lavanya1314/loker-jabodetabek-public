@@ -15,6 +15,14 @@ logo_url: "/logos/host-live-streaming-thobe-studios-bb48f9c2.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/host-live-streaming/b7df9eef-24de-4493-a63b-7bd7a802a64f"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Apparel & Fashion"
+deskripsi_perusahaan: "Elevated Elegance with Thobe Studios."
+berlaku_sampai: "2026-12-19"
+deskripsi_pekerjaan: ["Harap kirimkan Video Review Fashion Bebas Ketika mengirimkan lamaran, jika tidak mengirimkan video otomatis akan kami tertolak lamarannnya Kami mencari individu yang energik dan menarik untuk menjadi host live streaming produk kami. Anda akan bertanggung jawab untuk:"]
+tugas: ["Mempresentasikan dan mendemonstrasikan berbagai koleksi thobe kami secara live.", "Berinteraksi dengan audiens, menjawab pertanyaan, dan membangun komunitas.", "Mendorong penjualan melalui live streaming dan konten yang menarik dan informatif."]
+kualifikasi: ["Pria, berpenampilan menarik dan percaya diri di depan kamera.", "Komunikatif, persuasif, dan memiliki kemampuan public speaking yang baik.", "Memiliki pemahaman atau ketertarikan pada fashion muslim pria (nilai tambah).", "Pengalaman sebagai host live streaming (lebih disukai)."]
+benefit: []
 ---
 <p><strong>Harap kirimkan Video Review Fashion Bebas Ketika mengirimkan lamaran, jika tidak mengirimkan video otomatis akan kami tertolak lamarannnya<br/>
 <br/>

@@ -15,6 +15,14 @@ logo_url: "/logos/magang-admin-komputer-asosiasi-digital-marketing-indonesia-33e
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/magang-admin-komputer/4cc8d0c5-6b8c-4949-876f-d7cb455adf80"
 telegram_sent: true
+tipe_pekerjaan: "Magang"
+bidang: "Information Technology and Services"
+deskripsi_perusahaan: "ASOSIASI DIGITAL MARKETING INDONESIA Asosiasi Digital Marketing Indonesia berkolaborasi dengan para pelaku Industri, Perusahaan, UMKM , swasta  dan Pemerintah Membantu UKM, UMKM dan industri Lokal melalui Digital Marketing berbasis BIG Data, serta menjadi Asosiasi terdepan dalam mengakselerasi pertumbuhan yang sehat, sehingga menjadi salah satu penggerak utama dalam ekonomi digital baru di Indonesia. Kami menyambut semua kementrian dan lembaga pemerintahan untuk berkolaborasi dan terus memajukan ketahanan Ekonomi Digital Bagi Indonesia."
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: []
+kualifikasi: ["Ada pengalaman Event Organizer manangani event acara resmi seminar/FGD", "Pendidikan minimal SMK D3/S1 diutamakan jurusan Administrasi, Manajemen, Ilmu Komunikasi, atau jurusan terkait.", "Memiliki pengalaman minimal 1 tahun di bidang administrasi, customer service, atau administrasi pelatihan.", "Menguasai Microsoft Office dan Google Workspace, khususnya Excel/Google Sheets.", "Terbiasa menggunakan Zoom sebagai host/co-host untuk pelaksanaan pelatihan online.", "Mampu mengelola administrasi pelatihan, data peserta, absensi, materi, dan sertifikat.", "Memiliki kemampuan komunikasi yang baik serta mampu melayani peserta melalui WhatsApp, email, dan telepon.", "Mampu berkoordinasi secara efektif dengan tim internal, trainer, dan peserta untuk memastikan pelaksanaan pelatihan berjalan lancar.", "Teliti, disiplin, mampu bekerja dengan target, serta memiliki manajemen waktu yang baik.", "Mampu bekerja secara individu maupun dalam tim.", "Berdomisili di Kota Tangerang", "Penempatan :", "Tangerang, Cipondoh", "Waktu kerja", "Senin - jumat : 08:30 - 17:00", "Sabtu : 08:30 - 12:00"]
+benefit: []
 ---
 <p>Kualifikasi:<br/>
 - memiliki laptop yang dapat digunakan dengan baik </p>

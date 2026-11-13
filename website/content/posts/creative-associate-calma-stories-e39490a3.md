@@ -15,6 +15,14 @@ logo_url: "/logos/creative-associate-calma-stories-e39490a3.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/creative-associate/d741c7d9-2979-4261-91a3-c716bc5ddff4"
 telegram_sent: false
+tipe_pekerjaan: "Paruh Waktu (Part Time)"
+bidang: "Retail"
+deskripsi_perusahaan: "In a world where closets once overflowed, a new style era emerged. Our vision was sparked by a simple question: What if every dress could have its own story? Imagine walking into a room filled with dresses, each exuding its unique story and allure. That's the experience I envisioned for every woman. Inspired by my own journey of discovery, I embarked on a mission to create a platform where women could embrace a journey of elegance and sustainability. With every rented dress, I witnessed stories coming to life—dresses empowering graduations, adding enchantment to date nights, and becoming cherished memories at weddings. The impact went beyond the garment; it was about transformation, confidence, and connection."
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: []
+tugas: ["Develop creative marketing ideas and content concepts", "Create engaging storytelling and written content across social media platforms", "Manage social media engagement and build relationships with the audience", "Coordinate content production with the content team", "Manage brand partnerships and collaborations"]
+kualifikasi: ["Have a strong visual taste and storytelling", "Excellent writing skills in both Bahasa and English", "At least 1 year of relevant experience is preferred", "Proactive, organized, and detail-oriented", "Able to work hybrid and willing to work on-site in Setiabudi, South Jakarta at least once on weekends"]
+benefit: []
 ---
 <p>Responsibilities:</p>
 <ul>

@@ -15,6 +15,14 @@ logo_url: "/logos/salesman-staffinc-affiliate-b2458e14.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/salesman/f0973aad-bd6f-4039-8926-21ddb8c53267"
 telegram_sent: false
+tipe_pekerjaan: ""
+bidang: ""
+deskripsi_perusahaan: ""
+berlaku_sampai: ""
+deskripsi_pekerjaan: ["Karena keterbatasan akses kandidat pada platform, bagi yang berminat dapat langsung menghubungi WhatsApp berikut agar proses seleksi lebih cepat : (nol-delapan-lima-tujuh-dualima-60-57-73)"]
+tugas: ["Melakukan kunjungan rutin ke outlet GT existing sesuai jadwal rute untuk menerima dan mencatat pesanan produk.", "Menawarkan dan memperkenalkan produk serta program penjualan kepada pemilik toko untuk mendorong pembelian.", "Melakukan pengambilan pesanan (taking order) dari outlet baru maupun outlet existing.", "Melakukan canvassing untuk mencari pelanggan potensial dan membuka outlet baru guna memperluas distribusi produk.", "Memantau aktivitas penjualan serta membuat laporan kunjungan dan pesanan secara berkala."]
+kualifikasi: ["Pendidikan minimal SMA/SMK sederajat.", "Pengalaman minimal 1 tahun sebagai sales atau pekerjaan sejenis.", "Bersedia bekerja secara mobile dan melakukan kunjungan ke outlet GT di area yang ditentukan.", "Memiliki motor pribadi dan SIM C aktif.", "Mampu berkomunikasi dengan baik.", "Bersedia bekerja di lapangan dan mencapai target penjualan."]
+benefit: []
 ---
 <p>Karena keterbatasan akses kandidat pada platform, bagi yang berminat dapat langsung menghubungi WhatsApp berikut agar proses seleksi lebih cepat :  (nol-delapan-lima-tujuh-dualima-60-57-73) </p>
 <p>Deskripsi Pekerjaan</p>

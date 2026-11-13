@@ -15,6 +15,14 @@ logo_url: "/logos/office-boy-harian-lepas-pt-kayu-cipta-pratama-7843c15d.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/office-boy-harian-lepas/1aa64e41-fe05-4f05-8232-bbf36adcf228"
 telegram_sent: true
+tipe_pekerjaan: "Paruh Waktu (Part Time)"
+bidang: "Manufacturing"
+deskripsi_perusahaan: ""
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: ["Kami PT Kayu Cipta Pratama perusahaan yang bergerak dalam bidang manufactur membutuhkan karyawan yang akan bekerja di perusahaan kami sebagai office boy dengan kriteria sebagai berikut :", "Kriteria :"]
+tugas: ["Pria", "Bersedia Gaji Harian", "Bersedia Bekerja di Kab, Tangerang Tigaraksa"]
+kualifikasi: []
+benefit: []
 ---
 <p>Kami PT Kayu Cipta Pratama perusahaan yang bergerak dalam bidang manufactur membutuhkan karyawan yang akan bekerja di perusahaan kami sebagai office boy dengan kriteria sebagai berikut :</p>
 <p><br/></p>

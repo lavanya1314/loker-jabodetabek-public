@@ -15,6 +15,14 @@ logo_url: "/logos/admin-dan-marketing-buildhome-433a7ca3.png"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/admin-dan-marketing/14fade22-d03d-4f50-b198-0754648c4099"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Construction"
+deskripsi_perusahaan: "Buildhome merupakan perusahaan yang bergerak di bidang arsitektur dan konstruksi, meliputi perizinan bangunan, desain & konsultasi arsitek, pembangunan & renovasi, serta pemeliharaan bangunan"
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: ["Melakukan pemasaran jasa konstruksi, pengawasan , dan desain", "Mencari serta mengembangkan peluang kerja sama dan calon klien.", "Menjalin komunikasi dan menjaga hubungan baik dengan klien.", "Melakukan follow-up calon klien dan penawaran proyek.", "Mengelola media sosial dan promosi perusahaan.", "Membuat konten promosi berupa foto, video, dan informasi proyek.", "Mengelola administrasi dan operasional kantor", "mengelola database klien , vendor dan proyek", "membuat invoice, penawaran harga , dan dokumen kontrak"]
+kualifikasi: ["Pendidikan minimal SMA/SMK sederajat.", "Menguasai Microsoft Office (Word dan Excel).", "Mampu mengelola administrasi dan dokumen dengan rapi.", "Memiliki kemampuan komunikasi, negosiasi, dan pelayanan pelanggan yang baik.", "Mampu menggunakan media sosial dan membuat konten promosi sederhana.", "Menguasai Canva atau aplikasi desain sederhana menjadi nilai tambah.", "Teliti, disiplin, jujur, proaktif, dan bertanggung jawab.", "Mampu bekerja secara mandiri maupun dalam tim.", "Memiliki ketertarikan atau pengalaman di bidang konstruksi, arsitektur, atau properti menjadi nilai tambah."]
+benefit: []
 ---
 <p>Deskripsi Pekerjaan</p>
 <p>1. Melakukan pemasaran jasa konstruksi, pengawasan , dan desain</p>

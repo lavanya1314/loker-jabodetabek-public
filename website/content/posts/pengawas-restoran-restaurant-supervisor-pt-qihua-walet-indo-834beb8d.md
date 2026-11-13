@@ -15,6 +15,14 @@ logo_url: "/logos/pengawas-restoran-restaurant-supervisor-pt-qihua-walet-indo-83
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/pengawas-restoran-restaurant-supervisor/bccc4ebc-5574-494a-ba94-a8f921ad1485"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Import and Export"
+deskripsi_perusahaan: ""
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: []
+tugas: ["Mengawasi dan memastikan kegiatan operasional restoran berjalan lancar setiap hari.", "Mengatur jadwal kerja, pembagian tugas, dan kedisiplinan karyawan.", "Mengarahkan serta membimbing karyawan agar bekerja sesuai tanggung jawab masing-masing.", "Memastikan pelayanan pelanggan berjalan dengan baik dan cepat.", "Mengawasi kebersihan area restoran, dapur, dan fasilitas umum.", "Memantau persediaan bahan makanan, minuman, dan perlengkapan restoran.", "Melaksanakan dan mengawasi stok opname secara rutin, serta memastikan kesesuaian stok fisik dengan catatan persediaan.", "Memeriksa dan menindaklanjuti selisih stok, barang rusak, kehilangan, serta penggunaan bahan yang tidak wajar.", "Mengawasi penerimaan barang, penyimpanan bahan, dan kebutuhan pembelian stok.", "Memeriksa transaksi kasir, kesesuaian uang kas, dan laporan penjualan harian.", "Menangani keluhan pelanggan serta kendala operasional.", "Membantu pekerjaan operasional restoran saat dibutuhkan.", "Membuat laporan rutin terkait penjualan, stok, kedisiplinan karyawan, dan permasalahan operasional kepada pemilik restoran."]
+kualifikasi: ["Memiliki pengalaman minimal 2 tahun bekerja di restoran atau rumah makan.", "Diutamakan pernah menjadi Pengawas Restoran, Kepala Pelayan, atau Pemimpin Shift.", "Memiliki kemampuan memimpin, mengatur, dan mengawasi karyawan.", "Tegas, disiplin, jujur, teliti, dan bertanggung jawab.", "Mampu mengarahkan serta menegur karyawan secara profesional.", "Memahami operasional restoran, pengelolaan stok, dan pencatatan penjualan.", "Terbiasa melakukan pengecekan stok dan laporan operasional sederhana.", "Memiliki kemampuan komunikasi dan penyelesaian masalah yang baik.", "Bersedia bekerja langsung di lapangan dan membantu operasional saat dibutuhkan.", "Mampu bekerja secara mandiri tanpa harus selalu diawasi pemilik.", "Bersedia bekerja dengan sistem shift, termasuk akhir pekan dan hari libur.", "Bersedia ditempatkan di Restaurant Bamboo House : Jl. Boncel No.57 7, RT.13/RW.12, Pejagalan, Kecamatan Penjaringan, Jkt Utara"]
+benefit: []
 ---
 <p><br/></p>
 <p>Deskripsi Pekerjaan</p>

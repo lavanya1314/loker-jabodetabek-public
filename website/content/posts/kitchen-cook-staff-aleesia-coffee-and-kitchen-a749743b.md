@@ -15,6 +15,14 @@ logo_url: "/logos/kitchen-cook-staff-aleesia-coffee-and-kitchen-a749743b.jpg"
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/kitchen-cook-staff/e33c1879-4086-453f-ae20-4335454db5f1"
 telegram_sent: false
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Food & Beverages"
+deskripsi_perusahaan: "Coffee and Kitchen"
+berlaku_sampai: "2026-12-13"
+deskripsi_pekerjaan: ["Deskripsi pekerjaan Kitchen Staff Aleesia Coffee and Kitchen"]
+tugas: ["Mempunyai pengalaman menjadi di bidang terkait", "Mampu bekerja sama dengan tim", "Mampu bekerja di bawah tekanan dan target", "Jujur, disiplin, professional dan bertanggung jawab", "Sehat jasmani dan rohani", "kirim CV anda ke WAO878-8OO8-7627"]
+kualifikasi: []
+benefit: []
 ---
 <p>Deskripsi pekerjaan Kitchen Staff Aleesia Coffee and Kitchen</p>
 <p>1. Mempunyai pengalaman menjadi di bidang terkait </p>

@@ -1,13 +1,23 @@
 baseURL = "https://loker-8au.pages.dev/"
-languageCode = "id-ID"
 title = "Loker Jabodetabek"
+defaultContentLanguage = "id"
+
+[languages.id]
+  languageCode = "id-ID"
+  languageName = "Indonesia"
+  weight = 1
+  title = "Loker Jabodetabek"
+
+# Tidak ada halaman taksonomi atau daftar section. Tanpanya, URL seperti /posts/ dan /tags/
+# tampil sebagai salinan halaman depan di sitemap.
+disableKinds = ["taxonomy", "term", "section", "RSS"]
 
 [markup.goldmark.renderer]
   # Body lowongan berupa HTML yang sudah dibersihkan bot (script, on*, javascript: dihapus).
   unsafe = true
 
 [params]
-  siteDesc = "Info lowongan kerja wilayah Jabodetabek"
+  siteDesc = "Info lowongan kerja terbaru di Jakarta, Bogor, Depok, Tangerang, dan Bekasi"
 
 [permalinks]
   posts = "/posts/:slug/"

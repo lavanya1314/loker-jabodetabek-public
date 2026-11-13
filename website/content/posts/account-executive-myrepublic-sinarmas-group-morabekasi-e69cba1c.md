@@ -15,6 +15,14 @@ logo_url: "/logos/account-executive-myrepublic-sinarmas-group-morabekasi-e69cba1
 ilustrasi_url: ""
 lamar_url: "https://glints.com/id/opportunities/jobs/account-executive-myrepublic-sinarmas-group/8b67f99a-09f3-4ca3-9c44-dd06c083bd64"
 telegram_sent: true
+tipe_pekerjaan: "Penuh Waktu (Full Time)"
+bidang: "Telecommunications"
+deskripsi_perusahaan: "PT Ekamas Mora Republik Tbk (MoraRepublic) merupakan perusahaan yang bergerak di bidang infrastruktur telekomunikasi dan layanan digital terintegrasi di Indonesia. Perusahaan ini resmi terbentuk pada 23 April 2026 melalui penggabungan PT Mora Telematika Indonesia Tbk dan PT Eka Mas Republik. MoraRepublic hadir untuk mendukung percepatan transformasi digital di Indonesia melalui penyediaan infrastruktur jaringan telekomunikasi, jaringan fiber optik, layanan internet, serta konektivitas digital yang andal dan berkualitas. Dengan pengalaman dan infrastruktur yang kuat, MoraRepublic mengembangkan berbagai layanan untuk memenuhi kebutuhan pelanggan individu, bisnis, hingga korporasi. Perusahaan juga terus berinovasi dalam memperluas jangkauan konektivitas digital guna mendukung pertumbuhan ekonomi dan pemerataan akses teknologi di Indonesia. MoraRepublic merupakan bagian dari ekosistem PT Dian Swastatika Sentosa Tbk (DSSA), yang berada di bawah naungan Sinar Mas."
+berlaku_sampai: "2026-12-14"
+deskripsi_pekerjaan: ["PT.Ekamas Mora Republik Tbk Sedang membuka lowongan Account Executive (MyRepublic) sebagai berikut,"]
+tugas: ["Menawarkan layanan internet super cepat MyRepublic kepada calon pelanggan.", "Ikut kegiatan promosi lapangan, event, dan pameran.", "Menjelaskan promo dengan ramah, jelas dan meyakinkan.", "Support calon pelanggan dalam proses pendaftaran.", "Bekerja sama dengan tim untuk mencapai tujuan."]
+kualifikasi: ["Pria/Wanita.", "Pend. Minimal SMP", "Lulusan baru dengan semangat tinggi dipersilahkan melamar.", "Memiliki sepeda motor (Wajib).", "Mampu bekerja secara Tim, mobile dan lapangan.", "Mampu bekerja dalam lingkungan yang dinamis, dengan target dan tantangan yang beragam.", "Mendapatkan training langsung dari trainer professional dan pengalaman kerja praktis."]
+benefit: []
 ---
 <p>PT.Ekamas Mora Republik Tbk Sedang membuka lowongan Account Executive (MyRepublic) sebagai berikut,<br/>
 </p>
