@@ -1,299 +1,185 @@
-<!DOCTYPE html>
-{{- $perusahaan := .Params.perusahaan | default "Perusahaan tidak disebutkan" -}}
-{{- $lokasi := .Params.lokasi | default "" -}}
-{{- $gaji := .Params.gaji | default "" -}}
-{{- $tipe := .Params.tipe_pekerjaan | default "" -}}
-{{- $bidang := .Params.bidang | default "" -}}
-{{- $logo := .Params.logo_url | default "" -}}
-{{- $lamar := .Params.lamar_url | default .Params.url_sumber -}}
-{{- $tugas := .Params.tugas | default slice -}}
-{{- $kualifikasi := .Params.kualifikasi | default slice -}}
-{{- $benefit := .Params.benefit | default slice -}}
-{{- $intro := .Params.deskripsi_pekerjaan | default slice -}}
-{{- $pend := "" -}}
-{{- with .Params.kredensial -}}
-  {{- if eq . "high school" }}{{ $pend = "Min. SMA / SMK" }}
-  {{- else if eq . "bachelor degree" }}{{ $pend = "Min. D3 / S1" }}
-  {{- else if eq . "associate degree" }}{{ $pend = "Min. D3" }}
-  {{- else if eq . "master degree" }}{{ $pend = "Min. S2" }}
-  {{- else if eq . "doctorate degree" }}{{ $pend = "Min. S3" }}
-  {{- else if eq . "professional certificate" }}{{ $pend = "Sertifikasi Profesional" }}
-  {{- end -}}
-{{- end -}}
-{{- $inisial := "" -}}
-{{- range first 2 (split (replaceRE `^(PT|CV)\.? ` "" $perusahaan) " ") -}}
-  {{- if . }}{{ $inisial = printf "%s%s" $inisial (upper (substr . 0 1)) }}{{ end -}}
-{{- end -}}
-{{- $gajiUtama := $gaji -}}
-{{- $gajiSatuan := "" -}}
-{{- if strings.Contains $gaji " / " -}}
-  {{- $bagian := split $gaji " / " -}}
-  {{- $gajiUtama = index $bagian 0 -}}
-  {{- $gajiSatuan = index $bagian 1 -}}
-{{- end -}}
-{{- $deskripsiMeta := .Description | default (printf "Lowongan %s di %s" .Title $perusahaan) -}}
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Title }} - {{ $perusahaan }} | Loker Jabodetabek</title>
-<meta name="description" content="{{ $deskripsiMeta }}">
-<link rel="canonical" href="{{ .Permalink }}">
-<meta name="robots" content="index,follow">
-<meta property="og:type" content="article">
-<meta property="og:title" content="{{ .Title }} - {{ $perusahaan }}">
-<meta property="og:description" content="{{ $deskripsiMeta }}">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:locale" content="id_ID">
-<meta name="theme-color" content="#066a4c">
-<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "JobPosting",
-  "title": {{ .Title | jsonify }},
-  "description": {{ $deskripsiMeta | jsonify }},
-  "datePosted": {{ with .Params.tanggal_lowongan }}{{ . | jsonify }}{{ else }}{{ .Date.Format "2006-01-02" | jsonify }}{{ end }},
-  {{- with .Params.berlaku_sampai }}
-  "validThrough": {{ . | jsonify }},
-  {{- end }}
-  "hiringOrganization": { "@type": "Organization", "name": {{ $perusahaan | jsonify }} },
-  "jobLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": {{ $lokasi | jsonify }}, "addressCountry": "ID" } }
-}
-</script>
-<style>
-:root{
-  --g-900:#044c36;--g-700:#066a4c;--g-600:#087f5b;--g-100:#dff3ea;--g-50:#f0f9f5;
-  --ink:#0f1f1a;--muted:#5b6b65;--line:#e4ebe8;--bg:#f4f7f6;--card:#fff;--warn:#fff7e6;--warn-line:#f2d9a0;--warn-ink:#7a5200;
-  --r:16px;--shadow:0 1px 2px rgba(15,31,26,.05),0 6px 20px rgba(15,31,26,.05);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--g-600);outline-offset:2px;border-radius:8px}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;margin:0;clip:auto;z-index:60;background:var(--g-700);color:#fff;padding:8px 12px;border-radius:8px}
+{{ define "main" }}
+{{ $hariPost := div (add .Date.Unix 25200) 86400 }}
+{{ $hariIni := div (add now.Unix 25200) 86400 }}
+{{ $baru := eq $hariPost $hariIni }}
+{{ $urgent := and $baru .Params.urgent }}
+{{ $bumn := .Params.bumn }}
+{{ $perusahaan := .Params.perusahaan | default "Perusahaan tidak disebutkan" }}
+{{ $gaji := .Params.gaji | default "Gaji dirahasiakan" }}
+{{ $logo := "images/logo-placeholder.svg" | relURL }}
+{{ with .Params.logo_url }}{{ $logo = . | relURL }}{{ end }}
+{{ $lain := where (where site.RegularPages "Section" "posts").ByDate.Reverse "Permalink" "ne" .Permalink }}
 
-/* Header */
-.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:960px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--g-600),var(--g-900));color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}
-.brand b{display:block;font-size:15px;letter-spacing:-.2px;line-height:1.2}
-.brand small{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.menu{display:flex;gap:4px}
-.menu a{font-size:14px;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:10px;transition:background .2s,color .2s}
-.menu a:hover{background:var(--g-50);color:var(--g-700)}
+<main id="konten" class="flex w-full flex-1 flex-col pb-8 pt-14">
+<div class="mx-auto flex w-full max-w-[1100px] flex-col px-4">
 
-main{max-width:960px;margin:0 auto;padding:20px 20px 40px}
-
-/* Breadcrumb */
-.crumb{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--muted);margin-bottom:16px}
-.crumb a:hover{color:var(--g-700)}
-.crumb .cur{color:var(--g-700);font-weight:600}
-.crumb i{font-style:normal;opacity:.5}
-
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-
-/* Hero */
-.hero{overflow:hidden;position:relative}
-.hero::before{content:"";display:block;height:6px;background:linear-gradient(90deg,var(--g-700),var(--g-600),#34b58a)}
-.hero-in{padding:26px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.logo{width:84px;height:84px;border-radius:18px;background:var(--g-700);color:#fff;font-weight:800;font-size:30px;font-style:italic;letter-spacing:-1px;display:grid;place-items:center;flex:none;box-shadow:0 6px 14px rgba(6,106,76,.25);overflow:hidden}
-.logo img{width:100%;height:100%;object-fit:cover}
-.hero-txt{flex:1;min-width:220px}
-.company{font-size:15px;color:var(--muted);font-weight:600}
-h1{font-size:clamp(18px,3.4vw,23px);line-height:1.25;letter-spacing:-.5px;font-weight:800;margin:2px 0 10px;color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--g-900);background:var(--g-50);border:1px solid var(--g-100);padding:5px 11px;border-radius:999px}
-.chip svg{width:14px;height:14px}
-.salary{text-align:right;margin-left:auto}
-.salary small{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.salary b{display:block;font-size:clamp(17px,3vw,20px);font-weight:800;color:var(--g-700);letter-spacing:-.5px;line-height:1.3}
-.salary span{font-size:13px;font-weight:600;color:var(--muted)}
-
-/* Ad */
-.ad{min-height:120px;display:grid;place-items:center;border:1.5px dashed #c9d8d2;background:#f8fbf9;border-radius:var(--r);color:#8aa097;font-size:12px;font-weight:600;letter-spacing:.06em;margin:16px 0}
-
-/* Desc */
-.desc{padding:28px}
-.sec-title{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:18px}
-.sec-title .ico{width:36px;height:36px}
-.intro{font-size:15px;color:#27362f;margin-bottom:14px}
-.sub{font-size:16px;font-weight:700;color:var(--g-700);margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--g-600);line-height:1.3}
-ol.list{list-style:none;counter-reset:n;display:grid;gap:10px}
-ol.list li{counter-increment:n;position:relative;padding:2px 0 2px 38px;font-size:15px;color:#27362f}
-ol.list li::before{content:counter(n);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:8px;background:var(--g-50);color:var(--g-700);font-size:12.5px;font-weight:700;display:grid;place-items:center;border:1px solid var(--g-100)}
-.note{margin-top:22px;padding:14px 16px;background:var(--g-50);border-radius:12px;font-size:14.5px;color:var(--g-900);font-weight:500}
-.fallback{font-size:15px;color:#27362f}
-.fallback > * + *{margin-top:.6rem}
-.fallback ul{list-style:disc;padding-left:1.25rem}
-.fallback ol{list-style:decimal;padding-left:1.25rem}
-.fallback a{color:var(--g-700);text-decoration:underline}
-
-/* Warning */
-.warn{margin:16px 0;padding:16px 18px;display:flex;gap:14px;background:var(--warn);border:1px solid var(--warn-line);border-radius:var(--r)}
-.warn .ico{background:#ffecc2;color:var(--warn-ink);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:none}
-.warn b{display:block;font-size:15px;color:var(--warn-ink);margin-bottom:2px}
-.warn p{font-size:13.5px;color:#6b5a2e}
-
-/* CTA */
-.cta{padding:26px;text-align:center}
-.cta h3{font-size:20px;font-weight:800;letter-spacing:-.3px}
-.cta p{font-size:14px;color:var(--muted);margin:4px 0 18px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:420px;padding:15px 24px;font:inherit;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--g-600),var(--g-700));border:0;border-radius:13px;cursor:pointer;box-shadow:0 8px 18px rgba(6,106,76,.28);transition:transform .2s,box-shadow .2s,filter .2s;position:relative;overflow:hidden}
-.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(6,106,76,.34)}
-.btn:hover::after{transform:translateX(120%)}
-.btn:active{transform:translateY(0) scale(.99)}
-.btn svg{width:20px;height:20px;transition:transform .2s}
-.btn:hover svg{transform:translateX(3px)}
-.cta small{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:12.5px;color:var(--muted)}
-.cta small svg{width:14px;height:14px;color:var(--g-600)}
-
-/* Share */
-.tools{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap}
-.ghost{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;color:var(--g-700);background:#fff;border:1px solid var(--g-100);padding:9px 16px;border-radius:11px;cursor:pointer;transition:background .2s,transform .2s}
-.ghost:hover{background:var(--g-50);transform:translateY(-1px)}
-.ghost svg{width:16px;height:16px}
-
-.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:var(--ink);color:#fff;font-size:13.5px;font-weight:500;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:40}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-
-@media (max-width:680px){
-  .menu a:nth-child(n+2){display:none}
-  .hero-in{padding:20px;gap:16px}
-  .salary{text-align:left;margin-left:0;width:100%;padding-top:14px;border-top:1px dashed var(--line)}
-  .desc{padding:22px 18px}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
-{{ partial "footer-style.html" . }}
-</head>
-<body>
-<a class="skip-link sr-only" href="#konten">Lewati ke konten</a>
-
-<header class="nav">
-  <div class="nav-in">
-    <a class="brand" href="{{ "/" | relURL }}">
-      <span class="brand-mark" aria-hidden="true">LJ</span>
-      <span><b>LOKER JABODETABEK</b><small>Karier &amp; peluang terverifikasi</small></span>
-    </a>
-    <nav class="menu" aria-label="Menu utama"><a href="{{ "/" | relURL }}">Beranda</a><a href="{{ "p/tentang-kami.html" | relURL }}">Tentang Kami</a><a href="{{ "p/kontak.html" | relURL }}">Kontak</a></nav>
-  </div>
-</header>
-
-<main id="konten">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a href="{{ "/" | relURL }}">Beranda</a>{{ with $lokasi }}<i aria-hidden="true">/</i><span>{{ . }}</span>{{ end }}<i aria-hidden="true">/</i><span class="cur" aria-current="page">{{ $perusahaan }}</span>
+  <nav class="crumb mt-4" aria-label="Breadcrumb">
+    <a href="{{ "/" | relURL }}">Beranda</a>
+    {{ with .Params.lokasi }}<i aria-hidden="true">/</i><span>{{ . }}</span>{{ end }}
+    <i aria-hidden="true">/</i><span class="cur">{{ $perusahaan }}</span>
   </nav>
 
-  <section class="card hero">
-    <div class="hero-in">
-      <div class="logo" aria-hidden="true">{{- with $logo }}<img src="{{ . | relURL }}" alt="" width="84" height="84" loading="eager">{{ else }}{{ $inisial }}{{ end -}}</div>
-      <div class="hero-txt">
-        <div class="company">{{ $perusahaan }}</div>
-        <h1>{{ .Title }}</h1>
-        {{- if or $lokasi $bidang }}
-        <div class="chips">
-          {{- with $lokasi }}<span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>{{ . }}</span>{{ end }}
-          {{- with $bidang }}<span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>{{ . }}</span>{{ end }}
+  <div class="layout">
+    <div class="col-main">
+
+      <section class="card hero" data-hari="{{ $hariPost }}">
+        <div class="hero-in">
+          <div class="logo"><img src="{{ $logo }}" alt="Logo {{ $perusahaan }}" width="84" height="84"/></div>
+          <div class="hero-txt">
+            {{ if or $baru $urgent $bumn }}
+            <div class="badges badge-row">
+              {{ if $baru }}<span class="bdg bdg-new js-baru"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>{{ end }}
+              {{ if $urgent }}<span class="bdg bdg-urgent js-urgent"><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>{{ end }}
+              {{ if $bumn }}<span class="bdg bdg-bumn"><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>{{ end }}
+            </div>
+            {{ end }}
+            <div class="company">{{ $perusahaan }}</div>
+            <h1>{{ .Title }}</h1>
+            <div class="chips">
+              {{ with .Params.lokasi }}<span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>{{ . }}</span>{{ end }}
+              {{ with .Params.bidang }}<span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>{{ . }}</span>{{ end }}
+              {{ if and $baru (isset .Params "views") }}
+              <span class="chip vw"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ .Params.views }}">{{ .Params.views }}</span>&nbsp;dilihat</span>
+              {{ end }}
+            </div>
+          </div>
+          <div class="salary">
+            <small>Gaji</small>
+            <b>{{ $gaji }}</b>
+            {{ with .Params.gaji }}{{ if not (findRE "(?i)bulan" .) }}<span>per bulan</span>{{ end }}{{ end }}
+          </div>
         </div>
-        {{- end }}
+      </section>
+
+      <div class="ad"><em>Iklan</em>TEMPAT IKLAN 300×250</div>
+
+      <article class="card desc">
+        <h2 class="sec-title">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 011 1v1H8V5a1 1 0 011-1z"/><path d="M8 6H6a2 2 0 00-2 2v11a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-2"/><path d="M8 12h8M8 16h5"/></svg></span>
+          Uraian Tugas &amp; Tanggung Jawab
+        </h2>
+        {{ with .Params.tugas }}
+        <ol class="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ol>
+        {{ else }}
+        <div class="job-body">{{ .Content }}</div>
+        {{ end }}
+
+        {{ with .Params.kualifikasi }}
+        <h3 class="sub">Kualifikasi</h3>
+        <ol class="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ol>
+        <p class="note">Jika Anda tertarik untuk bergabung dengan tim kami yang dinamis, silakan lamar sekarang.</p>
+        {{ end }}
+
+        {{ with .Params.benefit }}
+        <h3 class="sub">Benefit</h3>
+        <ol class="list">{{ range . }}<li>{{ . }}</li>{{ end }}</ol>
+        {{ end }}
+      </article>
+
+      <aside class="warn" role="note">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8v4M12 16h.01"/></svg></span>
+        <div>
+          <b>Peringatan Anti-Penipuan Rekrutmen</b>
+          <p>Jangan kirim uang untuk tiket, akomodasi, seragam, atau biaya lain selama proses seleksi. Laporkan jika ada pihak yang memintanya.</p>
+        </div>
+      </aside>
+
+      {{ with .Params.lamar_url }}
+      <section class="card cta" id="lamar">
+        <h3>Tertarik bergabung dengan perusahaan ini?</h3>
+        <p>Kirim berkas lamaran dan CV Anda langsung ke tim rekrutmen resmi di sumber lowongan.</p>
+        <a class="btn" href="{{ . }}" target="_blank" rel="noopener noreferrer nofollow">
+          Lamar Sekarang
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <small><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>100% bebas biaya pendaftaran dan pungutan</small>
+        <div class="tools">
+          <button class="ghost" id="share" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Bagikan</button>
+          <button class="ghost" id="copy" type="button"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>Salin tautan</button>
+        </div>
+      </section>
+      {{ end }}
+    </div>
+
+    <aside class="side" aria-label="Lowongan terbaru">
+      <div class="card side-card">
+        <h2 class="side-h">Lowongan Terbaru</h2>
+        {{ range first 4 $lain }}
+        {{ $hp := div (add .Date.Unix 25200) 86400 }}
+        {{ $bb := eq $hp $hariIni }}
+        {{ $uu := and $bb .Params.urgent }}
+        {{ $bu := .Params.bumn }}
+        <a class="mini" href="{{ .Permalink }}" data-hari="{{ $hp }}">
+          {{ if or $bb $uu $bu }}
+          <div class="badges badge-row">
+            {{ if $bb }}<span class="bdg bdg-new js-baru"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>{{ end }}
+            {{ if $uu }}<span class="bdg bdg-urgent js-urgent"><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>{{ end }}
+            {{ if $bu }}<span class="bdg bdg-bumn"><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>{{ end }}
+          </div>
+          {{ end }}
+          <b>{{ .Title }}</b>
+          <span class="m">{{ with .Params.perusahaan }}{{ . }}{{ end }}{{ with .Params.lokasi }} · {{ . }}{{ end }}</span>
+          {{ if and $bb (isset .Params "views") }}
+          <span class="mv vw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ .Params.views }}">{{ .Params.views }}</span></span>
+          {{ end }}
+        </a>
+        {{ end }}
+        <a class="side-more" href="{{ "/" | relURL }}">Lihat semua lowongan</a>
       </div>
-      <div class="salary">
-        <small>Gaji</small>
-        <b>{{ if $gaji }}{{ $gajiUtama }}{{ else }}Gaji dirahasiakan{{ end }}</b>
-        {{- with $gajiSatuan }}<span>per {{ . }}</span>{{ end }}
-      </div>
-    </div>
-  </section>
-
-  <div class="ad" role="complementary" aria-label="Tempat iklan">TEMPAT IKLAN 300×250</div>
-
-  <article class="card desc">
-    <h2 class="sec-title">
-      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 011 1v1H8V5a1 1 0 011-1z"/><path d="M8 6H6a2 2 0 00-2 2v11a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-2"/><path d="M8 12h8M8 16h5"/></svg></span>
-      Uraian Tugas &amp; Tanggung Jawab
-    </h2>
-
-    {{- if or $tugas $kualifikasi $benefit }}
-      {{- range $intro }}<p class="intro">{{ . }}</p>{{ end }}
-      {{- with $tugas }}
-      <ol class="list">
-        {{- range . }}<li>{{ . }}</li>{{ end }}
-      </ol>
-      {{- end }}
-
-      {{- with $kualifikasi }}
-      <h3 class="sub">Kualifikasi</h3>
-      <ol class="list">
-        {{- range . }}<li>{{ . }}</li>{{ end }}
-      </ol>
-      <p class="note">Jika Anda tertarik untuk bergabung dengan tim kami yang dinamis, silakan lamar sekarang.</p>
-      {{- end }}
-
-      {{- with $benefit }}
-      <h3 class="sub">Benefit</h3>
-      <ol class="list">
-        {{- range . }}<li>{{ . }}</li>{{ end }}
-      </ol>
-      {{- end }}
-    {{- else }}
-      <div class="fallback">{{ .Content }}</div>
-    {{- end }}
-  </article>
-
-  <aside class="warn" role="note">
-    <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8v4M12 16h.01"/></svg></span>
-    <div>
-      <b>Peringatan Anti-Penipuan Rekrutmen</b>
-      <p>Jangan kirim uang untuk tiket, akomodasi, seragam, atau biaya lain selama proses seleksi. Laporkan jika ada pihak yang memintanya.</p>
-    </div>
-  </aside>
-
-  {{- with $lamar }}
-  <section class="card cta" id="lamar">
-    <h3>Tertarik bergabung dengan perusahaan ini?</h3>
-    <p>Kirim berkas lamaran dan CV Anda langsung ke tim rekrutmen resmi di sumber lowongan.</p>
-    <a class="btn" href="{{ . }}" target="_blank" rel="noopener noreferrer nofollow">
-      Lamar Sekarang
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <span class="sr-only">(membuka tab baru)</span>
-    </a>
-    <small><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>100% bebas biaya pendaftaran dan pungutan</small>
-    <div class="tools">
-      <button class="ghost" id="share" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Bagikan</button>
-      <button class="ghost" id="copy" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>Salin tautan</button>
-    </div>
-  </section>
-  {{- end }}
+      <div class="ad side-ad"><em>Iklan</em>TEMPAT IKLAN 300×250</div>
+    </aside>
+  </div>
+</div>
 </main>
 
-{{ partial "footer.html" . }}
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script>
-(function(){
-  var toast = document.getElementById('toast'), t;
-  function show(msg){ toast.textContent = msg; toast.classList.add('on'); clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('on'); }, 2000); }
-  function copy(){
-    var url = location.href;
-    if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function(){ show('Tautan disalin'); }, function(){ show('Gagal menyalin'); }); }
-    else { show('Salin dari kolom alamat browser'); }
+(function () {
+  var hariIni = Math.floor((Date.now() + 25200000) / 86400000);
+  document.querySelectorAll('[data-hari]').forEach(function (el) {
+    if (Number(el.getAttribute('data-hari')) < hariIni) {
+      el.querySelectorAll('.js-baru,.js-urgent,.vw').forEach(function (b) { b.hidden = true; });
+    }
+  });
+
+  function formatViews(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.', ',').replace(',0', '') + ' jt';
+    if (n >= 1e3) return (n / 1e3).toFixed(1).replace('.', ',').replace(',0', '') + ' rb';
+    return String(Math.round(n));
   }
-  var salin = document.getElementById('copy');
-  if (salin) salin.addEventListener('click', copy);
-  var bagi = document.getElementById('share');
-  if (bagi) bagi.addEventListener('click', function(){
-    if (navigator.share) { navigator.share({ title: document.title, url: location.href }).catch(function(){}); }
-    else { copy(); }
+  var seen = {};
+  document.querySelectorAll('.vc').forEach(function (c) {
+    var w = c.closest('.vw');
+    if (!w || w.hidden) return;
+    var n = Number(c.getAttribute('data-views'));
+    if (!isFinite(n) || n < 0) { w.hidden = true; return; }
+    var key = String(Math.round(n));
+    if (seen[key]) { w.hidden = true; return; }
+    seen[key] = true;
+    c.textContent = formatViews(n);
+  });
+
+  var toast = document.getElementById('toast');
+  var timer;
+  function tampil(pesan) {
+    toast.textContent = pesan;
+    toast.classList.add('on');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('on'); }, 2000);
+  }
+  function salin() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(location.href).then(function () { tampil('Tautan disalin'); }, function () { tampil('Gagal menyalin'); });
+    } else {
+      tampil('Salin dari kolom alamat browser');
+    }
+  }
+  var tSalin = document.getElementById('copy');
+  if (tSalin) tSalin.addEventListener('click', salin);
+  var tBagi = document.getElementById('share');
+  if (tBagi) tBagi.addEventListener('click', function () {
+    if (navigator.share) { navigator.share({ title: document.title, url: location.href }).catch(function () {}); }
+    else { salin(); }
   });
 })();
 </script>
-</body>
-</html>
+{{ end }}

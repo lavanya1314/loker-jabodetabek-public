@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>{{ if .IsHome }}{{ site.Title }} - Portal Lowongan Kerja Terpercaya{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.siteDesc }}{{ end }}"/>
+  <link rel="canonical" href="{{ .Permalink }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com/3.4.17?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary": "#ffffff", "inverse-surface": "#283044", "primary": "#006948", "primary-hover": "#00553a",
+            "surface-container-low": "#e6e9f5", "background": "#eceef6", "on-surface-variant": "#3d4a42",
+            "on-error-container": "#93000a", "on-tertiary-fixed": "#002113", "surface-container-highest": "#cdd4ea",
+            "secondary-fixed": "#9cf2e8", "surface-tint": "#006c4a", "inverse-primary": "#68dba9",
+            "tertiary-container": "#00855b", "secondary-fixed-dim": "#80d5cb", "tertiary": "#006947",
+            "surface-bright": "#eceef6", "outline": "#6d7a72", "secondary-container": "#99efe5",
+            "tertiary-fixed": "#6ffbbe", "on-tertiary": "#ffffff", "surface-container-lowest": "#f7f8fc",
+            "on-primary-fixed": "#002114", "on-primary": "#ffffff", "surface-container": "#dfe3f3",
+            "surface-container-high": "#d7dcef", "error": "#ba1a1a", "on-secondary-fixed-variant": "#00504a",
+            "secondary": "#006a63", "on-background": "#131b2e", "error-container": "#ffdad6",
+            "surface-variant": "#dae2fd", "on-secondary-container": "#006f67", "on-primary-fixed-variant": "#005137",
+            "on-secondary-fixed": "#00201d", "primary-fixed": "#85f8c4", "on-primary-container": "#f5fff7",
+            "on-tertiary-fixed-variant": "#005236", "surface": "#eceef6", "outline-variant": "#bccac0",
+            "surface-dim": "#d2d9f4", "primary-container": "#00855d", "inverse-on-surface": "#eef0ff",
+            "on-surface": "#131b2e", "primary-fixed-dim": "#68dba9", "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary-container": "#f5fff6", "secondary-fixed-dim-2": "#80d5cb"
+          },
+          fontFamily: {
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-sm": ["Inter", "sans-serif"],
+            "label-md": ["Inter", "sans-serif"],
+            "label-lg": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; background: #eceef6; }
+    :root { --g-primary:#006948; --g-900:#044c36; --g-700:#066a4c; --g-600:#087f5b; --g-100:#dff3ea; --g-50:#f0f9f5; --ink:#131b2e; --muted:#3d4a42; --line:rgba(188,202,192,.45); --bg:#eceef6; --card:#f7f8fc; --warn:#fff7e6; --warn-line:#f2d9a0; --warn-ink:#7a5200; --r:16px; --shadow:0 1px 2px rgba(15,31,26,.05),0 6px 20px rgba(15,31,26,.05); }
+    :focus-visible { outline: 3px solid var(--g-600); outline-offset: 2px; border-radius: 8px; }
+    a { color: inherit; text-decoration: none; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; line-height: 1; }
+    .material-symbols-fill { font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24 !important; }
+    .tap-smooth { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .tap-smooth:active { transform: scale(0.97); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .modal-backdrop { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    [hidden] { display: none !important; }
+
+    /* Beranda */
+    .btn-detail{background:linear-gradient(135deg,#087f5b,#066a4c);box-shadow:0 3px 8px rgba(6,106,76,.25);transition:transform .2s,box-shadow .2s,filter .2s}
+    .btn-detail:hover{box-shadow:0 5px 12px rgba(6,106,76,.32);filter:brightness(1.06)}
+    .btn-detail .material-symbols-outlined{transition:transform .2s}
+    .btn-detail:hover .material-symbols-outlined{transform:translateX(3px)}
+    @media (min-width:1024px){
+      header > div{max-width:1100px;margin:0 auto}
+      .news-slide{flex-basis:calc(50% - 6px)}
+      #jobCardsContainer{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      #jobCardsContainer .ad-slot{grid-column:1/-1}
+      .job-card{transition:transform .2s,box-shadow .2s}
+      .job-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,31,26,.08)}
+    }
+    .news-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior-x:contain}
+    .news-slide{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always}
+    .news-slide:hover .news-title{color:#006948}
+    .news-dot{width:6px;height:6px;border-radius:99px;background:#bccac0;transition:width .25s,background .25s}
+    .news-dot.on{width:18px;background:#006948}
+    .news-nav{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#fff;border:1px solid rgba(188,202,192,.5);color:#006948;transition:background .2s,transform .2s}
+    .news-nav:hover{background:#f0f9f5}.news-nav:active{transform:scale(.93)}
+    @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+    .nudge{animation:nudge 1.4s ease-in-out 3}
+    .ad-slot{border:1.5px dashed #c9d8d2;background:#f8fbf9;border-radius:12px;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;color:#8aa097;font-size:11px;font-weight:600;letter-spacing:.06em}
+    .ad-slot em{position:absolute;top:8px;left:12px;font-style:normal;font-size:9.5px;letter-spacing:.08em;color:#6d7a72;text-transform:uppercase}
+    .site-footer{background:linear-gradient(180deg,#044c36,#033526);color:#cfe6dc;margin-top:8px}
+    .ft{max-width:960px;margin:0 auto;padding:36px 20px 24px;width:100%}
+    .ft-top{display:grid;grid-template-columns:1fr 1fr;gap:28px 24px;align-items:start}
+    .ft-about{grid-column:1/-1;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12)}
+    .ft-brand{display:inline-flex;align-items:center;gap:10px;min-height:40px}
+    .ft-mark{width:36px;height:36px;border-radius:10px;background:#fff;color:#066a4c;font-weight:800;font-size:14px;display:grid;place-items:center}
+    .ft-brand b{display:block;color:#fff;font-size:15px;line-height:1.2;font-family:'Plus Jakarta Sans',sans-serif}
+    .ft-brand small{display:block;font-size:10px;color:#9cc5b5;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .ft-about p{font-size:13px;line-height:1.75;margin-top:14px;color:#b5d4c7;max-width:none}
+    .ft-col h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px;padding-bottom:12px;position:relative;font-family:'Plus Jakarta Sans',sans-serif}
+    .ft-col h4::after{content:"";position:absolute;left:0;bottom:0;width:28px;height:3px;border-radius:3px;background:#34b58a}
+    .ft-col ul{list-style:none;margin:0;padding:0}
+    .ft-col li+li{border-top:1px solid rgba(255,255,255,.08)}
+    .ft-col a{display:flex;align-items:center;gap:8px;min-height:40px;padding:10px 0;font-size:13.5px;color:#b5d4c7;transition:color .2s,gap .2s}
+    .ft-col a::before{content:"";width:6px;height:6px;border-right:2px solid #34b58a;border-top:2px solid #34b58a;transform:rotate(45deg);flex:none}
+    .ft-col a:hover{color:#fff;gap:11px}
+    .ft-note{margin-top:26px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.7;color:#b5d4c7;text-align:left}
+    .ft-note b,.ft-note a{color:#fff}.ft-note a{text-decoration:underline}
+    .ft-bot{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px;color:#8fb9a8;text-align:left}
+    @media (min-width:768px){.ft-top{grid-template-columns:1.5fr 1fr 1fr;gap:40px}.ft-about{grid-column:auto;padding-bottom:0;border:0}}
+    @keyframes btnWiggle{0%,70%,100%{transform:rotate(0) scale(1)}74%{transform:rotate(-3deg) scale(1.04)}78%{transform:rotate(3deg) scale(1.04)}82%{transform:rotate(-2deg) scale(1.03)}86%{transform:rotate(2deg) scale(1.03)}90%{transform:rotate(0) scale(1)}}
+    @keyframes btnRing{0%{box-shadow:0 0 0 0 rgba(186,26,26,.55)}70%{box-shadow:0 0 0 10px rgba(186,26,26,0)}100%{box-shadow:0 0 0 0 rgba(186,26,26,0)}}
+    .btn-urgent{background:linear-gradient(135deg,#d93636,#ba1a1a);box-shadow:0 3px 8px rgba(186,26,26,.3)}
+    .btn-urgent:hover{filter:brightness(1.06)}
+    @keyframes boltFlash{0%,60%,100%{opacity:1}70%{opacity:.35}80%{opacity:1}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+    @keyframes spinIt{to{transform:rotate(360deg)}}
+    .btn-new{animation:btnWiggle 2.6s ease-in-out infinite,btnRing 1.8s ease-out infinite}
+    .btn-new .bolt{animation:boltFlash 2.6s ease-in-out infinite}
+    .fade-in>article{animation:fadeUp .4s ease-out both}
+    .fade-in>article:nth-child(2){animation-delay:.06s}.fade-in>article:nth-child(3){animation-delay:.12s}.fade-in>article:nth-child(4){animation-delay:.18s}
+    .spin-it{animation:spinIt .7s linear infinite}
+    .bdg{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.03em;line-height:1.6}
+    .bdg svg,.bdg .material-symbols-outlined{width:12px;height:12px;font-size:12px}
+    .bdg-new{background:#006948;color:#fff}
+    .bdg-urgent{background:#ffdad6;color:#ba1a1a;border:1px solid rgba(186,26,26,.25)}
+    .bdg-bumn{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
+    .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+
+    /* Detail */
+    .crumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-bottom:16px}
+    .crumb a{display:inline-flex;align-items:center;min-height:40px}
+    .crumb a:hover{color:var(--g-700)}
+    .crumb .cur{color:var(--g-700);font-weight:600}
+    .crumb i{font-style:normal;opacity:.5}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+    .hero{overflow:hidden;position:relative}
+    .hero::before{content:"";display:block;height:6px;background:linear-gradient(90deg,var(--g-700),var(--g-600),#34b58a)}
+    .hero-in{padding:20px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+    .logo{width:72px;height:72px;border-radius:16px;background:var(--g-primary);color:#fff;font-weight:800;font-size:26px;font-style:italic;letter-spacing:-1px;display:grid;place-items:center;flex:none;box-shadow:0 6px 14px rgba(6,106,76,.25);overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .hero-txt{flex:1;min-width:0}
+    .company{font-size:15px;color:var(--muted);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif}
+    .hero h1{font-size:clamp(18px,3.4vw,23px);line-height:1.25;letter-spacing:-.5px;font-weight:800;margin:2px 0 10px;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#3d4a42;background:#e6e9f5;border:1px solid var(--line);padding:5px 11px;border-radius:999px}
+    .chip svg{width:14px;height:14px}
+    .salary{width:100%;padding-top:14px;border-top:1px dashed var(--line);text-align:left}
+    .salary small{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .salary b{display:block;font-size:clamp(17px,3vw,20px);font-weight:800;color:var(--g-primary);letter-spacing:-.5px;line-height:1.3;font-family:'Plus Jakarta Sans',sans-serif}
+    .salary span{font-size:13px;font-weight:600;color:var(--muted)}
+    .ad{min-height:120px;display:grid;place-items:center;border:1.5px dashed #c9d8d2;background:#f8fbf9;border-radius:var(--r);color:#8aa097;font-size:12px;font-weight:600;letter-spacing:.06em;margin:16px 0;position:relative}
+    .ad em{position:absolute;top:8px;left:12px;font-style:normal;font-size:9.5px;letter-spacing:.08em;color:#6d7a72;text-transform:uppercase}
+    .desc{padding:28px;margin-top:16px}
+    .sec-title{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:800;letter-spacing:-.3px;margin-bottom:18px;font-family:'Plus Jakarta Sans',sans-serif}
+    .sec-title .ico{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center}
+    .sec-title .ico svg{width:30px;height:30px}
+    .sub{font-size:16px;font-weight:700;color:var(--g-700);margin:28px 0 12px;padding-left:12px;border-left:4px solid var(--g-600);line-height:1.3;font-family:'Plus Jakarta Sans',sans-serif}
+    ol.list{list-style:none;counter-reset:n;display:grid;gap:10px}
+    ol.list li{counter-increment:n;position:relative;padding:2px 0 2px 38px;font-size:15px;color:#27362f}
+    ol.list li::before{content:counter(n);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:8px;background:var(--g-50);color:var(--g-700);font-size:12.5px;font-weight:700;display:grid;place-items:center;border:1px solid var(--g-100)}
+    .job-body { overflow-wrap: anywhere; font-size: 15px; color: #27362f; }
+    .job-body > * + * { margin-top: .6rem; }
+    .job-body ul { list-style: disc; padding-left: 1.25rem; }
+    .job-body ol { list-style: decimal; padding-left: 1.25rem; }
+    .job-body li + li { margin-top: .3rem; }
+    .job-body h2, .job-body h3, .job-body h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+    .job-body a { color: #006948; text-decoration: underline; }
+    .job-body table { display: block; max-width: 100%; overflow-x: auto; }
+    .warn{margin:16px 0;padding:16px 18px;display:flex;gap:14px;background:var(--warn);border:1px solid var(--warn-line);border-radius:var(--r)}
+    .warn .ico{flex:none;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:#ffecc2;color:var(--warn-ink)}
+    .warn b{display:block;font-size:15px;color:var(--warn-ink);margin-bottom:2px}
+    .warn p{font-size:13.5px;color:#6b5a2e}
+    .cta{padding:26px;text-align:center;margin-top:16px}
+    .cta h3{font-size:20px;font-weight:800;letter-spacing:-.3px;font-family:'Plus Jakarta Sans',sans-serif}
+    .cta p{font-size:14px;color:var(--muted);margin:4px 0 18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:420px;min-height:48px;padding:15px 24px;font:inherit;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--g-600),var(--g-700));border-radius:13px;box-shadow:0 8px 18px rgba(6,106,76,.28);transition:transform .2s,box-shadow .2s,filter .2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(6,106,76,.34)}
+    .btn svg{width:20px;height:20px;transition:transform .2s}
+    .btn:hover svg{transform:translateX(3px)}
+    .cta small{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:12.5px;color:var(--muted)}
+    .cta small svg{width:14px;height:14px;color:var(--g-600)}
+    .tools{display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap}
+    .ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;font:inherit;font-size:13.5px;font-weight:600;color:var(--g-700);background:#fff;border:1px solid var(--g-100);padding:9px 16px;border-radius:11px;cursor:pointer;transition:background .2s,transform .2s}
+    .ghost:hover{background:var(--g-50);transform:translateY(-1px)}
+    .ghost svg{width:16px;height:16px}
+    .layout{display:block}
+    .side{display:none}
+    .side-card{padding:18px}
+    .side-h{font-size:16px;font-weight:800;letter-spacing:-.2px;margin-bottom:6px;font-family:'Plus Jakarta Sans',sans-serif}
+    .mini{display:block;padding:12px 0;border-top:1px solid var(--line)}
+    .mini .badges{margin-bottom:6px}
+    .mini b{display:block;font-size:14px;font-weight:700;line-height:1.35;color:var(--ink)}
+    .mini span.m{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+    .mini:hover b{color:var(--g-700)}
+    .mv{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:12px;font-weight:600;color:#3d4a42}
+    .mv svg{width:13px;height:13px}
+    .side-more{display:flex;align-items:center;justify-content:center;text-align:center;min-height:40px;margin-top:6px;padding:10px;border-radius:11px;background:var(--g-50);color:var(--g-700);font-size:13.5px;font-weight:700}
+    .side-ad{min-height:250px;margin:16px 0 0}
+    .vw svg{width:14px;height:14px}
+    .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:var(--ink);color:#fff;font-size:13.5px;font-weight:500;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:40}
+    .toast.on{opacity:1;transform:translate(-50%,0)}
+    @media (max-width:1023px){
+      .hero-in{padding:20px;gap:16px;align-items:flex-start}
+      .logo{width:72px;height:72px;border-radius:16px;font-size:26px}
+      .hero-txt{min-width:0}
+      .salary{text-align:left;margin-left:0;width:100%;padding-top:14px;border-top:1px dashed var(--line)}
+    }
+    @media (min-width:1024px){
+      .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+      .side{display:block;position:sticky;top:72px}
+      .hero-in{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:16px;align-items:start;padding:20px}
+      .logo{width:84px;height:84px;border-radius:18px;font-size:30px}
+      .hero-txt{min-width:0}
+      .salary{width:auto;margin-left:0;padding-top:0;border-top:0;text-align:right}
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
+      .btn-new, .btn-new .bolt, .fade-in>article, .nudge { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col relative">
+  {{ $menu := slice (dict "nama" "Beranda" "url" "/") (dict "nama" "Tentang Kami" "url" "/p/tentang-kami/") (dict "nama" "Kontak" "url" "/p/kontak/") }}
+  {{ $info := slice (dict "nama" "Kebijakan Privasi" "url" "/p/kebijakan-privasi/") (dict "nama" "Syarat & Ketentuan" "url" "/p/syarat-ketentuan/") (dict "nama" "Disclaimer" "url" "/p/disclaimer/") }}
+
+  <a href="#konten" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-3 focus:py-2 focus:text-on-primary">Lewati ke konten</a>
+
+  <header class="fixed top-0 w-full z-40 pt-safe bg-surface/95 backdrop-blur-md border-b border-surface-container shadow-[0_1px_6px_rgba(0,0,0,0.03)]">
+    <div class="h-14 px-4 flex items-center justify-between gap-3">
+      <a href="{{ "/" | relURL }}" class="flex min-w-0 items-center gap-2.5 tap-smooth">
+        <span class="w-8 h-8 flex-shrink-0 rounded-lg bg-primary flex items-center justify-center shadow-sm" aria-hidden="true">
+          <span class="text-[13px] font-headline-sm text-on-primary tracking-tight font-extrabold">LJ</span>
+        </span>
+        <span class="flex min-w-0 flex-col">
+          <span class="text-[14px] font-headline-sm font-bold text-on-surface leading-tight tracking-tight">LOKER JABODETABEK</span>
+          <span class="text-[10px] text-outline font-label-sm leading-none tracking-wider uppercase mt-0.5 font-medium">Karier &amp; Peluang Terverifikasi</span>
+        </span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Menu utama">
+        {{ range $menu }}
+        {{ $aktif := and (eq .url "/") $.IsHome }}
+        <a href="{{ .url | relURL }}" {{ if $aktif }}aria-current="page"{{ end }} class="{{ if $aktif }}px-3 py-2 rounded-lg text-[13.5px] font-medium text-primary bg-primary-fixed/40{{ else }}px-3 py-2 rounded-lg text-[13.5px] font-medium text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors{{ end }}">{{ .nama }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </header>
+
+  {{ block "main" . }}{{ end }}
+
+  <footer class="site-footer">
+    <div class="ft">
+      <div class="ft-top">
+        <div class="ft-about">
+          <a class="ft-brand" href="{{ "/" | relURL }}"><span class="ft-mark" aria-hidden="true">LJ</span><span><b>LOKER JABODETABEK</b><small>Karier &amp; peluang terverifikasi</small></span></a>
+          <p>Portal informasi lowongan kerja di Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Kami mengumpulkan info lowongan dari sumber resmi agar pencari kerja lebih mudah menemukan peluang.</p>
+        </div>
+        <nav class="ft-col" aria-label="Jelajahi">
+          <h4>Jelajahi</h4>
+          <ul>
+            {{ range $menu }}<li><a href="{{ .url | relURL }}">{{ .nama }}</a></li>{{ end }}
+          </ul>
+        </nav>
+        <nav class="ft-col" aria-label="Informasi">
+          <h4>Informasi</h4>
+          <ul>
+            {{ range $info }}<li><a href="{{ .url | relURL }}">{{ .nama }}</a></li>{{ end }}
+          </ul>
+        </nav>
+      </div>
+      <div class="ft-note"><b>Disclaimer:</b> Kami hanya menampilkan informasi lowongan dan bukan pihak perekrut. Proses seleksi sepenuhnya dilakukan oleh perusahaan terkait. Jangan pernah membayar biaya apa pun selama proses rekrutmen. Situs ini menggunakan cookie dan menampilkan iklan dari Google serta pihak ketiga lainnya. Selengkapnya ada di <a href="{{ "/p/kebijakan-privasi/" | relURL }}">Kebijakan Privasi</a>.</div>
+      <div class="ft-bot"><span>&copy; {{ now.Year }} Loker Jabodetabek. Seluruh hak cipta dilindungi.</span><span>Nama perusahaan dan logo milik masing-masing pemiliknya.</span></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
