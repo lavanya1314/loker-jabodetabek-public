@@ -22,7 +22,7 @@ url_sumber: "https://www.kitalulus.com/lowongan/detail/banking-academy-for-servi
 logo_url: "/logos/banking-academy-for-service-advisor-pt-bank-ocbc-nisp-tbk-ocbc-ceef44bc.png"
 ilustrasi_url: ""
 lamar_url: "https://www.kitalulus.com/lowongan/detail/banking-academy-for-service-advisor-o3pm"
-telegram_sent: false
+telegram_sent: true
 terverifikasi: true
 baru: false
 urgent: false

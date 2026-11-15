@@ -1,6 +1,6 @@
 ---
 title: "crew store minuman"
-date: "2026-11-15T05:30:04.826862+00:00"
+date: "2026-11-15T11:11:27.004475+00:00"
 tanggal_lowongan: "2026-11-14T08:39:10+00:00"
 berlaku_sampai: "2026-12-13"
 slug: "crew-store-minuman-pitcher-sentosa-gemilang-f565450c"
@@ -24,9 +24,8 @@ ilustrasi_url: "/logos/crew-store-minuman-pitcher-sentosa-gemilang-f565450c-ilus
 lamar_url: "https://www.kitalulus.com/lowongan/detail/crew-store-minuman-nm0p"
 telegram_sent: false
 terverifikasi: true
-baru: false
 urgent: false
 bumn: false
-views: 0
+views: 532
 ---
 <p>Sebagai crew Toko Bir, Anda akan bertanggung jawab atas pelayanan pelanggan, memastikan pelayanan cust memuaskan, serta menjaga kebersihan dan tata letak area gudang. Anda juga akan berinteraksi langsung dengan pelanggan, memberikan informasi produk, dan membantu dalam proses pengambilan barang. Selain itu, Anda akan bekerja sama dengan rekan kerja lainnya untuk memastikan pelayanan yang cepat dan efisien selama jam operasional toko.<br/>Kami mencari kandidat yang memiliki pendidikan minimal SMA/SMK dan memiliki minat di bidang pelayanan pelanggan. Keterampilan seperti menjadi crew, kemampuan bekerja dalam tim, serta pengalaman sebagai crew2 di supermarket, pusat perbelanjaan, atau toko kelontong sangat dihargai. Kemampuan berkomunikasi yang baik dan mampu berbicara di depan umum juga menjadi nilai tambah. Kami percaya bahwa setiap orang memiliki potensi untuk sukses, dan kami siap mendukung pertumbuhan Anda bersama kami.</p>

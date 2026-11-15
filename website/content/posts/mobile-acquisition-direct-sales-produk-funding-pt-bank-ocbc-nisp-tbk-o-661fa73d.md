@@ -22,7 +22,7 @@ url_sumber: "https://www.kitalulus.com/lowongan/detail/mobile-acquisition-udnm"
 logo_url: "/logos/mobile-acquisition-direct-sales-produk-funding-pt-bank-ocbc-nisp-tbk-o-661fa73d.png"
 ilustrasi_url: ""
 lamar_url: "https://www.kitalulus.com/lowongan/detail/mobile-acquisition-udnm"
-telegram_sent: false
+telegram_sent: true
 terverifikasi: true
 baru: false
 urgent: false

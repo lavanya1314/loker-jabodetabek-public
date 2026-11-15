@@ -22,7 +22,7 @@ url_sumber: "https://www.kitalulus.com/lowongan/detail/direct-sales-career-progr
 logo_url: "/logos/direct-sales-career-program-dscp-pt-bank-ocbc-nisp-tbk-ocbc-a743edd2.png"
 ilustrasi_url: ""
 lamar_url: "https://www.kitalulus.com/lowongan/detail/direct-sales-career-program-fc8l"
-telegram_sent: false
+telegram_sent: true
 terverifikasi: true
 baru: false
 urgent: false
