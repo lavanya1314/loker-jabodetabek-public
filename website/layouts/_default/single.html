@@ -1,8 +1,5 @@
 {{ define "main" }}
-{{ $hariPost := div (add .Date.Unix 25200) 86400 }}
-{{ $hariIni := div (add now.Unix 25200) 86400 }}
-{{ $baru := eq $hariPost $hariIni }}
-{{ $urgent := and $baru .Params.urgent }}
+{{ $urgent := .Params.urgent }}
 {{ $bumn := .Params.bumn }}
 {{ $perusahaan := .Params.perusahaan | default "Perusahaan tidak disebutkan" }}
 {{ $gaji := .Params.gaji | default "Gaji dirahasiakan" }}
@@ -22,25 +19,19 @@
   <div class="layout">
     <div class="col-main">
 
-      <section class="card hero" data-hari="{{ $hariPost }}">
+      <section class="card hero" data-ts="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}" data-deadline="{{ .Params.berlaku_sampai | default "" }}" data-urgent="{{ if .Params.urgent }}1{{ else }}0{{ end }}" data-bumn="{{ if .Params.bumn }}1{{ else }}0{{ end }}">
         <div class="hero-in">
           <div class="logo"><img src="{{ $logo }}" alt="Logo {{ $perusahaan }}" width="84" height="84"/></div>
           <div class="hero-txt">
-            {{ if or $baru $urgent $bumn }}
-            <div class="badges badge-row">
-              {{ if $baru }}<span class="bdg bdg-new js-baru"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>{{ end }}
-              {{ if $urgent }}<span class="bdg bdg-urgent js-urgent"><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>{{ end }}
-              {{ if $bumn }}<span class="bdg bdg-bumn"><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>{{ end }}
-            </div>
-            {{ end }}
+            <div class="badges badge-row" hidden></div>
             <div class="company">{{ $perusahaan }}</div>
             <h1>{{ .Title }}</h1>
             <div class="chips">
               {{ with .Params.lokasi }}<span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>{{ . }}</span>{{ end }}
               {{ with .Params.bidang }}<span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>{{ . }}</span>{{ end }}
-              {{ if and $baru (isset .Params "views") }}
-              <span class="chip vw"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ .Params.views }}">{{ .Params.views }}</span>&nbsp;dilihat</span>
-              {{ end }}
+              {{ with .Params.views }}{{ if gt (int .) 0 }}
+              <span class="chip vw"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ . }}">{{ . }}</span>&nbsp;dilihat</span>
+              {{ end }}{{ end }}
             </div>
           </div>
           <div class="salary">
@@ -105,23 +96,13 @@
       <div class="card side-card">
         <h2 class="side-h">Lowongan Terbaru</h2>
         {{ range first 4 $lain }}
-        {{ $hp := div (add .Date.Unix 25200) 86400 }}
-        {{ $bb := eq $hp $hariIni }}
-        {{ $uu := and $bb .Params.urgent }}
-        {{ $bu := .Params.bumn }}
-        <a class="mini" href="{{ .Permalink }}" data-hari="{{ $hp }}">
-          {{ if or $bb $uu $bu }}
-          <div class="badges badge-row">
-            {{ if $bb }}<span class="bdg bdg-new js-baru"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>{{ end }}
-            {{ if $uu }}<span class="bdg bdg-urgent js-urgent"><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>{{ end }}
-            {{ if $bu }}<span class="bdg bdg-bumn"><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>{{ end }}
-          </div>
-          {{ end }}
+        <a class="mini" href="{{ .Permalink }}" data-ts="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}" data-deadline="{{ .Params.berlaku_sampai | default "" }}" data-urgent="{{ if .Params.urgent }}1{{ else }}0{{ end }}" data-bumn="{{ if .Params.bumn }}1{{ else }}0{{ end }}">
+          <div class="badges badge-row" hidden></div>
           <b>{{ .Title }}</b>
           <span class="m">{{ with .Params.perusahaan }}{{ . }}{{ end }}{{ with .Params.lokasi }} · {{ . }}{{ end }}</span>
-          {{ if and $bb (isset .Params "views") }}
-          <span class="mv vw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ .Params.views }}">{{ .Params.views }}</span></span>
-          {{ end }}
+          {{ with .Params.views }}{{ if gt (int .) 0 }}
+          <span class="mv vw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-views="{{ . }}">{{ . }}</span></span>
+          {{ end }}{{ end }}
         </a>
         {{ end }}
         <a class="side-more" href="{{ "/" | relURL }}">Lihat semua lowongan</a>
@@ -134,28 +115,10 @@
 
 <script>
 (function () {
-  var hariIni = Math.floor((Date.now() + 25200000) / 86400000);
-  document.querySelectorAll('[data-hari]').forEach(function (el) {
-    if (Number(el.getAttribute('data-hari')) < hariIni) {
-      el.querySelectorAll('.js-baru,.js-urgent,.vw').forEach(function (b) { b.hidden = true; });
-    }
-  });
-
-  function formatViews(n) {
-    if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.', ',').replace(',0', '') + ' jt';
-    if (n >= 1e3) return (n / 1e3).toFixed(1).replace('.', ',').replace(',0', '') + ' rb';
-    return String(Math.round(n));
-  }
-  var seen = {};
-  document.querySelectorAll('.vc').forEach(function (c) {
-    var w = c.closest('.vw');
-    if (!w || w.hidden) return;
-    var n = Number(c.getAttribute('data-views'));
-    if (!isFinite(n) || n < 0) { w.hidden = true; return; }
-    var key = String(Math.round(n));
-    if (seen[key]) { w.hidden = true; return; }
-    seen[key] = true;
-    c.textContent = formatViews(n);
+  document.querySelectorAll('[data-ts]').forEach(function (el) {
+    var st = window.LokerBadge.status(el);
+    window.LokerBadge.render(el, st);
+    window.LokerBadge.views(el, st);
   });
 
   var toast = document.getElementById('toast');

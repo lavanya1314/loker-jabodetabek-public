@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
 {{ $urut := $posts.ByDate.Reverse }}
-{{ $hariIni := div (add now.Unix 25200) 86400 }}
 
 <main id="konten" class="flex w-full flex-1 flex-col pb-8 pt-14">
 <div class="mx-auto flex w-full max-w-[1100px] flex-col">
@@ -84,7 +83,7 @@
       <button id="refreshBtn" type="button" aria-label="Muat ulang lowongan" class="tap-smooth flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-outline-variant/50 bg-surface-container-lowest text-primary shadow-sm">
         <span id="refreshIcon" class="material-symbols-outlined text-[20px]" aria-hidden="true">refresh</span>
       </button>
-      <button id="urgentBtn" type="button" class="btn-new btn-urgent tap-smooth flex h-10 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-xl font-headline-sm text-[13px] font-extrabold tracking-wide text-on-primary lg:w-[280px] lg:flex-none">
+      <button id="urgentBtn" type="button" hidden class="btn-new btn-urgent tap-smooth flex h-10 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-xl font-headline-sm text-[13px] font-extrabold tracking-wide text-on-primary lg:w-[280px] lg:flex-none">
         <span class="bolt material-symbols-outlined material-symbols-fill text-[18px]" aria-hidden="true">priority_high</span>
         <span class="truncate">URGENT <span id="urgentCount">0</span></span>
       </button>
@@ -125,18 +124,16 @@
     {{ $pendidikan := $kategori }}
     {{ if eq $kategori "D1-S3" }}{{ $pendidikan = "D1 sampai S3" }}{{ else }}{{ $pendidikan = replace $kategori "/" " / " }}{{ end }}
     {{ $terverifikasi := $p.Params.terverifikasi }}
-    {{ $hariPost := div (add $p.Date.Unix 25200) 86400 }}
-    {{ $baru := eq $hariPost $hariIni }}
-    {{ $urgent := and $baru $p.Params.urgent }}
+    {{ $urgent := $p.Params.urgent }}
     {{ $bumn := $p.Params.bumn }}
     {{ $logo := "images/logo-placeholder.svg" | relURL }}
     {{ with $p.Params.logo_url }}{{ $logo = . | relURL }}{{ end }}
 
     <article class="job-card relative flex cursor-pointer flex-col gap-2.5 rounded-xl border bg-surface-container-lowest p-3.5 shadow-sm tap-smooth {{ if $urgent }}border-primary/25{{ else }}border-outline-variant/25{{ end }}"
       data-idx="{{ $i }}"
-      data-hari="{{ $hariPost }}"
-      data-new="{{ if $baru }}1{{ else }}0{{ end }}"
-      data-urgent="{{ if $urgent }}1{{ else }}0{{ end }}"
+      data-ts="{{ $p.Date.Format "2006-01-02T15:04:05-07:00" }}"
+      data-deadline="{{ $p.Params.berlaku_sampai | default "" }}"
+      data-urgent="{{ if $p.Params.urgent }}1{{ else }}0{{ end }}"
       data-bumn="{{ if $bumn }}1{{ else }}0{{ end }}"
       data-cari="{{ lower (printf "%s %s %s" $p.Title $perusahaan $lokasi) }}"
       data-wilayah="{{ lower $lokasi }}"
@@ -152,13 +149,7 @@
       data-m-logo="{{ $logo }}"
       data-m-url="{{ $p.Permalink }}">
 
-      {{ if or $baru $urgent $bumn }}
-      <div class="badge-row flex flex-wrap items-center gap-1.5">
-        {{ if $baru }}<span class="bdg bdg-new js-baru"><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>{{ end }}
-        {{ if $urgent }}<span class="bdg bdg-urgent js-urgent"><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>{{ end }}
-        {{ if $bumn }}<span class="bdg bdg-bumn"><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>{{ end }}
-      </div>
-      {{ end }}
+      <div class="badge-row flex flex-wrap items-center gap-1.5" hidden></div>
 
       <div class="flex items-start justify-between gap-2">
         <div class="flex min-w-0 items-center gap-2.5">
@@ -177,12 +168,12 @@
           {{ if $terverifikasi }}
           <span class="inline-flex items-center gap-0.5 rounded-md bg-primary-fixed px-2 py-0.5 font-headline-sm text-[10.5px] font-extrabold uppercase text-on-primary-fixed"><span class="material-symbols-outlined text-[12px]" aria-hidden="true">check_circle</span>Valid</span>
           {{ end }}
-          {{ if and $baru (isset $p.Params "views") }}
-          <span class="vw inline-flex items-center gap-0.5 font-label-md text-[11.5px] font-semibold text-on-surface-variant">
+          {{ with $p.Params.views }}{{ if gt (int .) 0 }}
+          <span hidden class="vw inline-flex items-center gap-0.5 font-label-md text-[11.5px] font-semibold text-on-surface-variant">
             <span class="material-symbols-outlined text-[14px]" aria-hidden="true">visibility</span>
-            <span class="vc" data-views="{{ $p.Params.views }}">{{ $p.Params.views }}</span>
+            <span class="vc" data-views="{{ . }}">{{ . }}</span>
           </span>
-          {{ end }}
+          {{ end }}{{ end }}
         </div>
       </div>
 
@@ -314,8 +305,8 @@
   var cur = 'default', halaman = 1, sibuk = false, filter = { wilayah: '', kata: '' };
 
   function peringkat(k, mode) {
-    if (mode === 'terbaru') return k.dataset.new === '1' ? 0 : 1;
-    if (mode === 'urgent') return k.dataset.urgent === '1' ? 0 : (k.dataset.new === '1' ? 1 : 2);
+    if (mode === 'terbaru') return k.dataset.baru === '1' ? 0 : 1;
+    if (mode === 'urgent') return k.dataset.urgentAktif === '1' ? 0 : (k.dataset.baru === '1' ? 1 : 2);
     return 0;
   }
 
@@ -339,28 +330,6 @@
   }
 
   function aktifFilter() { return !!(filter.wilayah || filter.kata); }
-
-  function formatViews(n) {
-    if (n >= 1e6) return (n / 1e6).toFixed(1).replace('.', ',').replace(',0', '') + ' jt';
-    if (n >= 1e3) return (n / 1e3).toFixed(1).replace('.', ',').replace(',0', '') + ' rb';
-    return String(Math.round(n));
-  }
-
-  function rapikanViews() {
-    var seen = {};
-    kontainer.querySelectorAll('.job-card').forEach(function (k) {
-      var w = k.querySelector('.vw');
-      if (!w || k.hidden) return;
-      var c = w.querySelector('.vc');
-      var n = Number(c.getAttribute('data-views'));
-      w.style.display = '';
-      if (!Number.isFinite(n) || n < 0) { w.style.display = 'none'; return; }
-      var key = String(Math.round(n));
-      if (seen[key]) { w.style.display = 'none'; return; }
-      seen[key] = true;
-      c.textContent = formatViews(n);
-    });
-  }
 
   function tampilkan() {
     var kartuCocok = kartu.filter(cocok);
@@ -390,11 +359,10 @@
           ? 'h-10 w-10 rounded-lg bg-primary font-headline-sm text-[13px] font-bold text-on-primary'
           : 'h-10 w-10 rounded-lg border border-outline-variant/30 bg-surface-container-lowest font-headline-sm text-[13px] font-medium text-on-surface hover:bg-surface-container';
         if (nomor === halaman) b.setAttribute('aria-current', 'page');
-        b.addEventListener('click', function () { halaman = nomor; tampilkan(); rapikanViews(); });
+        b.addEventListener('click', function () { halaman = nomor; tampilkan(); });
         halamanAngka.appendChild(b);
       })(p);
     }
-    rapikanViews();
   }
 
   function tandaiMenu() {
@@ -448,18 +416,18 @@
   refreshBtn.addEventListener('click', function () { muat(cur); });
   urgentBtn.addEventListener('click', function () { muat('urgent'); });
 
-  var hariIni = Math.floor((Date.now() + 25200000) / 86400000);
   kartu.forEach(function (k) {
-    if (Number(k.getAttribute('data-hari')) < hariIni) {
-      k.dataset.new = '0';
-      k.dataset.urgent = '0';
-      k.querySelectorAll('.js-baru,.js-urgent,.vw').forEach(function (b) { b.hidden = true; });
-      var r = k.querySelector('.badge-row');
-      if (r && !r.querySelector('.bdg:not([hidden])')) r.hidden = true;
-    }
+    var st = window.LokerBadge.status(k);
+    k.dataset.baru = st.baru ? '1' : '0';
+    k.dataset.urgentAktif = st.urgent ? '1' : '0';
+    window.LokerBadge.render(k, st);
+    var w = k.querySelector('.vw');
+    if (w) window.LokerBadge.views(k, st);
   });
 
-  var jumlahUrgent = kartu.filter(function (k) { return k.dataset.urgent === '1'; }).length;
+  var jumlahUrgent = kartu.filter(function (k) {
+    return k.dataset.baru === '1' && k.dataset.urgentAktif === '1';
+  }).length;
   urgentCount.textContent = String(jumlahUrgent);
   urgentBtn.hidden = jumlahUrgent === 0;
 
@@ -552,7 +520,6 @@
 
   susun(cur);
   tampilkan();
-  rapikanViews();
 })();
 </script>
 {{ end }}
