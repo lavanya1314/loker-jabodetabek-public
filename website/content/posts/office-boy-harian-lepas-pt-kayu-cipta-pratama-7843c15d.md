@@ -1,6 +1,6 @@
 ---
 title: "Office Boy Harian Lepas"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:41:01.106569+00:00"
 slug: "office-boy-harian-lepas-pt-kayu-cipta-pratama-7843c15d"
 description: "Lowongan Office Boy Harian Lepas di PT Kayu Cipta Pratama"

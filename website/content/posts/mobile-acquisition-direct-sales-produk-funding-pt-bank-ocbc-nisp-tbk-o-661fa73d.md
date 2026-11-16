@@ -1,6 +1,6 @@
 ---
 title: "Mobile Acquisition (Direct Sales Produk Funding)"
-date: "2026-11-15T05:36:30.728490+00:00"
+date: "2026-11-15T12:36:30.728490+07:00"
 tanggal_lowongan: "2026-11-13T07:51:16+00:00"
 berlaku_sampai: "2026-12-12"
 slug: "mobile-acquisition-direct-sales-produk-funding-pt-bank-ocbc-nisp-tbk-o-661fa73d"

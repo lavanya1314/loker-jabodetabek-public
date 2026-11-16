@@ -1,6 +1,6 @@
 ---
 title: "Guru Kelas TK"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-10-23T02:15:29.744642+00:00"
 slug: "guru-kelas-tk-pratiwi-school-13a1bca9"
 description: "Lowongan Guru Kelas TK di Pratiwi School"

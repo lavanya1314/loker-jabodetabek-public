@@ -1,6 +1,6 @@
 ---
 title: "Admin FnB"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:38:40.094337+00:00"
 slug: "admin-fnb-ceryta-creative-studio-6d036e37"
 description: "Lowongan Admin FnB di Ceryta Creative Studio"

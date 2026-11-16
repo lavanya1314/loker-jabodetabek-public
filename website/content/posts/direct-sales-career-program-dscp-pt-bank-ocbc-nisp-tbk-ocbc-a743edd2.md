@@ -1,6 +1,6 @@
 ---
 title: "Direct Sales Career Program (DSCP)"
-date: "2026-11-15T05:36:30.728490+00:00"
+date: "2026-11-15T12:36:30.728490+07:00"
 tanggal_lowongan: "2026-11-13T07:47:50+00:00"
 berlaku_sampai: "2026-12-12"
 slug: "direct-sales-career-program-dscp-pt-bank-ocbc-nisp-tbk-ocbc-a743edd2"

@@ -1,6 +1,6 @@
 ---
 title: "marketplace GMV penjualan"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:22:13.914743+00:00"
 slug: "marketplace-gmv-penjualan-bsn-noni-shampoo-a4c4894d"
 description: "Lowongan marketplace GMV penjualan di BSN NONI SHAMPOO"

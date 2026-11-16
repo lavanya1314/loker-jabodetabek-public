@@ -1,6 +1,6 @@
 ---
 title: "Guru Kelas SD"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-10-23T02:17:04.899452+00:00"
 slug: "guru-kelas-sd-pratiwi-school-a0ecd80d"
 description: "Lowongan Guru Kelas SD di Pratiwi School"

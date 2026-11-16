@@ -1,6 +1,6 @@
 ---
 title: "Magang admin Digital"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:46:04.423264+00:00"
 slug: "magang-admin-digital-sekolah-pintar-beab4b81"
 description: "Lowongan Magang admin Digital di Sekolah Pintar"

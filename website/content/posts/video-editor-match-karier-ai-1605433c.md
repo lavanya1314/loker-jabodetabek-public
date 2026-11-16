@@ -1,6 +1,6 @@
 ---
 title: "Video Editor"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-09T13:14:54.928068+00:00"
 slug: "video-editor-match-karier-ai-1605433c"
 description: "Lowongan Video Editor di Match Karier AI"

@@ -1,6 +1,6 @@
 ---
 title: "Magang Admin komputer"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:38:44.995198+00:00"
 slug: "magang-admin-komputer-asosiasi-digital-marketing-indonesia-33e3b785"
 description: "Lowongan Magang Admin komputer di Asosiasi Digital Marketing Indonesia"

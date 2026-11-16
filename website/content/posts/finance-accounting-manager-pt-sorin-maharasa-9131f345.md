@@ -1,6 +1,6 @@
 ---
 title: "Finance & Accounting Manager"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:41:06.310944+00:00"
 slug: "finance-accounting-manager-pt-sorin-maharasa-9131f345"
 description: "Lowongan Finance & Accounting Manager di PT Sorin Maharasa"

@@ -1,6 +1,6 @@
 ---
 title: "General Worker"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-10-26T07:16:59.092422+00:00"
 slug: "general-worker-kebab-bosman-jabodetabek-8b6d21b8"
 description: "Lowongan General Worker di Kebab Bosman Jabodetabek"

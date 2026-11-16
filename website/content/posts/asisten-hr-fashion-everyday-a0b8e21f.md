@@ -1,6 +1,6 @@
 ---
 title: "Asisten HR"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-05T01:42:05.563805+00:00"
 slug: "asisten-hr-fashion-everyday-a0b8e21f"
 description: "Lowongan Asisten HR di Fashion Everyday"

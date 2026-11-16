@@ -1,6 +1,6 @@
 ---
 title: "Pengawas Restoran (Restaurant Supervisor)"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:43:45.519297+00:00"
 slug: "pengawas-restoran-restaurant-supervisor-pt-qihua-walet-indo-834beb8d"
 description: "Lowongan Pengawas Restoran (Restaurant Supervisor) di PT Qihua Walet Indo"

@@ -1,6 +1,6 @@
 ---
 title: "Kitchen (Cook) Staff"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-12T19:02:32.928217+00:00"
 slug: "kitchen-cook-staff-aleesia-coffee-and-kitchen-a749743b"
 description: "Lowongan Kitchen (Cook) Staff di Aleesia Coffee and Kitchen"

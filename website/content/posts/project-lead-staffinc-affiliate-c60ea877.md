@@ -1,6 +1,6 @@
 ---
 title: "Project Lead"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-12T23:06:46.238767+00:00"
 slug: "project-lead-staffinc-affiliate-c60ea877"
 description: "Lowongan Project Lead di Staffinc Affiliate"

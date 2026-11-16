@@ -1,6 +1,6 @@
 ---
 title: "Sales Kanvasing (Distributor Fashion Muslim)"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-12T18:41:16.742520+00:00"
 slug: "sales-kanvasing-distributor-fashion-muslim-selaras-prima-83f0b367"
 description: "Lowongan Sales Kanvasing (Distributor Fashion Muslim) di Selaras Prima"

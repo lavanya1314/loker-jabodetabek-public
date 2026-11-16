@@ -1,6 +1,6 @@
 ---
 title: "Sales Promotor Indodana"
-date: "2026-11-15T05:32:29.629985+00:00"
+date: "2026-11-15T12:32:29.629985+07:00"
 tanggal_lowongan: "2026-11-13T11:41:08+00:00"
 berlaku_sampai: "2026-11-26"
 slug: "sales-promotor-indodana-pt-bermuda-advertising-c9609afd"

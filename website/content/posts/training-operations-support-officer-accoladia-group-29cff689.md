@@ -1,6 +1,6 @@
 ---
 title: "Training Operations & Support Officer"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:42:35.771067+00:00"
 slug: "training-operations-support-officer-accoladia-group-29cff689"
 description: "Lowongan Training Operations & Support Officer di Accoladia Group"

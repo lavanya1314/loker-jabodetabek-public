@@ -1,6 +1,6 @@
 ---
 title: "PROMOTOR BEKASI"
-date: "2026-11-15T05:32:29.629985+00:00"
+date: "2026-11-15T12:32:29.629985+07:00"
 tanggal_lowongan: "2026-11-13T11:08:37+00:00"
 berlaku_sampai: "2026-12-12"
 slug: "promotor-bekasi-pt-artha-kreasi-utama-56027baf"

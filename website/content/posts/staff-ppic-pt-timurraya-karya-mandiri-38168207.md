@@ -1,6 +1,6 @@
 ---
 title: "Staff PPIC"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:42:47.942888+00:00"
 slug: "staff-ppic-pt-timurraya-karya-mandiri-38168207"
 description: "Lowongan Staff PPIC di PT Timurraya Karya Mandiri"

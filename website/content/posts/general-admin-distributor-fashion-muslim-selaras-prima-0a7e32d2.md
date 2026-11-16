@@ -1,6 +1,6 @@
 ---
 title: "General Admin (Distributor Fashion Muslim)"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-12T18:41:21.340409+00:00"
 slug: "general-admin-distributor-fashion-muslim-selaras-prima-0a7e32d2"
 description: "Lowongan General Admin (Distributor Fashion Muslim) di Selaras Prima"

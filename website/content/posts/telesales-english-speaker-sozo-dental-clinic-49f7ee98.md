@@ -1,6 +1,6 @@
 ---
 title: "Telesales English Speaker"
-date: "2026-11-15T05:32:29.629985+00:00"
+date: "2026-11-15T12:32:29.629985+07:00"
 tanggal_lowongan: "2026-11-13T21:51:47+00:00"
 berlaku_sampai: "2026-12-12"
 slug: "telesales-english-speaker-sozo-dental-clinic-49f7ee98"

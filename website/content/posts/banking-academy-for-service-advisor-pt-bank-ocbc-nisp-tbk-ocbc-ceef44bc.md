@@ -1,6 +1,6 @@
 ---
 title: "Banking Academy for Service Advisor"
-date: "2026-11-15T05:36:30.728490+00:00"
+date: "2026-11-15T12:36:30.728490+07:00"
 tanggal_lowongan: "2026-11-13T09:23:37+00:00"
 berlaku_sampai: "2026-11-26"
 slug: "banking-academy-for-service-advisor-pt-bank-ocbc-nisp-tbk-ocbc-ceef44bc"

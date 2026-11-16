@@ -1,6 +1,6 @@
 ---
 title: "Telesales Perbankan Syariah (Karawaci)"
-date: "2026-11-13T01:47:21.388143+00:00"
+date: "2026-11-13T08:47:21.388143+07:00"
 tanggal_lowongan: "2026-11-13T01:37:47.975049+00:00"
 slug: "telesales-perbankan-syariah-karawaci-pt-indium-dinamika-solusindo-0d39ea7a"
 description: "Lowongan Telesales Perbankan Syariah (Karawaci) di PT Indium Dinamika Solusindo"

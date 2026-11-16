@@ -1,6 +1,6 @@
 ---
 title: "HR Recruitment (Talent Acquisition)"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-04T04:19:03.661680+00:00"
 slug: "hr-recruitment-talent-acquisition-pt-captain-asia-sukses-f3e1086f"
 description: "Lowongan HR Recruitment (Talent Acquisition) di PT CAPTAIN ASIA SUKSES"

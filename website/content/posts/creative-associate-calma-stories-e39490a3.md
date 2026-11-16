@@ -1,6 +1,6 @@
 ---
 title: "Creative Associate"
-date: "2026-11-12T23:19:49.421366+00:00"
+date: "2026-11-13T06:19:49.421366+07:00"
 tanggal_lowongan: "2026-11-12T21:39:35.893127+00:00"
 slug: "creative-associate-calma-stories-e39490a3"
 description: "Lowongan Creative Associate di Calma Stories"
