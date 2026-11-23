@@ -1,0 +1,39 @@
+{{/* Sidebar detail desktop sesuai project_docs/aturan-web.md bagian 2 "Tata Letak Halaman" (Sidebar): Hot News 2 item bertumpuk + iklan vertikal 300x600 */}}
+{{/* DATA CONTOH: isi data akan datang dari kurasi bot Tahap 4 */}}
+ {{$berita := .berita_sidebar}}
+
+<!-- Hot News sidebar -->
+{{if $berita}}
+<div>
+  <h2 class="side-h" style="display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:16px;font-weight:800;letter-spacing:-.2px;font-family:'Plus Jakarta Sans',sans-serif;">
+    <span class="material-symbols-outlined" style="width:18px;height:18px;vertical-align:middle;" aria-hidden="true">star</span>Hot News
+  </h2>
+  {{range $i, $b := $berita}}
+  <div class="side-card" style="padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:12px;">
+    <span class="inline-flex items-center gap-1 rounded-md bg-info-chip px-2.5 py-1 text-[11px] font-medium text-on-surface-variant">
+      {{if eq $b.label "DARURAT"}}
+      <span class="material-symbols-outlined text-[12px]" style="color:#ba1a1a;" aria-hidden="true">error</span>DARURAT
+      {{else if eq $b.label "NASIONAL"}}
+      <span class="material-symbols-outlined text-[12px]" style="color:#006948;" aria-hidden="true">public</span>NASIONAL
+      {{else if eq $b.label "GLOBAL"}}
+      <span class="material-symbols-outlined text-[12px]" style="color:#3d4a42;" aria-hidden="true">language</span>GLOBAL
+      {{end}}
+    </span>
+    <a href="{{ $b.url }}" target="_blank" rel="noopener noreferrer" class="block font-headline-sm text-[14px] font-bold leading-snug text-on-surface truncate-3lines" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:4px;">
+      {{ $b.judul }}
+    </a>
+    <div class="mt-2 flex items-center gap-2 text-[10px] text-on-surface-variant">
+      <span>{{ $b.sumber }}</span>
+      <span>·{{ with $b.waktu }}WIB{{ end }}</span>
+    </div>
+  </div>
+  {{end}}
+</div>
+{{else}}
+<!-- Jika 0 berita, kartu disembunyikan tapi slot iklan tetap ada -->
+{{end}}
+
+<!-- Iklan vertikal sidebar 300x600 sesuai project_docs/aturan-web.md bagian 3 "Toolbar, Pop Up, Iklan & Animasi" (Inventaris Slot Iklan) -->
+<div class="side-ad" style="min-height:600px;margin:16px 0 0;border:1.5px dashed #c9d8d2;background:#f8fbf9;border-radius:12px;color:#8aa097;font-size:12px;font-weight:600;letter-spacing:.06em;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <em>Iklan</em>
+</div>

@@ -1,0 +1,23 @@
+/* Token desain 14.2 */
+:root {
+  --primary-green:#006948;
+  --primary-green-grad:#087f5b to #066a4c;
+  --primary-green-dark:#044c36;
+  --primary-green-light:#f0f9f5;
+  --primary-green-light2:#dff3ea;
+  --bg:#eceef6;
+  --card:#f7f8fc;
+  --info-chip:#e6e9f5;
+  --line-rgba:rgba(188,202,192,.45);
+  --text-main:#131b2e;
+  --text-secondary:#3d4a42;
+}
+
+/* Scrollbar 14.2 */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+
+body.modal-open { overflow: hidden; }
+::-webkit-scrollbar-track { background: var(--info-chip); }
+::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-green-dark); }/* Badge VALID 14.10 */
+.bdg-valid{background:#dff3ea;color:#1e40af;border:1px solid #93c5fd}

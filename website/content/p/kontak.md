@@ -1,7 +1,5 @@
 ---
 title: "Kontak"
-url: "/p/kontak.html"
-aliases: ["/p/kontak/"]
 description: "Kontak Loker Jabodetabek."
 ---
 

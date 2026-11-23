@@ -1,51 +1,49 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
 {{ $urut := $posts.ByDate.Reverse }}
+{{/* Jumlah kartu URGENT aktif (data-urgent=1 DAN umur < 24 jam dari data-ts) dihitung saat build,
+     sehingga tombol URGENT sudah hidden sejak HTML saat jumlahnya 0 (tanpa kedip). */}}
+{{ $now := now }}
+{{ $jmlUrgent := 0 }}
+{{ range $posts }}{{ $umur := $now.Sub .Date }}{{ if and .Params.urgent (lt $umur.Hours 24.0) }}{{ $jmlUrgent = add $jmlUrgent 1 }}{{ end }}{{ end }}
+<style>
+  /* Indikator aktif tombol URGENT saat sinkron dengan opsi "Urgent dulu" (filter dua arah). */
+  #urgentBtn[aria-pressed="true"]{filter:brightness(.9) saturate(1.25);box-shadow:inset 0 0 0 2px rgba(255,255,255,.6),0 3px 8px rgba(186,26,26,.3)}
+</style>
 
 <main id="konten" class="flex w-full flex-1 flex-col pb-8 pt-14">
 <div class="mx-auto flex w-full max-w-[1100px] flex-col">
 
-  {{ with site.Data.berita }}{{ if or .indonesia .internasional }}
-  <section class="px-4 pt-3.5" aria-label="Berita terkini">
-    <div class="mb-2 flex items-center justify-between gap-2">
-      <div class="flex min-w-0 items-center gap-2">
-        <h2 class="font-headline-sm text-[17px] font-bold tracking-tight text-on-surface">Berita Terkini</h2>
-        <span class="flex items-center gap-0.5 font-label-sm text-[10.5px] text-outline">Geser<span class="nudge material-symbols-outlined text-[14px]" aria-hidden="true">swipe_right_alt</span></span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <button class="news-nav" id="newsPrev" type="button" aria-label="Berita sebelumnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_left</span></button>
-        <button class="news-nav" id="newsNext" type="button" aria-label="Berita berikutnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span></button>
-      </div>
+  {{ if site.Data.berita.beranda }}
+{{ $beranda := site.Data.berita.beranda }}
+<section class="px-4 pt-3.5" aria-label="Berita terkini">
+  <div class="mb-2 flex items-center justify-between gap-2 flex-wrap w-full">
+    <div class="flex min-w-0 items-center gap-2">
+      <h2 class="font-headline-sm text-[17px] font-bold tracking-tight text-on-surface">Hot News</h2>
+      <span class="flex items-center gap-0.5 font-label-sm text-[10.5px] text-outline">Geser<span class="nudge material-symbols-outlined text-[14px]" aria-hidden="true">swipe_right_alt</span></span>
     </div>
-    <div class="news-track no-scrollbar" id="newsTrack">
-      {{ range .indonesia }}
-      <a class="news-slide relative block overflow-hidden rounded-xl border border-outline-variant/25 bg-surface-container-lowest p-3.5 shadow-sm tap-smooth" href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow">
-        <span class="absolute bottom-0 left-0 top-0 w-1 bg-primary" aria-hidden="true"></span>
-        <span class="flex items-center justify-between gap-2 pl-1.5">
-          <span class="inline-flex items-center gap-1 rounded-full bg-primary-fixed px-2 py-0.5 font-headline-sm text-[10.5px] font-bold text-on-primary-fixed">Indonesia</span>
-          <span class="font-label-sm text-[10.5px] text-outline">{{ .sumber }}{{ with .terbit }} • {{ dateFormat "2 Jan 2006" . }}{{ end }}</span>
-        </span>
-        <span class="news-title mt-2.5 block pl-1.5 font-headline-sm text-[14px] font-bold leading-snug text-on-surface transition-colors">{{ .judul }}</span>
-        {{ with .ringkas }}<span class="mt-1 block line-clamp-2 pl-1.5 font-body-sm text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</span>{{ end }}
-        <span class="mt-3 flex items-center justify-end gap-1 border-t border-surface-container pl-1.5 pt-2.5 font-headline-sm text-[12px] font-semibold text-primary">Baca<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span></span>
-      </a>
-      {{ end }}
-      {{ range .internasional }}
-      <a class="news-slide relative block overflow-hidden rounded-xl border border-outline-variant/25 bg-surface-container-lowest p-3.5 shadow-sm tap-smooth" href="{{ .tautan }}" target="_blank" rel="noopener noreferrer nofollow">
-        <span class="absolute bottom-0 left-0 top-0 w-1 bg-primary" aria-hidden="true"></span>
-        <span class="flex items-center justify-between gap-2 pl-1.5">
-          <span class="inline-flex items-center gap-1 rounded-full bg-secondary-container px-2 py-0.5 font-headline-sm text-[10.5px] font-bold text-on-secondary-container">Internasional</span>
-          <span class="font-label-sm text-[10.5px] text-outline">{{ .sumber }}{{ with .terbit }} • {{ dateFormat "2 Jan 2006" . }}{{ end }}</span>
-        </span>
-        <span class="news-title mt-2.5 block pl-1.5 font-headline-sm text-[14px] font-bold leading-snug text-on-surface transition-colors">{{ .judul }}</span>
-        {{ with .ringkas }}<span class="mt-1 block line-clamp-2 pl-1.5 font-body-sm text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</span>{{ end }}
-        <span class="mt-3 flex items-center justify-end gap-1 border-t border-surface-container pl-1.5 pt-2.5 font-headline-sm text-[12px] font-semibold text-primary">Baca<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span></span>
-      </a>
-      {{ end }}
+    <div class="flex items-center gap-1.5 flex-shrink-0">
+      <button class="news-nav" id="newsPrev" type="button" aria-label="Berita sebelumnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_left</span></button>
+      <button class="news-nav" id="newsNext" type="button" aria-label="Berita berikutnya"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span></button>
     </div>
-    <div class="mt-2.5 flex items-center justify-center gap-1.5" id="newsDots"></div>
-  </section>
-  {{ end }}{{ end }}
+  </div>
+  <div class="news-track no-scrollbar w-full" id="newsTrack">
+    {{ range $beranda }}
+    <a class="news-slide relative block overflow-hidden rounded-xl border border-outline-variant/25 bg-surface-container-lowest p-3.5 shadow-sm tap-smooth" href="{{ .url }}" target="_blank" rel="noopener noreferrer nofollow">
+      <span class="absolute bottom-0 left-0 top-0 w-1 bg-primary" aria-hidden="true"></span>
+      <span class="flex items-center justify-between gap-2 pl-1.5">
+        <span class="inline-flex items-center gap-1 rounded-full bg-primary-fixed px-2 py-0.5 font-headline-sm text-[10.5px] font-bold text-on-primary-fixed">{{ .label }}</span>
+        <span class="font-label-sm text-[10.5px] text-outline">{{ .sumber }}{{ with .waktu }} • {{ dateFormat "2 Jan 2006" . }}{{ end }}</span>
+      </span>
+      <span class="news-title mt-2.5 block pl-1.5 font-headline-sm text-[14px] font-bold leading-snug text-on-surface transition-colors">{{ .judul }}</span>
+      {{ with .ringkas }}<span class="mt-1 block line-clamp-2 pl-1.5 font-body-sm text-[12px] leading-relaxed text-on-surface-variant">{{ . }}</span>{{ end }}
+      <span class="mt-3 flex items-center justify-end gap-1 border-t border-surface-container pl-1.5 pt-2.5 font-headline-sm text-[12px] font-semibold text-primary">Baca<span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span></span>
+    </a>
+    {{ end }}
+  </div>
+  <div class="mt-2.5 flex items-center justify-center gap-1.5" id="newsDots"></div>
+</section>
+{{ end }}
 
   <section class="mt-3 px-4" aria-label="Tempat iklan">
     <div class="ad-slot min-h-[100px]"><em>Iklan</em>TEMPAT IKLAN 320×100</div>
@@ -58,7 +56,7 @@
       <input id="jobSearchInput" type="search" autocomplete="off" placeholder="Cari posisi, lowongan, perusahaan..." class="min-w-0 flex-1 border-0 bg-transparent p-0 text-[13px] text-on-surface placeholder:text-outline/90 focus:ring-0"/>
       <button id="searchTriggerBtn" type="button" class="tap-smooth inline-flex h-9 flex-shrink-0 items-center rounded-lg bg-primary px-3.5 font-headline-sm text-[13px] font-semibold text-on-primary shadow-sm">Cari</button>
     </div>
-    <div role="group" aria-label="Filter wilayah" class="no-scrollbar -mx-4 mt-2.5 flex items-center gap-2 overflow-x-auto px-4 py-0.5">
+    <div role="group" aria-label="Filter wilayah" class="no-scrollbar -mx-4 mt-2.5 flex items-center gap-2 overflow-x-auto px-4 py-0.5 w-full">
       {{ range slice (dict "label" "Semua Jabodetabek" "nilai" "") (dict "label" "Jakarta" "nilai" "jakarta") (dict "label" "Tangerang Raya" "nilai" "tangerang") (dict "label" "Bekasi" "nilai" "bekasi") (dict "label" "Bogor" "nilai" "bogor") (dict "label" "Depok" "nilai" "depok") }}
       <button type="button" data-wilayah="{{ .nilai }}" aria-pressed="{{ if eq .nilai "" }}true{{ else }}false{{ end }}" class="{{ if eq .nilai "" }}bg-primary text-on-primary{{ else }}bg-surface-container text-on-surface-variant{{ end }} tap-smooth inline-flex h-10 flex-shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 font-headline-sm text-[12px] font-medium hover:bg-surface-container-high">{{ .label }}</button>
       {{ end }}
@@ -83,9 +81,9 @@
       <button id="refreshBtn" type="button" aria-label="Muat ulang lowongan" class="tap-smooth flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-outline-variant/50 bg-surface-container-lowest text-primary shadow-sm">
         <span id="refreshIcon" class="material-symbols-outlined text-[20px]" aria-hidden="true">refresh</span>
       </button>
-      <button id="urgentBtn" type="button" hidden class="btn-new btn-urgent tap-smooth flex h-10 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-xl font-headline-sm text-[13px] font-extrabold tracking-wide text-on-primary lg:w-[280px] lg:flex-none">
+      <button id="urgentBtn" type="button" {{ if eq $jmlUrgent 0 }}hidden{{ end }} aria-pressed="false" class="btn-new btn-urgent tap-smooth flex h-10 flex-shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl px-4 font-headline-sm text-[13px] font-extrabold tracking-wide text-on-primary lg:w-[280px]">
         <span class="bolt material-symbols-outlined material-symbols-fill text-[18px]" aria-hidden="true">priority_high</span>
-        <span class="truncate">URGENT <span id="urgentCount">0</span></span>
+        <span class="truncate">URGENT <span id="urgentCount">{{ $jmlUrgent }}</span></span>
       </button>
     </div>
     <p class="mt-2.5 flex items-center gap-1.5 font-body-sm text-[13px] font-medium leading-snug text-on-surface-variant">
@@ -117,7 +115,7 @@
 
     {{ $perusahaan := $p.Params.perusahaan | default "Perusahaan tidak disebutkan" }}
     {{ $lokasi := $p.Params.lokasi | default "" }}
-    {{ $gaji := $p.Params.gaji | default "Gaji dirahasiakan" }}
+    {{ $gaji := $p.Params.gaji | default "" }}
     {{ $bidang := $p.Params.bidang | default "" }}
     {{ $tipe := $p.Params.tipe_pekerjaan | default "" }}
     {{ $kategori := $p.Params.kategori | default "" }}
@@ -129,14 +127,14 @@
     {{ $logo := "images/logo-placeholder.svg" | relURL }}
     {{ with $p.Params.logo_url }}{{ $logo = . | relURL }}{{ end }}
 
-    <article class="job-card relative flex cursor-pointer flex-col gap-2.5 rounded-xl border bg-surface-container-lowest p-3.5 shadow-sm tap-smooth {{ if $urgent }}border-primary/25{{ else }}border-outline-variant/25{{ end }}"
+    <article class="job-card relative flex cursor-pointer flex-col gap-2.5 rounded-xl border bg-surface-container-lowest p-3.5 shadow-sm tap-smooth {{ if $urgent }}border-primary/25{{ else }}border-outline-variant/25{{ end }}" tabindex="-1"
       data-idx="{{ $i }}"
       data-ts="{{ $p.Date.Format "2006-01-02T15:04:05-07:00" }}"
-      data-deadline="{{ $p.Params.berlaku_sampai | default "" }}"
       data-urgent="{{ if $p.Params.urgent }}1{{ else }}0{{ end }}"
       data-bumn="{{ if $bumn }}1{{ else }}0{{ end }}"
       data-cari="{{ lower (printf "%s %s %s" $p.Title $perusahaan $lokasi) }}"
       data-wilayah="{{ lower $lokasi }}"
+      data-perusahaan="{{ $perusahaan }}"
       data-m-perusahaan="{{ $perusahaan }}"
       data-m-posisi="{{ $p.Title }}"
       data-m-lokasi="{{ $lokasi }}"
@@ -146,15 +144,16 @@
       data-m-gaji="{{ $gaji }}"
       data-m-deskripsi="{{ $p.Params.deskripsi_perusahaan | default "" }}"
       data-m-verified="{{ if $terverifikasi }}1{{ else }}0{{ end }}"
+      data-verified="{{ if $terverifikasi }}1{{ else }}0{{ end }}"
       data-m-logo="{{ $logo }}"
-      data-m-url="{{ $p.Permalink }}">
+      data-m-url="{{ $p.RelPermalink }}">
 
       <div class="badge-row flex flex-wrap items-center gap-1.5" hidden></div>
 
       <div class="flex items-start justify-between gap-2">
         <div class="flex min-w-0 items-center gap-2.5">
           <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-surface-container">
-            <img src="{{ $logo }}" alt="Logo {{ $perusahaan }}" width="40" height="40" class="h-full w-full object-cover" loading="lazy"/>
+            <img src="{{ $logo }}" alt="Logo {{ $perusahaan }}" width="40" height="40" class="h-full w-full object-cover" loading="lazy">
           </span>
           <div class="flex min-w-0 flex-col">
             <span class="flex items-center gap-1 text-[12px] font-medium text-on-surface-variant">
@@ -166,7 +165,7 @@
         </div>
         <div class="flex flex-shrink-0 flex-col items-end gap-1">
           {{ if $terverifikasi }}
-          <span class="inline-flex items-center gap-0.5 rounded-md bg-primary-fixed px-2 py-0.5 font-headline-sm text-[10.5px] font-extrabold uppercase text-on-primary-fixed"><span class="material-symbols-outlined text-[12px]" aria-hidden="true">check_circle</span>Valid</span>
+          <span class="bdg bdg-valid"><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>VALID</span>
           {{ end }}
           {{ with $p.Params.views }}{{ if gt (int .) 0 }}
           <span hidden class="vw inline-flex items-center gap-0.5 font-label-md text-[11.5px] font-semibold text-on-surface-variant">
@@ -186,10 +185,12 @@
       {{ end }}
 
       <div class="mt-1 flex items-center justify-between gap-3 border-t border-surface-container pt-2.5">
+        {{ if $gaji }}
         <div class="flex min-w-0 flex-col">
           <span class="font-label-sm text-[9.5px] font-semibold uppercase tracking-wide text-outline">Gaji</span>
           <span class="font-headline-sm text-[13px] font-bold text-primary">{{ $gaji }}</span>
         </div>
+        {{ end }}
         <button type="button" class="open-modal-btn btn-detail inline-flex min-h-10 items-center gap-1 rounded-lg px-3.5 py-1.5 font-headline-sm text-[12px] font-semibold text-on-primary tap-smooth">
           <span>Detail</span>
           <span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span>
@@ -197,7 +198,7 @@
       </div>
     </article>
     {{ end }}
-    {{ range seq 6 }}<div class="ad-slot min-h-[120px] lg:col-span-2" hidden><em>Iklan</em>TEMPAT IKLAN 300×250</div>{{ end }}
+    
   </section>
 
   <div id="hasilKosong" hidden class="mx-4 mt-3 rounded-xl border border-outline-variant/35 bg-surface-container-lowest p-5 text-center">
@@ -278,6 +279,7 @@
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
 (function () {
   var kontainer = document.getElementById('jobCardsContainer');
   if (!kontainer) return;
@@ -300,42 +302,83 @@
   var PER_HALAMAN = 8;
   var NAMA = { terbaru: 'Terbaru', urgent: 'Urgent dulu', 'default': 'Urutkan' };
 
+  // Hormati prefers-reduced-motion: tanpa animasi, skeleton langsung dilewati (tunda 0 ms).
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var TUNDA_SKELETON = reduceMotion ? 0 : 900;
+  // Status badge per kartu (BARU/URGENT hidup <24 jam dari data-ts; URGENT murni dari data-urgent) dari badge.js.
+  var statusKartu = new Map();
+
   var kartu = Array.prototype.slice.call(kontainer.querySelectorAll('.job-card'));
-  var iklan = Array.prototype.slice.call(kontainer.querySelectorAll('.ad-slot'));
+  var iklan = [];
   var cur = 'default', halaman = 1, sibuk = false, filter = { wilayah: '', kata: '' };
 
+  function buatIklan() {
+    var el = document.createElement('div');
+    el.className = 'ad-slot min-h-[120px] lg:col-span-2';
+    el.innerHTML = '<em>Iklan</em>TEMPAT IKLAN 300×250';
+    return el;
+  }
+
   function peringkat(k, mode) {
-    if (mode === 'terbaru') return k.dataset.baru === '1' ? 0 : 1;
-    if (mode === 'urgent') return k.dataset.urgentAktif === '1' ? 0 : (k.dataset.baru === '1' ? 1 : 2);
+    var st = statusKartu.get(k) || window.LokerBadge.status(k);
+    if (mode === 'terbaru') return st.baru ? 0 : 1;
+    if (mode === 'urgent') return st.urgent ? 0 : (st.baru ? 1 : 2);
     return 0;
   }
 
   function susun(mode) {
+    // Hapus iklan lama
+    var existingAds = kontainer.querySelectorAll('.ad-slot');
+    existingAds.forEach(function(el) { el.remove(); });
+
     var urut = kartu.slice().sort(function (a, b) {
       return peringkat(a, mode) - peringkat(b, mode) || a.dataset.idx - b.dataset.idx;
     });
-    var sisaIklan = iklan.slice();
     var frag = document.createDocumentFragment();
     urut.forEach(function (k, j) {
-      if ((j === 2 || (j > 2 && (j - 2) % 5 === 0)) && sisaIklan.length) frag.appendChild(sisaIklan.shift());
       frag.appendChild(k);
+      // Iklan HANYA setelah kartu ke-2 (index 1) dan ke-6 (index 5), MAKSIMAL 2 iklan
+      // Tidak setelah kartu terakhir
+      if ((j === 1 || j === 5) && j < urut.length - 1) {
+        frag.appendChild(buatIklan());
+      }
     });
-    sisaIklan.forEach(function (a) { a.hidden = true; frag.appendChild(a); });
     kontainer.appendChild(frag);
   }
 
   function cocok(k) {
-    return (!filter.wilayah || k.dataset.wilayah.indexOf(filter.wilayah) !== -1)
+    var ok = (!filter.wilayah || k.dataset.wilayah.indexOf(filter.wilayah) !== -1)
       && (!filter.kata || k.dataset.cari.indexOf(filter.kata) !== -1);
+    // Urgent dulu = FILTER: hanya tampilkan kartu dengan badge URGENT aktif (data-urgent=1 & umur <24 jam)
+    if (ok && cur === 'urgent') {
+      var st = statusKartu.get(k) || window.LokerBadge.status(k);
+      ok = !!st.urgent;
+    }
+    return ok;
   }
-
-  function aktifFilter() { return !!(filter.wilayah || filter.kata); }
 
   function tampilkan() {
     var kartuCocok = kartu.filter(cocok);
+    // Bangun ulang layout (termasuk iklan) berdasarkan kartu yang cocok filter
+    var existingAds = kontainer.querySelectorAll('.ad-slot');
+    existingAds.forEach(function(el) { el.remove(); });
+
+    var frag = document.createDocumentFragment();
+    kartuCocok.forEach(function (k, j) {
+      frag.appendChild(k);
+      // Iklan HANYA setelah kartu ke-2 (index 1) dan ke-6 (index 5), MAKSIMAL 2 iklan
+      // Tidak setelah kartu terakhir
+      if ((j === 1 || j === 5) && j < kartuCocok.length - 1) {
+        frag.appendChild(buatIklan());
+      }
+    });
+    kontainer.appendChild(frag);
+
     var semua = Array.prototype.slice.call(kontainer.children);
+    // Iklan sudah dibangun ulang dari kartuCocok di atas, jadi elemen non-kartu
+    // (ad-slot) selalu lolos; kartu harus ada di kartuCocok.
     var tampil = semua.filter(function (el) {
-      if (el.classList.contains('ad-slot')) return !aktifFilter();
+      if (!el.classList.contains('job-card')) return true;
       return kartuCocok.indexOf(el) !== -1;
     });
     var total = Math.max(1, Math.ceil(tampil.length / PER_HALAMAN));
@@ -378,12 +421,20 @@
     sortBtn.setAttribute('aria-expanded', 'false');
   }
 
-  function muat(mode) {
-    if (sibuk) return;
-    sibuk = true;
+  // Satu sumber kebenaran mode sortir: tombol URGENT dan opsi menu "Urgent dulu" selalu sinkron dua arah.
+  function setMode(mode) {
     cur = mode;
     sortLabel.textContent = NAMA[mode];
     tandaiMenu();
+    if (urgentBtn) {
+      urgentBtn.setAttribute('aria-pressed', mode === 'urgent' ? 'true' : 'false');
+    }
+  }
+
+  function muat(mode) {
+    if (sibuk) return;
+    sibuk = true;
+    setMode(mode);
     tutupMenu();
     refreshIcon.classList.add('spin-it');
     kontainer.hidden = true;
@@ -399,7 +450,7 @@
       kontainer.classList.add('fade-in');
       refreshIcon.classList.remove('spin-it');
       sibuk = false;
-    }, 900);
+    }, TUNDA_SKELETON);
   }
 
   sortBtn.addEventListener('click', function (e) {
@@ -414,29 +465,33 @@
     if (!sortMenu.hidden && !sortMenu.contains(e.target)) tutupMenu();
   });
   refreshBtn.addEventListener('click', function () { muat(cur); });
-  urgentBtn.addEventListener('click', function () { muat('urgent'); });
+  urgentBtn.addEventListener('click', function () {
+    muat(cur === 'urgent' ? 'default' : 'urgent');
+  });
 
   kartu.forEach(function (k) {
     var st = window.LokerBadge.status(k);
-    k.dataset.baru = st.baru ? '1' : '0';
-    k.dataset.urgentAktif = st.urgent ? '1' : '0';
+    statusKartu.set(k, st);
     window.LokerBadge.render(k, st);
-    var w = k.querySelector('.vw');
-    if (w) window.LokerBadge.views(k, st);
+    if (k.querySelector('.vw')) window.LokerBadge.views(k, st);
   });
 
+  // Angka URGENT XX = jumlah kartu berbadge URGENT aktif (sinkron dengan filter "Urgent dulu").
   var jumlahUrgent = kartu.filter(function (k) {
-    return k.dataset.baru === '1' && k.dataset.urgentAktif === '1';
+    var st = statusKartu.get(k);
+    return !!(st && st.urgent);
   }).length;
   urgentCount.textContent = String(jumlahUrgent);
   urgentBtn.hidden = jumlahUrgent === 0;
+  urgentBtn.setAttribute('aria-pressed', 'false');
 
-  var chips = Array.prototype.slice.call(document.querySelectorAll('[data-wilayah]'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('button[data-wilayah]'));
   chips.forEach(function (c) {
     c.addEventListener('click', function () {
-      filter.wilayah = c.dataset.wilayah;
+      var sudahAktif = c.getAttribute('aria-pressed') === 'true';
+      filter.wilayah = sudahAktif ? '' : c.dataset.wilayah;
       chips.forEach(function (x) {
-        var aktif = x === c;
+        var aktif = sudahAktif ? x.dataset.wilayah === '' : x === c;
         x.setAttribute('aria-pressed', aktif ? 'true' : 'false');
         x.classList.toggle('bg-primary', aktif);
         x.classList.toggle('text-on-primary', aktif);
@@ -461,9 +516,25 @@
 
   var modal = document.getElementById('companyModal');
   function set(id, teks) { document.getElementById(id).textContent = teks || ''; }
-  function bukaModal(k) {
+  var modalScrollY = 0;
+  var pemicuModal = null;
+  function bukaModal(k, pemicu) {
     var d = k.dataset;
-    document.getElementById('modalLogo').src = d.mLogo;
+    pemicuModal = pemicu || k;
+    // Scroll lock mobile: simpan scrollY dan set position fixed + modal-open class
+    modalScrollY = window.scrollY || document.documentElement.scrollTop;
+    document.body.style.position = 'fixed';
+    document.body.style.top = -modalScrollY + 'px';
+    document.body.style.width = '100%';
+    document.body.classList.add('modal-open');
+    // Set logo src dengan fallback onerror
+    var logoImg = document.getElementById('modalLogo');
+    if (d.mLogo) {
+      logoImg.src = d.mLogo;
+    } else {
+      logoImg.src = '';
+      setModalInitials(d.mPerusahaan);
+    }
     set('modalTitle', d.mPerusahaan);
     set('modalRole', d.mPosisi);
     set('modalIndustry', d.mBidang);
@@ -477,14 +548,50 @@
     set('modalLoc', d.mLokasi || '-');
     set('modalEdu', d.mPendidikan || '-');
     set('modalType', d.mTipe || '-');
-    document.getElementById('modalLink').href = d.mUrl;
+    document.getElementById('modalLink').href = d.mUrl || '#';
     modal.hidden = false;
+    // Pindahkan fokus ke dalam pop up (tombol tutup X).
     document.getElementById('closeModalBtn').focus();
   }
-  function tutupModal() { modal.hidden = true; }
+  function setModalInitials(nama) {
+    if (!nama) return;
+    var huruf = nama.split(' ').map(function(w) { return w[0]; }).slice(0,3).join('');
+    var el = document.getElementById('modalLogo');
+    if (el) {
+      el.style.background = 'var(--primary-green)';
+      el.style.color = 'var(--on-primary-fixed)';
+      el.style.fontFamily = 'var(--font-label)';
+      el.style.fontWeight = '600';
+      el.style.display = 'flex';
+      el.style.alignItems = 'center';
+      el.style.justifyContent = 'center';
+      el.textContent = huruf;
+    }
+  }
+  function tutupModal() { 
+    modal.hidden = true; 
+    // Restore scroll position
+    window.scrollTo(0, modalScrollY);
+    // Hapus style fixed position
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.classList.remove('modal-open');
+    modalScrollY = 0;
+    // Kembalikan fokus keyboard ke kartu asal (atau tombol Detail-nya) pembuka pop up.
+    if (pemicuModal && typeof pemicuModal.focus === 'function') pemicuModal.focus();
+    pemicuModal = null;
+  }
+  // Handle image error fallback ke initials/SVG
+  document.getElementById('modalLogo').onerror = function() {
+    var d = modal.dataset;
+    if (!d.mLogo || d.mLogo === '') {
+      setModalInitials(document.getElementById('modalTitle').textContent || '');
+    }
+  };
   kontainer.addEventListener('click', function (e) {
     var k = e.target.closest('.job-card');
-    if (k) bukaModal(k);
+    if (k) bukaModal(k, e.target.closest('.open-modal-btn') || k);
   });
   document.getElementById('closeModalBtn').addEventListener('click', tutupModal);
   document.getElementById('dismissModalBtn').addEventListener('click', tutupModal);
@@ -518,8 +625,42 @@
     tandaiBerita();
   }
 
+  // Image error fallback untuk kartu lowongan (event delegation di capture phase).
+  // Inisial diisi via textContent, bukan innerHTML, agar teks dari data tidak dieksekusi sebagai HTML.
+  // Gunakan composedPath() karena browser menghapus img gagal dari DOM sebelum event error.
+  kontainer.addEventListener('error', function(e) {
+    if (e.target.tagName !== 'IMG') return;
+    // Cari job-card dan parent span via composedPath (karena img mungkin sudah dihapus dari DOM)
+    var path = e.composedPath ? e.composedPath() : [];
+    var card = null;
+    var parentSpan = null;
+    for (var i = 0; i < path.length; i++) {
+      var el = path[i];
+      if (el.classList && el.classList.contains('job-card')) card = el;
+      if (el.tagName === 'SPAN' && el.classList.contains('flex') && el.classList.contains('h-10') && el.classList.contains('w-10')) parentSpan = el;
+      if (card && parentSpan) break;
+    }
+    if (!card || !parentSpan) return;
+    var nama = card.dataset.perusahaan;
+    if (!nama) return;
+    var huruf = nama.split(' ').map(function(w){return w[0];}).slice(0,3).join('');
+    var span = document.createElement('span');
+    span.textContent = huruf;
+    span.style.color = 'var(--on-primary-fixed)';
+    span.style.fontWeight = '600';
+    span.style.fontFamily = 'var(--font-label)';
+    span.style.display = 'flex';
+    span.style.alignItems = 'center';
+    span.style.justifyContent = 'center';
+    span.style.width = '100%';
+    span.style.height = '100%';
+    parentSpan.textContent = '';
+    parentSpan.appendChild(span);
+  }, true); // capture phase
+
   susun(cur);
   tampilkan();
 })();
+});
 </script>
 {{ end }}

@@ -1,0 +1,9 @@
+{{/* Baris badge kartu lowongan — urutan tetap BARU → URGENT → BUMN (project_docs/aturan-web.md bagian 4 & 5.2).
+     badge.js mengisi .badge-row saat runtime dari data-ts (BARU & URGENT hidup <24 jam, mati tepat di 24 jam)
+     + data-urgent + data-bumn (permanen); baris tetap hidden sampai ada minimal satu badge.
+     Views terpisah dari badge: ikon mata + angka format rb di card.html (.vw/.vc), permanen. */}}
+<div class="badge-row flex flex-wrap items-center gap-1.5" hidden>
+  <span class="bdg bdg-new" hidden><span class="material-symbols-outlined" aria-hidden="true">bolt</span>BARU</span>
+  <span class="bdg bdg-urgent" hidden><span class="material-symbols-outlined" aria-hidden="true">priority_high</span>URGENT</span>
+  <span class="bdg bdg-bumn" hidden><span class="material-symbols-outlined" aria-hidden="true">apartment</span>BUMN</span>
+</div>

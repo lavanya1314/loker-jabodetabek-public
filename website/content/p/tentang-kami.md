@@ -1,7 +1,5 @@
 ---
 title: "Tentang Kami"
-url: "/p/tentang-kami.html"
-aliases: ["/p/tentang-kami/"]
 description: "Tentang Loker Jabodetabek, portal informasi lowongan kerja untuk wilayah Jabodetabek."
 ---
 

@@ -1,56 +1,89 @@
 {
- "diperbarui": "2026-11-15T05:36:30.728490+00:00",
- "indonesia": [
-  {
-   "judul": "Cara mencairkan BSU Rp900 ribu lewat rekening bank",
-   "tautan": "https://www.antaranews.com/berita/5855203/cara-mencairkan-bsu-rp900-ribu-lewat-rekening-bank",
-   "ringkas": "Bantuan Subsidi Upah (BSU) menjadi salah satu bantuan pemerintah yang banyak dicari pekerja untuk membantu memenuhi ...",
-   "sumber": "Antara Ekonomi",
-   "terbit": "2026-11-15T03:50:59+00:00"
-  },
-  {
-   "judul": "Cek BSU 2026 pakai NIK KTP, apakah status penerima sudah dibuka?",
-   "tautan": "https://www.antaranews.com/berita/5855051/cek-bsu-2026-pakai-nik-ktp-apakah-status-penerima-sudah-dibuka",
-   "ringkas": "Pemerintah kembali menyalurkan Bantuan Subsidi Upah (BSU) 2026 untuk membantu pekerja dan buruh memenuhi kebutuhan ...",
-   "sumber": "Antara Ekonomi",
-   "terbit": "2026-11-15T02:34:36+00:00"
-  },
-  {
-   "judul": "Penyebab rem motor berbunyi saat digunakan dan cara mengatasinya",
-   "tautan": "https://otomotif.antaranews.com/berita/5853855/penyebab-rem-motor-berbunyi-saat-digunakan-dan-cara-mengatasinya",
-   "ringkas": "Rem merupakan salah satu komponen penting pada sepeda motor karena berfungsi memperlambat laju kendaraan hingga ...",
-   "sumber": "Antara Ekonomi",
-   "terbit": "2026-11-14T07:24:16+00:00"
-  },
-  {
-   "judul": "9 cara merawat aki motor agar tidak cepat soak",
-   "tautan": "https://otomotif.antaranews.com/berita/5853847/9-cara-merawat-aki-motor-agar-tidak-cepat-soak",
-   "ringkas": "Aki merupakan salah satu komponen penting pada sepeda motor karena berfungsi menyimpan dan menyuplai energi listrik ...",
-   "sumber": "Antara Ekonomi",
-   "terbit": "2026-11-14T07:21:44+00:00"
-  }
- ],
- "internasional": [
-  {
-   "judul": "Judge temporarily blocks Trump from closing Washington DC golf course for renovation",
-   "tautan": "https://www.bbc.co.uk/news/articles/c6j9mn7l14y0o?at_medium=RSS&at_campaign=rss",
-   "ringkas": "It is the latest development in a months-long challenge to the president's plans for East Potomac Golf Links.",
-   "sumber": "BBC World",
-   "terbit": "2026-11-15T03:21:04+00:00"
-  },
-  {
-   "judul": "Pope Leo speaks of community 'suffering' on visit to remote Andes town",
-   "tautan": "https://www.bbc.co.uk/news/articles/cr4gnz0lv2vlo?at_medium=RSS&at_campaign=rss",
-   "ringkas": "Santa Cruz de Succhabamba is part of the Diocese of Chiclayo, where the pope served as bishop from 2015 to 2023.",
-   "sumber": "BBC World",
-   "terbit": "2026-11-15T02:49:45+00:00"
-  },
-  {
-   "judul": "My mother told me I would die if I sought treatment for Ebola - I am proof you can survive",
-   "tautan": "https://www.bbc.co.uk/news/articles/cmvg2e2q28w1o?at_medium=RSS&at_campaign=rss",
-   "ringkas": "Fear and misinformation surrounds the Ebola outbreak in DR Congo - Dr Kamwanga's mother was not immune.",
-   "sumber": "BBC World",
-   "terbit": "2026-11-15T00:06:55+00:00"
-  }
- ]
+  "dihasilkan": "2026-11-18T00:00:00+07:00",
+  "beranda": [
+    {
+      "id": "berita-1",
+      "judul": "Gempa Berkekuatan 6.2 SR Guncang Jawa Barat",
+      "sumber": "Antara",
+      "waktu": "2026-11-18T08:30:00+07:00",
+      "ringkasan": "Gempa berkekuatan 6.2 SR mengguncang wilayah Jawa Barat pada hari ini. Pusat gempa berada di laut 50 km barat daya Sukabumi dengan kedalaman 10 km. Korban jiwa 2 orang, 15 luka.",
+      "url": "https://antaranews.com/berita/12345",
+      "label": "DARURAT",
+      "gambar": null,
+      "skor": 95,
+      "cluster": "gempa-jabar-2026"
+    },
+    {
+      "id": "berita-2",
+      "judul": "Presiden Teken UU Baru Tentang Tenaga Kerja",
+      "sumber": "Tempo",
+      "waktu": "2026-11-18T10:15:00+07:00",
+      "ringkasan": "Presiden menandatangani Undang-Undang baru yang mengatur hak-hak tenaga kerja dan hubungan industrial. UU ini menggantikan UU Nomor 13 Tahun 2003.",
+      "url": "https://tempo.co/berita/67890",
+      "label": "NASIONAL",
+      "gambar": null,
+      "skor": 88,
+      "cluster": "uu-tenaga-kerja"
+    },
+    {
+      "id": "berita-3",
+      "judul": "Rupiah Melemah ke Rp 16.500 per Dolar AS",
+      "sumber": "BBC Indonesia",
+      "waktu": "2026-11-18T11:00:00+07:00",
+      "ringkasan": "Nilai tukar rupiah melemah merespons kebijakan suku bunga Fed yang diprediksi tidak turun bulan ini. Bank Indonesia berencana intervensi pasar.",
+      "url": "https://bbc.com/indonesia/11111",
+      "label": "NASIONAL",
+      "gambar": null,
+      "skor": 82,
+      "cluster": "rupiah-melemah"
+    },
+    {
+      "id": "berita-4",
+      "judul": "Banjir Bandang di Tangerang, Ratusan Rumah Tenggelam",
+      "sumber": "CNN Indonesia",
+      "waktu": "2026-11-18T09:45:00+07:00",
+      "ringkasan": "Hujan deras mengguyur Tangerang sejak malam tadi menyebabkan banjir bandang di 5 kecamatan. Tim SAR Mengevakuasi warga, belum ada korban jiwa.",
+      "url": "https://cnnindonesia.com/22222",
+      "label": "DARURAT",
+      "gambar": null,
+      "skor": 90,
+      "cluster": "banjir-tangerang"
+    },
+    {
+      "id": "berita-5",
+      "judul": "PBB Serukan Perdamaian di Timur Tengah",
+      "sumber": "Reuters",
+      "waktu": "2026-11-18T12:00:00+07:00",
+      "ringkasan": "Sekjen PBB meminta semua pihak segera menghentikan keaman di Gaza dan Lebanon. Mesyuarat darurat DK PBB dijadwalkan besok.",
+      "url": "https://reuters.com/33333",
+      "label": "GLOBAL",
+      "gambar": null,
+      "skor": 85,
+      "cluster": "pbb-timur-tengah"
+    }
+  ],
+  "sidebar": [
+    {
+      "id": "sidebar-1",
+      "judul": "Gempa Berkekuatan 6.2 SR Guncang Jawa Barat",
+      "sumber": "Antara",
+      "waktu": "2026-11-18T08:30:00+07:00",
+      "url": "https://antaranews.com/berita/12345",
+      "label": "DARURAT",
+      "gambar": null,
+      "skor": 95,
+      "cluster": "gempa-jabar-2026"
+    },
+    {
+      "id": "sidebar-2",
+      "judul": "Banjir Bandang di Tangerang, Ratusan Rumah Tenggelam",
+      "sumber": "CNN Indonesia",
+      "waktu": "2026-11-18T09:45:00+07:00",
+      "url": "https://cnnindonesia.com/22222",
+      "label": "DARURAT",
+      "gambar": null,
+      "skor": 90,
+      "cluster": "banjir-tangerang"
+    }
+  ]
 }
