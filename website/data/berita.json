@@ -1,89 +1,56 @@
 {
-  "dihasilkan": "2026-11-18T00:00:00+07:00",
-  "beranda": [
-    {
-      "id": "berita-1",
-      "judul": "Gempa Berkekuatan 6.2 SR Guncang Jawa Barat",
-      "sumber": "Antara",
-      "waktu": "2026-11-18T08:30:00+07:00",
-      "ringkasan": "Gempa berkekuatan 6.2 SR mengguncang wilayah Jawa Barat pada hari ini. Pusat gempa berada di laut 50 km barat daya Sukabumi dengan kedalaman 10 km. Korban jiwa 2 orang, 15 luka.",
-      "url": "https://antaranews.com/berita/12345",
-      "label": "DARURAT",
-      "gambar": null,
-      "skor": 95,
-      "cluster": "gempa-jabar-2026"
-    },
-    {
-      "id": "berita-2",
-      "judul": "Presiden Teken UU Baru Tentang Tenaga Kerja",
-      "sumber": "Tempo",
-      "waktu": "2026-11-18T10:15:00+07:00",
-      "ringkasan": "Presiden menandatangani Undang-Undang baru yang mengatur hak-hak tenaga kerja dan hubungan industrial. UU ini menggantikan UU Nomor 13 Tahun 2003.",
-      "url": "https://tempo.co/berita/67890",
-      "label": "NASIONAL",
-      "gambar": null,
-      "skor": 88,
-      "cluster": "uu-tenaga-kerja"
-    },
-    {
-      "id": "berita-3",
-      "judul": "Rupiah Melemah ke Rp 16.500 per Dolar AS",
-      "sumber": "BBC Indonesia",
-      "waktu": "2026-11-18T11:00:00+07:00",
-      "ringkasan": "Nilai tukar rupiah melemah merespons kebijakan suku bunga Fed yang diprediksi tidak turun bulan ini. Bank Indonesia berencana intervensi pasar.",
-      "url": "https://bbc.com/indonesia/11111",
-      "label": "NASIONAL",
-      "gambar": null,
-      "skor": 82,
-      "cluster": "rupiah-melemah"
-    },
-    {
-      "id": "berita-4",
-      "judul": "Banjir Bandang di Tangerang, Ratusan Rumah Tenggelam",
-      "sumber": "CNN Indonesia",
-      "waktu": "2026-11-18T09:45:00+07:00",
-      "ringkasan": "Hujan deras mengguyur Tangerang sejak malam tadi menyebabkan banjir bandang di 5 kecamatan. Tim SAR Mengevakuasi warga, belum ada korban jiwa.",
-      "url": "https://cnnindonesia.com/22222",
-      "label": "DARURAT",
-      "gambar": null,
-      "skor": 90,
-      "cluster": "banjir-tangerang"
-    },
-    {
-      "id": "berita-5",
-      "judul": "PBB Serukan Perdamaian di Timur Tengah",
-      "sumber": "Reuters",
-      "waktu": "2026-11-18T12:00:00+07:00",
-      "ringkasan": "Sekjen PBB meminta semua pihak segera menghentikan keaman di Gaza dan Lebanon. Mesyuarat darurat DK PBB dijadwalkan besok.",
-      "url": "https://reuters.com/33333",
-      "label": "GLOBAL",
-      "gambar": null,
-      "skor": 85,
-      "cluster": "pbb-timur-tengah"
-    }
-  ],
-  "sidebar": [
-    {
-      "id": "sidebar-1",
-      "judul": "Gempa Berkekuatan 6.2 SR Guncang Jawa Barat",
-      "sumber": "Antara",
-      "waktu": "2026-11-18T08:30:00+07:00",
-      "url": "https://antaranews.com/berita/12345",
-      "label": "DARURAT",
-      "gambar": null,
-      "skor": 95,
-      "cluster": "gempa-jabar-2026"
-    },
-    {
-      "id": "sidebar-2",
-      "judul": "Banjir Bandang di Tangerang, Ratusan Rumah Tenggelam",
-      "sumber": "CNN Indonesia",
-      "waktu": "2026-11-18T09:45:00+07:00",
-      "url": "https://cnnindonesia.com/22222",
-      "label": "DARURAT",
-      "gambar": null,
-      "skor": 90,
-      "cluster": "banjir-tangerang"
-    }
-  ]
+ "diperbarui": "2026-11-24T01:07:37.572107+00:00",
+ "indonesia": [
+  {
+   "judul": "Kemarin, BPOM periksa sampel Ladaku-4,73 juta KPM belum dapat bansos",
+   "tautan": "https://www.antaranews.com/berita/5873939/kemarin-bpom-periksa-sampel-ladaku-473-juta-kpm-belum-dapat-bansos",
+   "ringkas": "Sejumlah berita dari Senin (23/11) dihadirkan kembali untuk Anda, mulai dari BPOM periksa sampel Ladaku respons ...",
+   "sumber": "Antara",
+   "terbit": "2026-11-24T01:02:21+00:00"
+  },
+  {
+   "judul": "PBB: Lebih dari 360.000 orang mengungsi imbas konflik di Yaman",
+   "tautan": "https://www.antaranews.com/berita/5873935/pbb-lebih-dari-360000-orang-mengungsi-imbas-konflik-di-yaman",
+   "ringkas": "PBB menyatakan lebih dari 360.000 orang terpaksa mengungsi dari rumah mereka sejak awal Agustus, sementara ratusan ...",
+   "sumber": "Antara",
+   "terbit": "2026-11-24T01:02:17+00:00"
+  },
+  {
+   "judul": "Dubes: Tiga tahun lagi, Jerman siap garap infrastruktur dan energi RI (Bagian 1)",
+   "tautan": "https://www.antaranews.com/video/5873107/dubes-tiga-tahun-lagi-jerman-siap-garap-infrastruktur-dan-energi-ri-bagian-1",
+   "ringkas": "ANTARA - Duta Besar Jerman untuk Indonesia Ralf Beste menilai Indonesia dan Jerman memiliki peluang besar untuk ...",
+   "sumber": "Antara",
+   "terbit": "2026-11-24T01:00:25+00:00"
+  },
+  {
+   "judul": "KAI angkut hasil perkebunan lebih dari 525.000 ton hingga Oktober 2026",
+   "tautan": "https://www.antaranews.com/berita/5873927/kai-angkut-hasil-perkebunan-lebih-dari-525000-ton-hingga-oktober-2026",
+   "ringkas": "PT Kereta Api Indonesia (Persero) mencatat angkutan perkebunan mencapai 525.348 ton sepanjang Januari–Oktober ...",
+   "sumber": "Antara",
+   "terbit": "2026-11-24T00:40:33+00:00"
+  }
+ ],
+ "internasional": [
+  {
+   "judul": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
+   "tautan": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo?at_medium=RSS&at_campaign=rss",
+   "ringkas": "Megaspeed has been accused of funneling AI chips to China after a former executive's affair with Jensen Huang became public.",
+   "sumber": "BBC World",
+   "terbit": "2026-11-23T23:16:08+00:00"
+  },
+  {
+   "judul": "What strike on Russian ship in Libya says about spread of Ukraine war",
+   "tautan": "https://www.bbc.co.uk/news/articles/cm894p88jzxpo?at_medium=RSS&at_campaign=rss",
+   "ringkas": "Ukraine's sinking of a Russian battleship at a port in Libya raises the stakes of the war a notch, writes Frank Gardner.",
+   "sumber": "BBC World",
+   "terbit": "2026-11-23T20:48:35+00:00"
+  },
+  {
+   "judul": "'Biggest U-turn in economic history': Experts react to Jensen Huang's return to Nvidia",
+   "tautan": "https://www.bbc.co.uk/news/videos/cq8r7e35mkzlo?at_medium=RSS&at_campaign=rss",
+   "ringkas": "The Nvidia CEO was reinstated after weeks of controversy over his affair with an alleged Chinese spy.",
+   "sumber": "BBC World",
+   "terbit": "2026-11-23T18:43:00+00:00"
+  }
+ ]
 }
